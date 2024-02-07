@@ -1,0 +1,241 @@
+---
+title:
+author: 
+date:
+output: 
+  html_document:
+    fig_height: 5
+    highlight: haddock
+    self_contained: yes
+    theme: cerulean
+    toc: yes
+    toc_depth: 1
+    toc_float: TRUE
+    number_sections: TRUE
+    params: 
+  
+---
+
+---
+title: "Electoral Division Health Profile for `r ED`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r Logo, echo=FALSE, out.width = 400,  fig.alt = "Central Statistics Office Logo", fig.align = "center"}
+  
+knitr::include_graphics("../figures/CSO_Logo.png")
+
+```
+<br>
+
+
+
+
+```{r Map, echo=FALSE, out.width = 500, fig.align = "center", fig.cap=paste0("Figure 1. Boundary Map for ",EDForTables, " Electoral Division (Sources: OSI, Ireland; OpenStreetMap). Map style by Champs-Libres Coop., distributed under CC BY-SA."), fig.alt=paste0("Boundary Map for ",EDForTables, " Electoral Division (Sources: OSI, Ireland; OpenStreetMap)")}
+  
+knitr::include_graphics(EDMapLink)
+
+```
+<br>
+
+<div align="center">
+
+
+ <font size="5"> Census 2022</font>
+
+ <font size="4"> CSO, Ireland  (http://www.cso.ie)</font>
+ 
+`r EDLinkPDF`
+
+
+*Note: This is the first time this profle has been compiled. While effort has been made to ensure this document is error free, it is possible that there may be some. Please email tomas.kelly@cso.ie if you observe any errors or inconsistencies with other CSO data.*
+
+
+</div>
+# Key Points
+
+* `r ED` covers a total **area** of  **`r EDArea`** square kilometers and has a **population density** of **`r EDPopDens`** persons per square kilometer. The population density of Ireland as a whole is  `r StatePopDens`. 
+
+* The **Age Dependency Ratio of this Electoral Division (ED) is  **`r EDAgeDependency`**. This compares to `r StateAgeDependency` nationally. The Age Dependency Ratio is the amount of people outside of working age (0-14 and 65+) per 100 people of working age (15-64). 
+
+* `r ED` has a total of **`r TotalPopEDBothSexes` persons** and  **`r EDFamiliesInPrivateHouseholds` families** living in private households.
+
+* There are a total of **`r EDAged0to14` persons aged 0-14** in this ED and **`r EDAged65P` persons aged over 65**.
+
+* There are a total of **`r PopDisabledED` persons living with a disability** in this ED, representing **`r PopDisabledPercED` percent** of the population. This compares with ", `r PopDisabledPercState`, " percent nationally 
+
+* **`r BadVBadED` people** in this ED have **bad or very bad general health**. This represents **`r BadVBadEDPerc` percent** of the population. `r BadVBadStatePerc` percent of the population have bad or very bad general health nationally. 
+
+* There are a total of **`r TotalCarersED` carers** in this ED, representing **`r PercCarersED` percent** of the population. This compares with `r PercCarersState` percent of the population that are carers nationally. 
+
+* **`r SmokingED$PercentageWhoSmokeTobaccoProducts` percent** of this ED **smoke tobacco products**. `r SmokingState$PercentageWhoSmokeTobaccoProducts` percent of people nationally smoke tobacco products
+
+* There are **`r PESED$value[PESED$Principle.Economic.Status == "Short term unemployed"]` short term unemployed** and **`r PESED$value[PESED$Principle.Economic.Status == "Long term unemployed"]` long term unemployed** people in this ED. These represent **`r PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Short term unemployed"]`** and **`r PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Long term unemployed"]`** percent of the population respectively.
+
+* **`r SocialClassED$PercentageOfPopulation[SocialClassED$Social.Class == "Unskilled"]` percent** of the population of `r ED` are **unskilled**. `r SocialClassState$PercentageOfPopulation[SocialClassState$Social.Class == "Unskilled"]` percent of people in the state are unskilled.
+
+* **`r LowerEduEDPerc` percent** of those aged 15+ in this ED have a **highest level of education of lower secondary or lower**. This compares with `r LowerEduStatePerc` percent nationally. 
+
+* **`r LoneParentsEDPerc` percent** of families with children in this ED have **lone parents**. This stands at `r LoneParentsStatePerc` nationally.
+
+* **`r OIEDPerc` percent** of this ED were **born outside Ireland** (`r OIStatePerc` percent nationally).
+
+* **Households rented from a Local Authority** comprise **`r HouseholdsED$PercentageOfPopulation[HouseholdsED$Type.of.Occupancy == "Rented from Local Authority"]` percent** of households in this ED.This stands at `r HouseholdsState$PercentageOfPopulation[HouseholdsState$Type.of.Occupancy == "Rented from Local Authority"]` percent nationally
+
+
+# Population
+
+```{r Pop, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 2. Persons by Age Group and Gender for ", EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 2. Persons by Age Group and Gender for ", EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/PyramidPlot.svg")
+
+```
+
+# Disability
+
+```{r Dis, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 3. Percentage of Population with any Disability by Age Group for ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 3. Percentage of Population with any Disability by Age Group for ",EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/DisED.svg")
+
+```
+
+
+# General Health
+
+```{r Gen, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 4. Population Breakdown (%) by General Health for  ",EDForTables,"; Administrative County and State;  Census 2022."),  fig.alt = paste0("Figure 4. Population Breakdown (%) by General Health for  ",EDForTables,"; Administrative County and State;  Census 2022.")}
+  
+knitr::include_graphics("../figures/GenED.svg")
+
+```
+
+
+# Carers
+
+```{r Care, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 5. Carers as a Percentage of the Population of Males/Females/Both Sexes for ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 5. Carers as a Percentage of the Population of Males/Females/Both Sexes for ",EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/CareED.svg")
+
+```
+
+
+# Volunteers
+
+```{r Vol, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 6. Volunteers as a Percentage of the Population for  ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 6. Volunteers as a Percentage of the Population for  ",EDForTables, "; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/VolunteerED.svg")
+
+```
+
+
+# Smoking
+
+```{r Smok, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 7. Percentage of the Population who Smoke Tobacco Products (Daily and Occasionally) for ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 7. Percentage of the Population who Smoke Tobacco Products (Daily and Occasionally) for ",EDForTables, "; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/SmokingED.svg")
+
+```
+
+
+# Principal Economic Status
+
+```{r PES, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 8. Percentage of Population Aged 15+ by Principal Economic Status for ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 8. Percentage of Population Aged 15+ by Principal Economic Status for ",EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/PESED.svg")
+
+```
+
+
+# Social Class
+
+```{r SocialClass, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 9. Percentage of Population Aged 15+ by Social Class for  ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 9. Percentage of Population Aged 15+ by Social Class for  ",EDForTables, "; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/SocialClassED.svg")
+
+```
+
+
+# Education
+
+```{r Edu, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 10. Percentage of Population Aged 15+ by Highest Level of Education Completed for ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 10. Percentage of Population Aged 15+ by Highest Level of Education Completed for ",EDForTables, "; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/EduED.svg")
+
+```
+
+
+# Families
+
+```{r Fam, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 11. Percentage of Families with Children by Family Type for  ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 11. Percentage of Families with Children by Family Type for  ",EDForTables, "; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/FamED.svg")
+
+```
+
+
+# Birthplace
+
+```{r Birth, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 12. Percentage of Usually Resident Population by Birthplace for  ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 12. Percentage of Usually Resident Population by Birthplace for  ",EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/BirthED.svg")
+
+```
+
+
+# Households - Type of Occupancy
+
+```{r House, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 13. Percentage of Households by Type of Occupancy for  ",EDForTables," Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 13. Percentage of Households by Type of Occupancy for  ",EDForTables," Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/HouseholdsED.svg")
+
+```
+
+
+# Transport
+
+```{r Travel, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 14. Percentage of Usually Resident Population by Means of Travel to Work, School, College or Childcare for  ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 14. Percentage of Usually Resident Population by Means of Travel to Work, School, College or Childcare for  ",EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/TravelED.svg")
+
+```
+
+
+# Renewable Energy
+
+```{r Ren, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 15. Percentage of Households by Renewable Energy Source for  ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 15. Percentage of Households by Renewable Energy Source for  ",EDForTables,"; Administrative County and State; Census 2022.")}
+  
+knitr::include_graphics("../figures/RenewableEnergyED.svg")
+
+```
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "headline": `r paste0("\"",ED," Electoral Division Health Profile","\"")`,
+  "description": `r paste0("\"","A health profile of ", ED," based on the Central Statistics Office's Census of 2022. As well as presenting data directly related to health in this ED, the profiles also present data relating to the socio-economic determinants of health.","\"") `,
+  "image": {
+    "@type": "ImageObject",
+    "url": `r paste0("\"", "https://edprofiles.cso.ie/2022/rcode/inputs/exportededmaps/",EDGUID,".jpg","\"")`,
+    "width": "1000",
+    "height": "1000"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Central Statistics Office, Ireland"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Central Statistics Office",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.cso.ie/en/media/styleassets/images/granite/CSO_Logo_.png",
+      "width": "444",
+      "height": "108"
+    }
+  },
+  "datePublished": `r paste0("\"",TodayForJSONLD,"\"")`
+}
+</script>

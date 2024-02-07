@@ -1,0 +1,890 @@
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage{titlepic}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{enumitem}% http://ctan.org/pkg/enumerate
+\usepackage{rotating} 
+\usepackage{float}
+\usepackage{multirow}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{titling}
+\usepackage{capt-of}
+\usepackage{siunitx}
+%\usepackage{arydshln}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{colortbl}
+%\usepackage[justification=centering]{caption}
+%\usepackage{caption}
+\sisetup{group-separator = {,}, group-minimum-digits = 4}
+\definecolor{CSONavy}{HTML}{405381}
+\hypersetup{
+    colorlinks,
+    linkcolor={black!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\urlstyle{same}
+%\nocite{*}
+%\setlength{\droptitle}{-4.5em}
+
+%\titlepic{\includegraphics{../figures/CSO_Logo.png}}
+\title{Electoral Division Health Profile - \Sexpr{ED}}
+%\date{\vspace{-5ex}}
+\date{Census 2022}
+\author{CSO, Ireland  (\url{http://www.cso.ie)}}
+
+\newcolumntype{T}{>{\raggedleft\arraybackslash}m{1.7cm}}
+\newcolumntype{O}{>{\centering\arraybackslash}m{3.4cm}}
+\newcolumntype{M}{>{\raggedleft\arraybackslash}m{3cm}}
+\newcolumntype{A}{>{\raggedright\arraybackslash}m{9.5cm}}
+\newcolumntype{S}{>{\raggedleft\arraybackslash}m{1.4cm}}
+\newcolumntype{K}{>{\raggedright\arraybackslash}m{7.5cm}}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+%\includegraphics{../figures/CSO_Logo.png}
+%\begin{minipage}{\linewidth}
+
+\begin{figure}
+	\centering
+\includegraphics[width =75mm]{../figures/CSO_Logo.png}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\setlength{\fboxsep}{1pt}
+	\fbox{\includegraphics[width = 140mm]{\Sexpr{EDMapLink}}}
+	\caption{\normalsize Boundary Map for \Sexpr{EDForTables} Electoral Division (Sources: OSI, Ireland; OpenStreetMap). Map style by Champs-Libres Coop., distributed under CC BY-SA.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+	{\let\newpage\relax\maketitle}
+	     \begin{center}
+         \emph{Profile generated on \Sexpr{TodaysDate}}
+     \end{center}
+     	     \begin{center}
+        \emph{Note: This is the first time this profile has been compiled. While efforts have been made to ensure that everything in this document is correct, it is possible that there may be some errors. Please email tomas.kelly@cso.ie if you observe any errors or inconsistencies with other CSO data.}
+     \end{center}
+    %\maketitle[h]
+  \pagebreak
+    	    \tableofcontents
+%\end{minipage}
+
+\pagebreak
+
+
+\section{Key Points}
+
+\begin{itemize}
+
+\item \Sexpr{ED} covers a total \textbf{area} of  \textbf{\Sexpr{EDArea} square kilometers} and has a \textbf{population density of \Sexpr{EDPopDens}} persons per square kilometer. The population density of Ireland as a whole is  \Sexpr{StatePopDens}. 
+
+\item The \textbf{Age Dependency Ratio} of this Electoral Division (ED) is  \textbf{\Sexpr{EDAgeDependency}}. This compares to \Sexpr{StateAgeDependency} nationally. The Age Dependency Ratio is the amount of people outside of working age (0-14 and 65+) per 100 people of working age (15-64). 
+
+\item \Sexpr{ED} has a total of \textbf{\Sexpr{TotalPopEDBothSexes}} \textbf{persons} and  \textbf{\Sexpr{EDFamiliesInPrivateHouseholds}} \textbf{families} living in private households.
+
+\item There are a total of \textbf{\Sexpr{EDAged0to14} persons aged 0-14} in this ED and \textbf{\Sexpr{EDAged65P} persons aged over 65.} 
+
+\item There are a total of \textbf{\Sexpr{PopDisabledED}} persons \textbf{living with a disability} in this ED, representing \textbf{\Sexpr{PopDisabledPercED} percent} of the population. This compares with  \Sexpr{PopDisabledPercState} percent nationally
+
+\item \textbf{\Sexpr{BadVBadED}} people in this ED have \textbf{bad or very bad general health}. This represents \textbf{\Sexpr{BadVBadEDPerc} percent} of the population. \Sexpr{BadVBadStatePerc} percent of the population have bad or very bad general health nationally. 
+
+\item There are a total of \textbf{\Sexpr{TotalCarersED} carers} in this ED, representing \textbf{\Sexpr{PercCarersED} percent} of the population. This compares with \Sexpr{PercCarersState} percent of the population that are carers nationally. 
+
+\item \textbf{\Sexpr{SmokingED$PercentageWhoSmokeTobaccoProducts} percent} of this ED \textbf{smoke tobacco products}. \Sexpr{SmokingState$PercentageWhoSmokeTobaccoProducts} percent of people nationally smoke tobacco products
+
+\item There are \textbf{\Sexpr{PESED$value[PESED$Principle.Economic.Status == "Short term unemployed"]} short term unemployed} and \textbf{\Sexpr{PESED$value[PESED$Principle.Economic.Status == "Long term unemployed"]} long term unemployed} people in this ED. These represent \Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Short term unemployed"]} and \Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Long term unemployed"]} percent of the population respectively.
+
+\item  \textbf{\Sexpr{SocialClassED$PercentageOfPopulation[SocialClassED$Social.Class == "Unskilled"]} percent} of the population of \Sexpr{ED} are \textbf{unskilled}. \Sexpr{SocialClassState$PercentageOfPopulation[SocialClassState$Social.Class == "Unskilled"]} percent of people in the state are unskilled.
+
+\item \textbf{\Sexpr{LowerEduEDPerc} percent} of those aged 15+ in this ED have a \textbf{highest level of education of lower secondary or lower}. This compares with \Sexpr{LowerEduStatePerc} percent nationally. 
+
+\item \textbf{\Sexpr{LoneParentsEDPerc} percent} of families with children in this ED have \textbf{lone parents}. This stands at \Sexpr{LoneParentsStatePerc} nationally.
+
+\item \textbf{\Sexpr{OIEDPerc} percent} of this ED were \textbf{born outside Ireland} (\Sexpr{OIStatePerc} percent nationally).
+
+\item \textbf{Households rented from a Local Authority} comprise \textbf{\Sexpr{HouseholdsED$PercentageOfPopulation[HouseholdsED$Type.of.Occupancy == "Rented from Local Authority"]} percent} of households in this ED.This stands at \Sexpr{HouseholdsState$PercentageOfPopulation[HouseholdsState$Type.of.Occupancy == "Rented from Local Authority"]} percent nationally
+
+\end{itemize}
+
+\pagebreak
+
+\section{Population} 
+\label{sect:Pop}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 100mm]{../figures/PyramidPlot.pdf}
+	\caption{Persons by Age Group and Gender for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{lSSSSSSSSS}
+  \hline
+ \textbf{Age} & \multicolumn{2}{c}{\textbf{Females}} & \multicolumn{2}{c}{\textbf{Males }} & \multicolumn{4}{c}{\textbf{Both Sexes}}  \\ 
+\cline{6-9}\\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{Persons}} & \emph{\textbf{\% (ED)}} & \emph{\textbf{\% (AC)}}& \emph{\textbf{\% (State)}}\\
+  \hline
+  0-14   & \Sexpr{EDAged0to14Fem} &  \Sexpr{EDAged0to14PercFem} & \Sexpr{EDAged0to14Mal} & \Sexpr{EDAged0to14PercMal} & \Sexpr{EDAged0to14} &\Sexpr{EDAged0to14Perc} & \Sexpr{ACAged0to14Perc} & \Sexpr{StateAged0to14Perc} \\
+  15-64  & \Sexpr{EDAged1564Fem} & \Sexpr{EDAged15to64PercFem} & \Sexpr{EDAged1564Mal} & \Sexpr{EDAged15to64PercMal} & \Sexpr{EDAged1564}&\Sexpr{EDAged15to64Perc} & \Sexpr{ACAged15to64Perc} &\Sexpr{StateAged15to64Perc}\\
+  65+ & \Sexpr{EDAged65PFem} & \Sexpr{EDAged65PPercFem} & \Sexpr{EDAged65PMal} & \Sexpr{EDAged65PPercMal} &\Sexpr{EDAged65P} &\Sexpr{EDAged65PPerc} & \Sexpr{ACAged65PPerc} & \Sexpr{StateAged65PPerc} \\
+ \hline
+  \Sexpr{PopEDFemalesFull$Age[1]}  & \Sexpr{(PopEDFemalesFull$value[1])}& \Sexpr{(PopEDFemalesFull$Percentage[1])}& \Sexpr{(PopEDMalesFull$value[1])} & \Sexpr{(PopEDMalesFull$Percentage[1])}& \Sexpr{(PopEDBothSexesFull$value[1])} & \Sexpr{(PopEDBothSexesFull$Percentage[1])} & \Sexpr{PopACBothSexesFull$Percentage[1]}& \Sexpr{PopStateBothSexesFull$Percentage[1]} \\
+  
+  \Sexpr{PopEDFemalesFull$Age[2]}  & \Sexpr{(PopEDFemalesFull$value[2])}& \Sexpr{(PopEDFemalesFull$Percentage[2])}& \Sexpr{(PopEDMalesFull$value[2])} & \Sexpr{(PopEDMalesFull$Percentage[2])}& \Sexpr{(PopEDBothSexesFull$value[2])} & \Sexpr{(PopEDBothSexesFull$Percentage[2])} & \Sexpr{PopACBothSexesFull$Percentage[2]}& \Sexpr{PopStateBothSexesFull$Percentage[2]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[3]}  & \Sexpr{(PopEDFemalesFull$value[3])}& \Sexpr{(PopEDFemalesFull$Percentage[3])}& \Sexpr{(PopEDMalesFull$value[3])} & \Sexpr{(PopEDMalesFull$Percentage[3])}& \Sexpr{(PopEDBothSexesFull$value[3])} & \Sexpr{(PopEDBothSexesFull$Percentage[3])} & \Sexpr{PopACBothSexesFull$Percentage[3]}& \Sexpr{PopStateBothSexesFull$Percentage[3]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[4]}  & \Sexpr{(PopEDFemalesFull$value[4])}& \Sexpr{(PopEDFemalesFull$Percentage[4])}& \Sexpr{(PopEDMalesFull$value[4])} & \Sexpr{(PopEDMalesFull$Percentage[4])}& \Sexpr{(PopEDBothSexesFull$value[4])} & \Sexpr{(PopEDBothSexesFull$Percentage[4])} & \Sexpr{PopACBothSexesFull$Percentage[4]}& \Sexpr{PopStateBothSexesFull$Percentage[4]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[5]}  & \Sexpr{(PopEDFemalesFull$value[5])}& \Sexpr{(PopEDFemalesFull$Percentage[5])}& \Sexpr{(PopEDMalesFull$value[5])} & \Sexpr{(PopEDMalesFull$Percentage[5])}& \Sexpr{(PopEDBothSexesFull$value[5])} & \Sexpr{(PopEDBothSexesFull$Percentage[5])} & \Sexpr{PopACBothSexesFull$Percentage[5]}& \Sexpr{PopStateBothSexesFull$Percentage[5]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[6]}  & \Sexpr{(PopEDFemalesFull$value[6])}& \Sexpr{(PopEDFemalesFull$Percentage[6])}& \Sexpr{(PopEDMalesFull$value[6])} & \Sexpr{(PopEDMalesFull$Percentage[6])}& \Sexpr{(PopEDBothSexesFull$value[6])} & \Sexpr{(PopEDBothSexesFull$Percentage[6])} & \Sexpr{PopACBothSexesFull$Percentage[6]}& \Sexpr{PopStateBothSexesFull$Percentage[6]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[7]}  & \Sexpr{(PopEDFemalesFull$value[7])}& \Sexpr{(PopEDFemalesFull$Percentage[7])}& \Sexpr{(PopEDMalesFull$value[7])} & \Sexpr{(PopEDMalesFull$Percentage[7])}& \Sexpr{(PopEDBothSexesFull$value[7])} & \Sexpr{(PopEDBothSexesFull$Percentage[7])} & \Sexpr{PopACBothSexesFull$Percentage[7]}& \Sexpr{PopStateBothSexesFull$Percentage[7]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[8]}  & \Sexpr{(PopEDFemalesFull$value[8])}& \Sexpr{(PopEDFemalesFull$Percentage[8])}& \Sexpr{(PopEDMalesFull$value[8])} & \Sexpr{(PopEDMalesFull$Percentage[8])}& \Sexpr{(PopEDBothSexesFull$value[8])} & \Sexpr{(PopEDBothSexesFull$Percentage[8])} & \Sexpr{PopACBothSexesFull$Percentage[8]}& \Sexpr{PopStateBothSexesFull$Percentage[8]} \\
+
+  \Sexpr{PopEDFemalesFull$Age[9]}  & \Sexpr{(PopEDFemalesFull$value[9])}& \Sexpr{(PopEDFemalesFull$Percentage[9])}& \Sexpr{(PopEDMalesFull$value[9])} & \Sexpr{(PopEDMalesFull$Percentage[9])}& \Sexpr{(PopEDBothSexesFull$value[9])} & \Sexpr{(PopEDBothSexesFull$Percentage[9])} & \Sexpr{PopACBothSexesFull$Percentage[9]}& \Sexpr{PopStateBothSexesFull$Percentage[9]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[10]}  & \Sexpr{(PopEDFemalesFull$value[10])}& \Sexpr{(PopEDFemalesFull$Percentage[10])}& \Sexpr{(PopEDMalesFull$value[10])} & \Sexpr{(PopEDMalesFull$Percentage[10])}& \Sexpr{(PopEDBothSexesFull$value[10])} & \Sexpr{(PopEDBothSexesFull$Percentage[10])} & \Sexpr{PopACBothSexesFull$Percentage[10]}& \Sexpr{PopStateBothSexesFull$Percentage[10]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[11]}  & \Sexpr{(PopEDFemalesFull$value[11])}& \Sexpr{(PopEDFemalesFull$Percentage[11])}& \Sexpr{(PopEDMalesFull$value[11])} & \Sexpr{(PopEDMalesFull$Percentage[11])}& \Sexpr{(PopEDBothSexesFull$value[11])} & \Sexpr{(PopEDBothSexesFull$Percentage[11])} & \Sexpr{PopACBothSexesFull$Percentage[11]}& \Sexpr{PopStateBothSexesFull$Percentage[11]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[12]}  & \Sexpr{(PopEDFemalesFull$value[12])}& \Sexpr{(PopEDFemalesFull$Percentage[12])}& \Sexpr{(PopEDMalesFull$value[12])} & \Sexpr{(PopEDMalesFull$Percentage[12])}& \Sexpr{(PopEDBothSexesFull$value[12])} & \Sexpr{(PopEDBothSexesFull$Percentage[12])} & \Sexpr{PopACBothSexesFull$Percentage[12]}& \Sexpr{PopStateBothSexesFull$Percentage[12]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[13]}  & \Sexpr{(PopEDFemalesFull$value[13])}& \Sexpr{(PopEDFemalesFull$Percentage[13])}& \Sexpr{(PopEDMalesFull$value[13])} & \Sexpr{(PopEDMalesFull$Percentage[13])}& \Sexpr{(PopEDBothSexesFull$value[13])} & \Sexpr{(PopEDBothSexesFull$Percentage[13])} & \Sexpr{PopACBothSexesFull$Percentage[13]}& \Sexpr{PopStateBothSexesFull$Percentage[13]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[14]}  & \Sexpr{(PopEDFemalesFull$value[14])}& \Sexpr{(PopEDFemalesFull$Percentage[14])}& \Sexpr{(PopEDMalesFull$value[14])} & \Sexpr{(PopEDMalesFull$Percentage[14])}& \Sexpr{(PopEDBothSexesFull$value[14])} & \Sexpr{(PopEDBothSexesFull$Percentage[14])} & \Sexpr{PopACBothSexesFull$Percentage[14]}& \Sexpr{PopStateBothSexesFull$Percentage[14]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[15]}  & \Sexpr{(PopEDFemalesFull$value[15])}& \Sexpr{(PopEDFemalesFull$Percentage[15])}& \Sexpr{(PopEDMalesFull$value[15])} & \Sexpr{(PopEDMalesFull$Percentage[15])}& \Sexpr{(PopEDBothSexesFull$value[15])} & \Sexpr{(PopEDBothSexesFull$Percentage[15])} & \Sexpr{PopACBothSexesFull$Percentage[15]}& \Sexpr{PopStateBothSexesFull$Percentage[15]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[16]}  & \Sexpr{(PopEDFemalesFull$value[16])}& \Sexpr{(PopEDFemalesFull$Percentage[16])}& \Sexpr{(PopEDMalesFull$value[16])} & \Sexpr{(PopEDMalesFull$Percentage[16])}& \Sexpr{(PopEDBothSexesFull$value[16])} & \Sexpr{(PopEDBothSexesFull$Percentage[16])} & \Sexpr{PopACBothSexesFull$Percentage[16]}& \Sexpr{PopStateBothSexesFull$Percentage[16]} \\
+  
+    \Sexpr{PopEDFemalesFull$Age[17]}  & \Sexpr{(PopEDFemalesFull$value[17])}& \Sexpr{(PopEDFemalesFull$Percentage[17])}& \Sexpr{(PopEDMalesFull$value[17])} & \Sexpr{(PopEDMalesFull$Percentage[17])}& \Sexpr{(PopEDBothSexesFull$value[17])} & \Sexpr{(PopEDBothSexesFull$Percentage[17])} & \Sexpr{PopACBothSexesFull$Percentage[17]}& \Sexpr{PopStateBothSexesFull$Percentage[17]}\\
+  
+    \Sexpr{PopEDFemalesFull$Age[18]}  & \Sexpr{(PopEDFemalesFull$value[18])}& \Sexpr{(PopEDFemalesFull$Percentage[18])}& \Sexpr{(PopEDMalesFull$value[18])} & \Sexpr{(PopEDMalesFull$Percentage[18])}& \Sexpr{(PopEDBothSexesFull$value[18])} & \Sexpr{(PopEDBothSexesFull$Percentage[18])} & \Sexpr{PopACBothSexesFull$Percentage[18]}& \Sexpr{PopStateBothSexesFull$Percentage[18]} \\
+  
+    All Ages  & \Sexpr{(PopEDFemalesFull$value[PopEDFemalesFull$Age == "Total"])}& \Sexpr{(PopEDFemalesFull$Percentage[PopEDFemalesFull$Age == "Total"])}& \Sexpr{(PopEDMalesFull$value[PopEDMalesFull$Age == "Total"])} & \Sexpr{(PopEDMalesFull$Percentage[PopEDMalesFull$Age == "Total"])}& \Sexpr{(PopEDBothSexesFull$value[PopEDBothSexesFull$Age == "Total"])} & \Sexpr{(PopEDBothSexesFull$Percentage[PopEDBothSexesFull$Age == "Total"])} & \Sexpr{PopACBothSexesFull$Percentage[PopACBothSexesFull$Age == "Total"]}& \Sexpr{PopStateBothSexesFull$Percentage[PopStateBothSexesFull$Age == "Total"]} \\
+      \hline 
+    \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T1T1AED}{https://data.cso.ie/table/SAP2022T1T1AED}} & & &
+\end{tabular}
+\caption{Population Breakdown by Age and Sex for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County (AC) and State are provided for comparison purposes.}
+\end{table}
+
+\pagebreak
+
+\section{Disability}\label{sect:Disability}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 130mm]{../figures/DisED.pdf}
+	\caption{Percentage of Population with any Disability by Age Group for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{lTTTTT}
+  \hline
+ & \multicolumn{3}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-4} \\
+  \textbf{Age Group} & \textbf{Population} & \multicolumn{4}{c}{\textbf{With any Disability}} \\
+ \cline{3-6}\\
+& \emph{\textbf{Persons}} & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}}\\
+  \hline
+  \Sexpr{(PopEDBothSexes$Age[PopEDBothSexes$Age == "0-14"])}  & \Sexpr{(PopEDBothSexes$value[PopEDBothSexes$Age == "0-14"])}& \Sexpr{EDDisWiderAllSexes$`Population with any disability`[EDDisWiderAllSexes$Age.Group == "0 - 14 years"]} & \Sexpr{EDDisWiderAllSexes$`Population with a disability as a percentage`[EDDisWiderAllSexes$Age.Group == "0 - 14 years"]} & \Sexpr{ACDisWiderAllSexesNewAges$`Population with a disability as a percentage`[ACDisWiderAllSexesNewAges$Age.Group == "0 - 14 years"]} & \Sexpr{StateDisWiderAllSexes$`Population with a disability as a percentage`[StateDisWiderAllSexes$Age.Group == "0 - 14 years"]} \\
+\Sexpr{(PopEDBothSexes$Age[PopEDBothSexes$Age == "15-24"])}  & \Sexpr{(PopEDBothSexes$value[PopEDBothSexes$Age == "15-24"])}& \Sexpr{EDDisWiderAllSexes$`Population with any disability`[EDDisWiderAllSexes$Age.Group == "15 -24 years"]} & \Sexpr{EDDisWiderAllSexes$`Population with a disability as a percentage`[EDDisWiderAllSexes$Age.Group == "15 -24 years"]} &\Sexpr{ACDisWiderAllSexesNewAges$`Population with a disability as a percentage`[ACDisWiderAllSexesNewAges$Age.Group == "15 -24 years"]} & \Sexpr{StateDisWiderAllSexes$`Population with a disability as a percentage`[StateDisWiderAllSexes$Age.Group == "15 -24 years"]} \\ 
+\Sexpr{(PopEDBothSexes$Age[PopEDBothSexes$Age == "25-44"])}  & \Sexpr{(PopEDBothSexes$value[PopEDBothSexes$Age == "25-44"])}& \Sexpr{EDDisWiderAllSexes$`Population with any disability`[EDDisWiderAllSexes$Age.Group == "25 - 44 years"]} & \Sexpr{EDDisWiderAllSexes$`Population with a disability as a percentage`[EDDisWiderAllSexes$Age.Group == "25 - 44 years"]} &\Sexpr{ACDisWiderAllSexesNewAges$`Population with a disability as a percentage`[ACDisWiderAllSexesNewAges$Age.Group == "25 - 44 years"]}& \Sexpr{StateDisWiderAllSexes$`Population with a disability as a percentage`[StateDisWiderAllSexes$Age.Group == "25 - 44 years"]} \\ 
+\Sexpr{(PopEDBothSexes$Age[PopEDBothSexes$Age == "45-64"])}  & \Sexpr{(PopEDBothSexes$value[PopEDBothSexes$Age == "45-64"])}& \Sexpr{EDDisWiderAllSexes$`Population with any disability`[EDDisWiderAllSexes$Age.Group == "45 - 64 years"]} & \Sexpr{EDDisWiderAllSexes$`Population with a disability as a percentage`[EDDisWiderAllSexes$Age.Group == "45 - 64 years"]} &\Sexpr{ACDisWiderAllSexesNewAges$`Population with a disability as a percentage`[ACDisWiderAllSexesNewAges$Age.Group == "45 - 64 years"]} &\Sexpr{StateDisWiderAllSexes$`Population with a disability as a percentage`[StateDisWiderAllSexes$Age.Group == "45 - 64 years"]} \\ 
+\Sexpr{(PopEDBothSexes$Age[PopEDBothSexes$Age == "65 years and over"])}  & \Sexpr{(PopEDBothSexes$value[PopEDBothSexes$Age == "65 years and over"])}& \Sexpr{EDDisWiderAllSexes$`Population with any disability`[EDDisWiderAllSexes$Age.Group == "65 years and over"]} & \Sexpr{EDDisWiderAllSexes$`Population with a disability as a percentage`[EDDisWiderAllSexes$Age.Group == "65 years and over"]} &\Sexpr{ACDisWiderAllSexesNewAges$`Population with a disability as a percentage`[ACDisWiderAllSexesNewAges$Age.Group == "65 years and over"]}& \Sexpr{StateDisWiderAllSexes$`Population with a disability as a percentage`[StateDisWiderAllSexes$Age.Group == "65 years and over"]} \\ 
+All Ages  & \Sexpr{(PopEDBothSexes$value[PopEDBothSexes$Age == "Total"])}& \Sexpr{EDDisWiderAllSexes$`Population with any disability`[EDDisWiderAllSexes$Age.Group == "All ages"]} & \Sexpr{EDDisWiderAllSexes$`Population with a disability as a percentage`[EDDisWiderAllSexes$Age.Group == "All ages"]} &\Sexpr{ACDisWiderAllSexesNewAges$`Population with a disability as a percentage`[ACDisWiderAllSexesNewAges$Age.Group == "All ages"]} &\Sexpr{StateDisWiderAllSexes$`Population with a disability as a percentage`[StateDisWiderAllSexes$Age.Group == "All ages"]} \\ 
+   \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/F4004}{https://data.cso.ie/table/F4004}} & 
+\end{tabular}
+\caption{Population with any Disability by Age Group for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are provided for comparison purposes.}
+\end{table}
+
+\pagebreak
+
+\section{General Health}\label{sect:GenHealth}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 150mm]{../figures/GenED.pdf}
+	\caption{Population Breakdown (\%) by General Health for \Sexpr{EDForTables}; Administrative County and State;  Census 2022.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{lTTTTT}
+  \hline
+\textbf{General Health} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+Very Good& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Very Good"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Very Good"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Very Good"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Very Good"]} \\
+Good& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Good"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Good"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Good"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Good"]}\\
+Fair& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Fair"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Fair"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Fair"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Fair"]}\\
+Bad& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Bad"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Bad"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Bad"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Bad"]}\\
+Very Bad& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Very Bad"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Very Bad"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Very Bad"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Very Bad"]}\\
+Not Stated& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Not Stated"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Not Stated"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Not Stated"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Not Stated"]}\\
+Total& \Sexpr{GenLongEDBothSexes$value[GenLongEDBothSexes$General.Health == "Total"]} &\Sexpr{GenLongEDBothSexes$Percentage.Of.Population[GenLongEDBothSexes$General.Health == "Total"]} &\Sexpr{GenLongACBothSexes$Percentage.Of.Population[GenLongACBothSexes$General.Health == "Total"]} &\Sexpr{GenLongStateBothSexes$Percentage.Of.Population[GenLongStateBothSexes$General.Health == "Total"]}\\
+   \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T12T3ED}{https://data.cso.ie/table/SAP2022T12T3ED}} & 
+\end{tabular}
+\caption{Population by General Health for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table}
+\pagebreak
+
+\section{Carers}\label{sect:Carers}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 150mm]{../figures/CareED.pdf}
+	\caption{Carers as a Percentage of the Population of Males/Females/Both Sexes for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+	
+	
+\begin{table}[!h]	
+\centering
+	\begin{tabular}{lTTTTT}
+  \hline
+ & \multicolumn{3}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-4} \\
+  \textbf{Age Group} & \textbf{Population} & \multicolumn{4}{c}{\textbf{Carers}} \\
+ \cline{3-6}\\
+& \emph{\textbf{Persons}} & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}}\\
+  \hline
+Males & \Sexpr{CarersED$TotalPop[CarersED$Sex == "Males"]} & \Sexpr{CarersED$value[CarersED$Sex == "Males"]}  & \Sexpr{CarersED$PercentageOfPopulation[CarersED$Sex == "Males"]}  & \Sexpr{CarersAC$PercentageOfPopulation[CarersAC$Sex == "Males"]} & \Sexpr{CarersState$PercentageOfPopulation[CarersState$Sex == "Males"]} \\
+Females & \Sexpr{CarersED$TotalPop[CarersED$Sex == "Females"]} & \Sexpr{CarersED$value[CarersED$Sex == "Females"]}  & \Sexpr{CarersED$PercentageOfPopulation[CarersED$Sex == "Females"]}  & \Sexpr{CarersAC$PercentageOfPopulation[CarersAC$Sex == "Females"]} & \Sexpr{CarersState$PercentageOfPopulation[CarersState$Sex == "Females"]} \\
+Both Sexes & \Sexpr{CarersED$TotalPop[CarersED$Sex == "Both Sexes"]} & \Sexpr{CarersED$value[CarersED$Sex == "Both Sexes"]}  & \Sexpr{CarersED$PercentageOfPopulation[CarersED$Sex == "Both Sexes"]}  & \Sexpr{CarersAC$PercentageOfPopulation[CarersAC$Sex == "Both Sexes"]} & \Sexpr{CarersState$PercentageOfPopulation[CarersState$Sex == "Both Sexes"]} \\
+     \hline
+       \multicolumn{3}{l}{\href{https://data.cso.ie/table/SAP2022T12T2ED}{https://data.cso.ie/table/SAP2022T12T2ED}} 
+\end{tabular}
+
+\caption{Carers by Sex for \Sexpr{EDForTables}; Census 2022. Percentage Breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+
+\section{Volunteers}\label{sect:Volunteers}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 150mm]{../figures/VolunteerED.pdf}
+	\caption{Volunteers as a Percentage of the Population for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+	
+	
+\begin{table}[!h]	
+\centering
+	\begin{tabular}{lTTTTT}
+  \hline
+ & \multicolumn{3}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-4} \\
+  & \textbf{Population} & \multicolumn{4}{c}{\textbf{Volunteers}} \\
+ \cline{3-6}\\
+& \emph{\textbf{Persons}} & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}}\\
+  \hline
+& \Sexpr{VolunteersED$TotalPop} & \Sexpr{VolunteersED$value}  & \Sexpr{VolunteersED$PercentageOfPopulation}  & \Sexpr{VolunteersAC$PercentageOfPopulation} & \Sexpr{VolunteersState$PercentageOfPopulation} \\
+
+     \hline
+       \multicolumn{3}{l}{\href{https://data.cso.ie/table/SAP2022T7T1ED}} 
+\end{tabular}
+
+\caption{Volunteers for \Sexpr{EDForTables}; Census 2022. Percentage Breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+
+\section{Smoking}\label{sect:Smoking}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 120mm]{../figures/SmokingED.pdf}
+	\caption{Percentage of the Population who Smoke Tobacco Products (Daily and Occasionally) for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:2ae19629-1a6a-13a3-e055-000000000001}
+	\end{figure}
+	
+	
+\begin{table}[!h]	
+\centering
+	\begin{tabular}{lTTTTT}
+  \hline
+  \textbf{Smoking Status} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+Smoke Tobacco Products (Daily and Occasionally)& \Sexpr{SmokingED$`Persons who smoke tobacco products (Daily and Occasionally)`} &\Sexpr{SmokingED$PercentageWhoSmokeTobaccoProducts} &\Sexpr{SmokingAC$PercentageWhoSmokeTobaccoProducts} &\Sexpr{SmokingState$PercentageWhoSmokeTobaccoProducts} \\
+Don't Smoke Tobacco Products (Never and have given up)& \Sexpr{SmokingED$`Persons who dont smoke tobacco products (Never and have given up)`} &\Sexpr{SmokingED$PercentageWhoDontSmokeTobaccoProducts} &\Sexpr{SmokingAC$PercentageWhoDontSmokeTobaccoProducts} &\Sexpr{SmokingState$PercentageWhoDontSmokeTobaccoProducts} \\
+Smoking Status Not Stated& \Sexpr{SmokingED$`Smoking status not stated`} &\Sexpr{SmokingED$PercentageNotStated} &\Sexpr{SmokingAC$PercentageNotStated} &\Sexpr{SmokingState$PercentageNotStated} \\
+All Persons & \Sexpr{SmokingED$`All persons`} & 100.0 & 100.0  & 100.0 \\
+     \hline
+      \multicolumn{3}{l}{\href{https://data.cso.ie/table/SAP2022T12T4ED}{https://data.cso.ie/table/SAP2022T12T4ED}} 
+\end{tabular}
+
+\caption{Smoking Status of \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+    
+  
+\pagebreak
+\section{Principal Economic Status}\label{sect:PES}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 140mm]{../figures/PESED.pdf}
+	\caption{Percentage of Population Aged 15+ by Principal Economic Status for \Sexpr{EDForTables}, Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+
+\begin{table}[h]	
+\centering
+		\begin{tabular}{lTTTTT}
+  \hline
+  \textbf{Principal Economic Status} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTablesShort}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+At Work & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "At work"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "At work"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "At work"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "At work"]} \\
+Looking for first regular job & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Looking for first regular job"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Looking for first regular job"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Looking for first regular job"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Looking for first regular job"]} \\
+Short term unemployed & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Short term unemployed"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Short term unemployed"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Short term unemployed"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Short term unemployed"]} \\
+Long term unemployed & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Long term unemployed"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Long term unemployed"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Long term unemployed"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Long term unemployed"]} \\
+Student & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Student"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Student"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Student"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Student"]} \\
+ Looking after home/family & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Looking after home/family"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Looking after home/family"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Looking after home/family"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Looking after home/family"]} \\
+Retired & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Retired"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Retired"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Retired"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Retired"]} \\
+Unable to work due to permanent sickness or disability & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Unable to work due to permanent sickness or disability"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Unable to work due to permanent sickness or disability"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Unable to work due to permanent sickness or disability"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Unable to work due to permanent sickness or disability"]} \\
+Other & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Other"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Other"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Other"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Other"]} \\
+Total & \Sexpr{PESED$value[PESED$Principle.Economic.Status == "Total"]} &\Sexpr{PESED$PercentageOfPopulation[PESED$Principle.Economic.Status == "Total"]} &\Sexpr{PESAC$PercentageOfPopulation[PESAC$Principle.Economic.Status == "Total"]} &\Sexpr{PESState$PercentageOfPopulation[PESState$Principle.Economic.Status == "Total"]} \\
+\hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T8T1ED}{https://data.cso.ie/table/SAP2022T8T1ED}} &
+\end{tabular}
+
+\caption{Population aged 15+ by Principal Economic Status for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+
+\section{Social Class}\label{sect:SC}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 140mm]{../figures/SocialClassED.pdf}
+	\caption{Percentage of Population Aged 15+ by Social Class for \Sexpr{EDForTables}, Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+
+\begin{table}[h]	
+\centering
+		\begin{tabular}{lTTTTT}
+  \hline
+  \textbf{Social Class} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+\Sexpr{SocialClassED[1,1]} & \Sexpr{SocialClassED$value[1]} & \Sexpr{SocialClassED$PercentageOfPopulation[1]} & \Sexpr{SocialClassAC$PercentageOfPopulation[1]}& \Sexpr{SocialClassState$PercentageOfPopulation[1]}\\
+\Sexpr{SocialClassED[2,1]} & \Sexpr{SocialClassED$value[2]} & \Sexpr{SocialClassED$PercentageOfPopulation[2]} & \Sexpr{SocialClassAC$PercentageOfPopulation[2]}& \Sexpr{SocialClassState$PercentageOfPopulation[2]}\\
+\Sexpr{SocialClassED[3,1]} & \Sexpr{SocialClassED$value[3]} & \Sexpr{SocialClassED$PercentageOfPopulation[3]} & \Sexpr{SocialClassAC$PercentageOfPopulation[3]}& \Sexpr{SocialClassState$PercentageOfPopulation[3]}\\
+\Sexpr{SocialClassED[4,1]} & \Sexpr{SocialClassED$value[4]} & \Sexpr{SocialClassED$PercentageOfPopulation[4]} & \Sexpr{SocialClassAC$PercentageOfPopulation[4]}& \Sexpr{SocialClassState$PercentageOfPopulation[4]}\\
+\Sexpr{SocialClassED[5,1]} & \Sexpr{SocialClassED$value[5]} & \Sexpr{SocialClassED$PercentageOfPopulation[5]} & \Sexpr{SocialClassAC$PercentageOfPopulation[5]}& \Sexpr{SocialClassState$PercentageOfPopulation[5]}\\
+\Sexpr{SocialClassED[6,1]} & \Sexpr{SocialClassED$value[6]} & \Sexpr{SocialClassED$PercentageOfPopulation[6]} & \Sexpr{SocialClassAC$PercentageOfPopulation[6]}& \Sexpr{SocialClassState$PercentageOfPopulation[6]}\\
+\Sexpr{SocialClassED[7,1]} & \Sexpr{SocialClassED$value[7]} & \Sexpr{SocialClassED$PercentageOfPopulation[7]} & \Sexpr{SocialClassAC$PercentageOfPopulation[7]}& \Sexpr{SocialClassState$PercentageOfPopulation[7]}\\
+\Sexpr{SocialClassED[8,1]} & \Sexpr{SocialClassED$value[8]} & \Sexpr{SocialClassED$PercentageOfPopulation[8]} & \Sexpr{SocialClassAC$PercentageOfPopulation[8]}& \Sexpr{SocialClassState$PercentageOfPopulation[8]}\\
+\hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T9T1ED}{https://data.cso.ie/table/SAP2022T9T1ED}} &
+\end{tabular}
+
+\caption{Population aged 15+ by Social Class for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+\section{Education}\label{sect:Edu}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 120mm]{../figures/EduED.pdf}
+	\caption{Percentage of Population Aged 15+ by Highest Level of Education Completed for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+\begin{table}[h]	
+\centering
+	\begin{tabular}{lTTTT}
+  \hline
+  \textbf{Highest Level of Education Completed} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+No formal education & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "No formal education"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "No formal education"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "No formal education"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "No formal education"]} \\
+Primary education & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Primary education"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Primary education"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Primary education"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Primary education"]} \\
+Lower secondary & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Lower secondary"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Lower secondary"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Lower secondary"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Lower secondary"]} \\
+Upper secondary & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Upper secondary"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Upper secondary"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Upper secondary"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Upper secondary"]} \\
+Technical or vocational qualification & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Technical or vocational qualification"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Technical or vocational qualification"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Technical or vocational qualification"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Technical or vocational qualification"]} \\
+Advanced certificate/Completed apprenticeship & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Advanced certificate/Completed apprenticeship"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Advanced certificate/Completed apprenticeship"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Advanced certificate/Completed apprenticeship"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Advanced certificate/Completed apprenticeship"]} \\
+Higher certificate & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Higher certificate"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Higher certificate"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Higher certificate"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Higher certificate"]} \\
+Ordinary bachelor degree or national diploma & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Ordinary bachelor degree or national diploma"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Ordinary bachelor degree or national diploma"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Ordinary bachelor degree or national diploma"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Ordinary bachelor degree or national diploma"]} \\
+Honours bachelor degree, professional qualification or both & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Honours bachelor degree, professional qualification or both"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Honours bachelor degree, professional qualification or both"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Honours bachelor degree, professional qualification or both"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Honours bachelor degree, professional qualification or both"]} \\
+Postgraduate diploma or degree & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Postgraduate diploma or degree"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Postgraduate diploma or degree"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Postgraduate diploma or degree"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Postgraduate diploma or degree"]} \\
+Doctorate(Ph.D) or higher & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Doctorate(Ph.D) or higher"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Doctorate(Ph.D) or higher"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Doctorate(Ph.D) or higher"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Doctorate(Ph.D) or higher"]} \\
+Not stated & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Not stated"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Not stated"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Not stated"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Not stated"]} \\
+Total & \Sexpr{EduEDTable$value[EduEDTable$Highest.Level.of.Education.Completed == "Total"]} &\Sexpr{EduEDTable$PercentageOfPopulation[EduEDTable$Highest.Level.of.Education.Completed == "Total"]} &\Sexpr{EduACTable$PercentageOfPopulation[EduACTable$Highest.Level.of.Education.Completed == "Total"]} &\Sexpr{EduStateTable$PercentageOfPopulation[EduStateTable$Highest.Level.of.Education.Completed == "Total"]} \\
+   \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T10T4ED}{https://data.cso.ie/table/SAP2022T10T4ED}} &
+\end{tabular}
+
+\caption{Population aged 15+ by Highest Level of Education Completed for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+\pagebreak    
+    
+\section{Families}\label{sect:Fam}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 150mm]{../figures/FamED.pdf}
+	\caption{Percentage of Families with Children by Family Type for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+	
+	
+\begin{table}[h]	
+\centering
+\begin{tabular}{lTTTT}
+  \hline
+  \textbf{Type of Family} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Families}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+Couples with Children & \Sexpr{FamED$value[FamED$Type.of.Family == "Couples with children"]} &\Sexpr{FamED$PercentageOfFamilies[FamED$Type.of.Family == "Couples with children"]} &\Sexpr{FamAC$PercentageOfFamilies[FamAC$Type.of.Family == "Couples with children"]} &\Sexpr{FamState$PercentageOfFamilies[FamState$Type.of.Family == "Couples with children"]} \\
+Mothers with Children & \Sexpr{FamED$value[FamED$Type.of.Family == "Mothers with children"]} &\Sexpr{FamED$PercentageOfFamilies[FamED$Type.of.Family == "Mothers with children"]} &\Sexpr{FamAC$PercentageOfFamilies[FamAC$Type.of.Family == "Mothers with children"]} &\Sexpr{FamState$PercentageOfFamilies[FamState$Type.of.Family == "Mothers with children"]} \\
+Fathers with Children & \Sexpr{FamED$value[FamED$Type.of.Family == "Fathers with children"]} &\Sexpr{FamED$PercentageOfFamilies[FamED$Type.of.Family == "Fathers with children"]} &\Sexpr{FamAC$PercentageOfFamilies[FamAC$Type.of.Family == "Fathers with children"]} &\Sexpr{FamState$PercentageOfFamilies[FamState$Type.of.Family == "Fathers with children"]} \\
+All Families & \Sexpr{TotalFamiliesED} & 100.0 & 100.0  & 100.0 \\
+  \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T4T3ED}{https://data.cso.ie/table/SAP2022T4T3ED}}  &
+\end{tabular}
+
+\caption{Families with Children by Family Type for \Sexpr{EDForTables}; 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+\pagebreak
+
+\section{Birthplace}\label{sect:Birth}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 130mm]{../figures/BirthED.pdf}
+	\caption{Percentage of Usually Resident Population by Birthplace for \Sexpr{EDForTables}; Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+	
+	
+\begin{table}[h]	
+\centering
+	\begin{tabular}{lTTTT}
+  \hline
+  \textbf{Birthplace} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+Ireland & \Sexpr{BirthED$value[BirthED$Location == "Ireland"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "Ireland"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "Ireland"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "Ireland"]} \\
+United Kingdom & \Sexpr{BirthED$value[BirthED$Location == "United Kingdom"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "United Kingdom"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "United Kingdom"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "United Kingdom"]} \\
+Poland & \Sexpr{BirthED$value[BirthED$Location == "Poland"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "Poland"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "Poland"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "Poland"]} \\
+India & \Sexpr{BirthED$value[BirthED$Location == "India"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "India"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "India"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "India"]} \\
+Other EU272020 (Exec Ireland and Poland) & \Sexpr{BirthED$value[BirthED$Location == "Other EU272020 (Exec Ireland and Poland)"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "Other EU272020 (Exec Ireland and Poland)"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "Other EU272020 (Exec Ireland and Poland)"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "Other EU272020 (Exec Ireland and Poland)"]} \\
+Rest of World & \Sexpr{BirthED$value[BirthED$Location == "Rest of World"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "Rest of World"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "Rest of World"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "Rest of World"]} \\
+Not stated & \Sexpr{BirthED$value[BirthED$Location == "Not stated"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "Not stated"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "Not stated"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "Not stated"]} \\
+Total & \Sexpr{BirthED$value[BirthED$Location == "Total"]} &\Sexpr{BirthED$PercentageOfPopulation[BirthED$Location == "Total"]} &\Sexpr{BirthAC$PercentageOfPopulation[BirthAC$Location == "Total"]} &\Sexpr{BirthState$PercentageOfPopulation[BirthState$Location == "Total"]} \\
+  \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T2T1ED}{https://data.cso.ie/table/SAP2022T2T1ED}} &
+\end{tabular}
+
+\caption{Usually Resident Population By Birthplace for \Sexpr{EDForTables}, Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+\pagebreak
+
+\section{Households - Type of Occupancy}\label{sect:Households}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 140mm]{../figures/HouseholdsED.pdf}
+	\caption{Percentage of Households by Type of Occupancy for \Sexpr{EDForTables}, Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+
+\begin{table}[h]	
+\centering
+		\begin{tabular}{lTTTTT}
+  \hline
+  \textbf{Type of Occupancy} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Households}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+  \hline
+\Sexpr{HouseholdsED[1,1]} & \Sexpr{HouseholdsED$value[1]} & \Sexpr{HouseholdsED$PercentageOfPopulation[1]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[1]} & \Sexpr{HouseholdsState$PercentageOfPopulation[1]} \\
+\Sexpr{HouseholdsED[2,1]} & \Sexpr{HouseholdsED$value[2]} & \Sexpr{HouseholdsED$PercentageOfPopulation[2]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[2]} & \Sexpr{HouseholdsState$PercentageOfPopulation[2]} \\
+\Sexpr{HouseholdsED[3,1]} & \Sexpr{HouseholdsED$value[3]} & \Sexpr{HouseholdsED$PercentageOfPopulation[3]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[3]} & \Sexpr{HouseholdsState$PercentageOfPopulation[3]} \\
+\Sexpr{HouseholdsED[4,1]} & \Sexpr{HouseholdsED$value[4]} & \Sexpr{HouseholdsED$PercentageOfPopulation[4]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[4]} & \Sexpr{HouseholdsState$PercentageOfPopulation[4]} \\
+\Sexpr{HouseholdsED[5,1]} & \Sexpr{HouseholdsED$value[5]} & \Sexpr{HouseholdsED$PercentageOfPopulation[5]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[5]} & \Sexpr{HouseholdsState$PercentageOfPopulation[5]} \\
+\Sexpr{HouseholdsED[6,1]} & \Sexpr{HouseholdsED$value[6]} & \Sexpr{HouseholdsED$PercentageOfPopulation[6]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[6]} & \Sexpr{HouseholdsState$PercentageOfPopulation[6]} \\
+\Sexpr{HouseholdsED[7,1]} & \Sexpr{HouseholdsED$value[7]} & \Sexpr{HouseholdsED$PercentageOfPopulation[7]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[7]} & \Sexpr{HouseholdsState$PercentageOfPopulation[7]} \\
+\Sexpr{HouseholdsED[8,1]} & \Sexpr{HouseholdsED$value[8]} & \Sexpr{HouseholdsED$PercentageOfPopulation[8]} & \Sexpr{HouseholdsAC$PercentageOfPopulation[8]} & \Sexpr{HouseholdsState$PercentageOfPopulation[8]} \\
+\hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T6T3ED}{https://data.cso.ie/table/SAP2022T6T3ED}} &
+\end{tabular}
+
+\caption{Percentage of Households by Type of Occupancy for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+
+\section{Transport}\label{sect:Trans}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 120mm]{../figures/TravelED.pdf}
+	\caption{Percentage of Usually Resident Population by Means of Travel to Work, School, College or Childcare for \Sexpr{EDForTables}, Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+
+\begin{table}[h]	
+\centering
+		\begin{tabular}{lTTTTT}
+  \hline
+  \textbf{Means of travel} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Persons}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+ \Sexpr{TravelED[1,1]} & \Sexpr{TravelED$value[1]} & \Sexpr{TravelED$PercentageOfPopulation[1]} & \Sexpr{TravelAC$PercentageOfPopulation[1]} & \Sexpr{TravelState$PercentageOfPopulation[1]} \\
+\Sexpr{TravelED[2,1]} & \Sexpr{TravelED$value[2]} & \Sexpr{TravelED$PercentageOfPopulation[2]} & \Sexpr{TravelAC$PercentageOfPopulation[2]} & \Sexpr{TravelState$PercentageOfPopulation[2]} \\
+\Sexpr{TravelED[3,1]} & \Sexpr{TravelED$value[3]} & \Sexpr{TravelED$PercentageOfPopulation[3]} & \Sexpr{TravelAC$PercentageOfPopulation[3]} & \Sexpr{TravelState$PercentageOfPopulation[3]} \\
+\Sexpr{TravelED[4,1]} & \Sexpr{TravelED$value[4]} & \Sexpr{TravelED$PercentageOfPopulation[4]} & \Sexpr{TravelAC$PercentageOfPopulation[4]} & \Sexpr{TravelState$PercentageOfPopulation[4]} \\
+\Sexpr{TravelED[5,1]} & \Sexpr{TravelED$value[5]} & \Sexpr{TravelED$PercentageOfPopulation[5]} & \Sexpr{TravelAC$PercentageOfPopulation[5]} & \Sexpr{TravelState$PercentageOfPopulation[5]} \\
+\Sexpr{TravelED[6,1]} & \Sexpr{TravelED$value[6]} & \Sexpr{TravelED$PercentageOfPopulation[6]} & \Sexpr{TravelAC$PercentageOfPopulation[6]} & \Sexpr{TravelState$PercentageOfPopulation[6]} \\
+\Sexpr{TravelED[7,1]} & \Sexpr{TravelED$value[7]} & \Sexpr{TravelED$PercentageOfPopulation[7]} & \Sexpr{TravelAC$PercentageOfPopulation[7]} & \Sexpr{TravelState$PercentageOfPopulation[7]} \\
+\Sexpr{TravelED[8,1]} & \Sexpr{TravelED$value[8]} & \Sexpr{TravelED$PercentageOfPopulation[8]} & \Sexpr{TravelAC$PercentageOfPopulation[8]} & \Sexpr{TravelState$PercentageOfPopulation[8]} \\
+\Sexpr{TravelED[9,1]} & \Sexpr{TravelED$value[9]} & \Sexpr{TravelED$PercentageOfPopulation[9]} & \Sexpr{TravelAC$PercentageOfPopulation[9]} & \Sexpr{TravelState$PercentageOfPopulation[9]} \\
+\Sexpr{TravelED[10,1]} & \Sexpr{TravelED$value[10]} & \Sexpr{TravelED$PercentageOfPopulation[10]} & \Sexpr{TravelAC$PercentageOfPopulation[10]} & \Sexpr{TravelState$PercentageOfPopulation[10]} \\
+\Sexpr{TravelED[11,1]} & \Sexpr{TravelED$value[11]} & \Sexpr{TravelED$PercentageOfPopulation[11]} & \Sexpr{TravelAC$PercentageOfPopulation[11]} & \Sexpr{TravelState$PercentageOfPopulation[11]} \\
+\Sexpr{TravelED[12,1]} & \Sexpr{TravelED$value[12]} & \Sexpr{TravelED$PercentageOfPopulation[12]} & \Sexpr{TravelAC$PercentageOfPopulation[12]} & \Sexpr{TravelState$PercentageOfPopulation[12]} \\
+  \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T11T1ED}{https://data.cso.ie/table/SAP2022T11T1ED}} &
+\end{tabular}
+
+\caption{Percentage of Usually Resident Population by Means of Travel to Work, School, College or Childcare for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+
+\section{Renewable Energy}\label{sect:RE}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 140mm]{../figures/RenewableEnergyED.pdf}
+	\caption{Percentage of Households by Renewable Energy Source for \Sexpr{EDForTables}, Administrative County and State; Census 2022.}
+	\label{fig:vbnv}
+	\end{figure}
+
+\begin{table}[h]	
+\centering
+		\begin{tabular}{lTTTTT}
+  \hline
+  \textbf{Renewable Energy Source} & \multicolumn{2}{c}{\textbf{\Sexpr{EDForTables}}} & \textbf{\Sexpr{ACForTables}} & \textbf{State}\\ 
+ \cline{2-3} \\
+ & \emph{\textbf{Households}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} & \emph{\textbf{\%}} \\
+ \Sexpr{RenewableEnergyED[1,1]} & \Sexpr{RenewableEnergyED$value[1]} & \Sexpr{RenewableEnergyED$PercentageOfPopulation[1]} & \Sexpr{RenewableEnergyAC$PercentageOfPopulation[1]} & \Sexpr{RenewableEnergyState$PercentageOfPopulation[1]} \\
+  \Sexpr{RenewableEnergyED[2,1]} & \Sexpr{RenewableEnergyED$value[2]} & \Sexpr{RenewableEnergyED$PercentageOfPopulation[2]} & \Sexpr{RenewableEnergyAC$PercentageOfPopulation[2]} & \Sexpr{RenewableEnergyState$PercentageOfPopulation[2]} \\
+   \Sexpr{RenewableEnergyED[3,1]} & \Sexpr{RenewableEnergyED$value[3]} & \Sexpr{RenewableEnergyED$PercentageOfPopulation[3]} & \Sexpr{RenewableEnergyAC$PercentageOfPopulation[3]} & \Sexpr{RenewableEnergyState$PercentageOfPopulation[3]} \\
+    \Sexpr{RenewableEnergyED[4,1]} & \Sexpr{RenewableEnergyED$value[4]} & \Sexpr{RenewableEnergyED$PercentageOfPopulation[4]} & \Sexpr{RenewableEnergyAC$PercentageOfPopulation[4]} & \Sexpr{RenewableEnergyState$PercentageOfPopulation[4]} \\
+  \hline
+       \multicolumn{4}{l}{\href{https://data.cso.ie/table/SAP2022T6T10ED}{https://data.cso.ie/table/SAP2022T6T10ED}} &
+\end{tabular}
+
+\caption{Percentage of Households by Renewable Energy Source for \Sexpr{EDForTables}; Census 2022. Percentage breakdowns for Administrative County and State are also provided for comparison purposes.}
+\end{table} 
+
+\pagebreak
+
+\section{Detailed Tables}\label{sect:ST}
+\begin{table}[h]	
+\centering
+		\begin{tabular}{KTTT}
+  \hline
+& \textbf{\Sexpr{EDForTables}} & \textbf{\Sexpr{ACForTablesShort}} & \textbf{State}\\ 
+\hline
+  \multicolumn{4}{l}{\textbf{Age (Percentage of population (excl. Dependency ratios))} }\\ 
+\hline
+Age Dependency Ratio & \Sexpr{EDAgeDependency} & \Sexpr{ACAgeDependency} & \Sexpr{StateAgeDependency} \\
+Youth Dependency Ratio & \Sexpr{EDYouthDependency} & \Sexpr{ACYouthDependency} & \Sexpr{StateYouthDependency}\\
+Old Age Dependency Ratio & \Sexpr{EDOldAgeDependency} & \Sexpr{ACOldAgeDependency} & \Sexpr{StateOldAgeDependency}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Age2$AgeNew[1]} & \Sexpr{Age2$ED[1]} & \Sexpr{Age2$AC[1]} & \Sexpr{Age2$State[1]} \\ 
+\Sexpr{Age2$AgeNew[2]} & \Sexpr{Age2$ED[2]} & \Sexpr{Age2$AC[2]} & \Sexpr{Age2$State[2]} \\ 
+\Sexpr{Age2$AgeNew[3]} & \Sexpr{Age2$ED[3]} & \Sexpr{Age2$AC[3]} & \Sexpr{Age2$State[3]} \\ 
+  \arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Education (Percentage of those aged 15+)}}\\
+    \arrayrulecolor{black}\hline
+\Sexpr{Education..percentage.of.those.aged.15..$Label[1]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[1]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[1]}& \Sexpr{Education..percentage.of.those.aged.15..$State[1]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[2]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[2]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[2]}& \Sexpr{Education..percentage.of.those.aged.15..$State[2]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[3]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[3]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[3]}& \Sexpr{Education..percentage.of.those.aged.15..$State[3]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[4]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[4]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[4]}& \Sexpr{Education..percentage.of.those.aged.15..$State[4]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[5]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[5]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[5]}& \Sexpr{Education..percentage.of.those.aged.15..$State[5]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[6]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[6]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[6]}& \Sexpr{Education..percentage.of.those.aged.15..$State[6]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[7]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[7]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[7]}& \Sexpr{Education..percentage.of.those.aged.15..$State[7]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[8]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[8]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[8]}& \Sexpr{Education..percentage.of.those.aged.15..$State[8]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[9]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[9]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[9]}& \Sexpr{Education..percentage.of.those.aged.15..$State[9]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[10]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[10]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[10]}& \Sexpr{Education..percentage.of.those.aged.15..$State[10]}\\
+\Sexpr{Education..percentage.of.those.aged.15..$Label[11]} & \Sexpr{Education..percentage.of.those.aged.15..$ED[11]}& \Sexpr{Education..percentage.of.those.aged.15..$AC[11]}& \Sexpr{Education..percentage.of.those.aged.15..$State[11]}\\
+  \arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Employment (Percentage of those aged 15+)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[1]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[1]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[1]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[1]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[2]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[2]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[2]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[2]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[3]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[3]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[3]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[3]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[4]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[4]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[4]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[4]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[5]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[5]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[5]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[5]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[6]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[6]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[6]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[6]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[7]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[7]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[7]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[7]}\\
+\Sexpr{Employment..percentage.of.those.aged.15..$Label[8]} & \Sexpr{Employment..percentage.of.those.aged.15..$ED[8]}& \Sexpr{Employment..percentage.of.those.aged.15..$AC[8]}& \Sexpr{Employment..percentage.of.those.aged.15..$State[8]}\\
+\hline
+    \multicolumn{4}{l}{\textbf{Employment (Percentage of those at work)}}\\
+    \hline
+\Sexpr{Employment..percentage.of.those.at.work.$Label[1]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[1]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[1]}& \Sexpr{Employment..percentage.of.those.at.work.$State[1]}\\
+\Sexpr{Employment..percentage.of.those.at.work.$Label[2]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[2]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[2]}& \Sexpr{Employment..percentage.of.those.at.work.$State[2]}\\
+\Sexpr{Employment..percentage.of.those.at.work.$Label[3]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[3]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[3]}& \Sexpr{Employment..percentage.of.those.at.work.$State[3]}\\
+\Sexpr{Employment..percentage.of.those.at.work.$Label[4]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[4]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[4]}& \Sexpr{Employment..percentage.of.those.at.work.$State[4]}\\
+\Sexpr{Employment..percentage.of.those.at.work.$Label[5]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[5]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[5]}& \Sexpr{Employment..percentage.of.those.at.work.$State[5]}\\
+\Sexpr{Employment..percentage.of.those.at.work.$Label[6]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[6]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[6]}& \Sexpr{Employment..percentage.of.those.at.work.$State[6]}\\
+\Sexpr{Employment..percentage.of.those.at.work.$Label[7]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[7]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[7]}& \Sexpr{Employment..percentage.of.those.at.work.$State[7]}\\
+%\Sexpr{Employment..percentage.of.those.at.work.$Label[8]} & \Sexpr{Employment..percentage.of.those.at.work.$ED[8]}& \Sexpr{Employment..percentage.of.those.at.work.$AC[8]}& \Sexpr{Employment..percentage.of.those.at.work.$State[8]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Social Class (Percentage of population)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Social.Class..percentage.of.population...$Label[1]} & \Sexpr{Social.Class..percentage.of.population...$ED[1]}& \Sexpr{Social.Class..percentage.of.population...$AC[1]}& \Sexpr{Social.Class..percentage.of.population...$State[1]}\\
+\Sexpr{Social.Class..percentage.of.population...$Label[2]} & \Sexpr{Social.Class..percentage.of.population...$ED[2]}& \Sexpr{Social.Class..percentage.of.population...$AC[2]}& \Sexpr{Social.Class..percentage.of.population...$State[2]}\\
+\Sexpr{Social.Class..percentage.of.population...$Label[3]} & \Sexpr{Social.Class..percentage.of.population...$ED[3]}& \Sexpr{Social.Class..percentage.of.population...$AC[3]}& \Sexpr{Social.Class..percentage.of.population...$State[3]}\\
+\Sexpr{Social.Class..percentage.of.population...$Label[4]} & \Sexpr{Social.Class..percentage.of.population...$ED[4]}& \Sexpr{Social.Class..percentage.of.population...$AC[4]}& \Sexpr{Social.Class..percentage.of.population...$State[4]}\\
+\Sexpr{Social.Class..percentage.of.population...$Label[5]} & \Sexpr{Social.Class..percentage.of.population...$ED[5]}& \Sexpr{Social.Class..percentage.of.population...$AC[5]}& \Sexpr{Social.Class..percentage.of.population...$State[5]}\\
+\Sexpr{Social.Class..percentage.of.population...$Label[6]} & \Sexpr{Social.Class..percentage.of.population...$ED[6]}& \Sexpr{Social.Class..percentage.of.population...$AC[6]}& \Sexpr{Social.Class..percentage.of.population...$State[6]}\\
+\end{tabular}
+\end{table}
+\pagebreak
+\begin{table}[h]	
+\centering
+		\begin{tabular}{KTTT}
+  \arrayrulecolor{black}\hline
+& \textbf{\Sexpr{EDForTables}} & \textbf{\Sexpr{ACForTablesShort}} & \textbf{State}\\ 
+\hline
+   \multicolumn{4}{l}{\textbf{Families (Percentage of family units)}}\\ 
+   \arrayrulecolor{black}\hline
+\Sexpr{Families..percentage.of.family.units.$Label[1]} & \Sexpr{Families..percentage.of.family.units.$ED[1]}& \Sexpr{Families..percentage.of.family.units.$AC[1]}& \Sexpr{Families..percentage.of.family.units.$State[1]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[2]} & \Sexpr{Families..percentage.of.family.units.$ED[2]}& \Sexpr{Families..percentage.of.family.units.$AC[2]}& \Sexpr{Families..percentage.of.family.units.$State[2]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[3]} & \Sexpr{Families..percentage.of.family.units.$ED[3]}& \Sexpr{Families..percentage.of.family.units.$AC[3]}& \Sexpr{Families..percentage.of.family.units.$State[3]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[4]} & \Sexpr{Families..percentage.of.family.units.$ED[4]}& \Sexpr{Families..percentage.of.family.units.$AC[4]}& \Sexpr{Families..percentage.of.family.units.$State[4]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[5]} & \Sexpr{Families..percentage.of.family.units.$ED[5]}& \Sexpr{Families..percentage.of.family.units.$AC[5]}& \Sexpr{Families..percentage.of.family.units.$State[5]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[6]} & \Sexpr{Families..percentage.of.family.units.$ED[6]}& \Sexpr{Families..percentage.of.family.units.$AC[6]}& \Sexpr{Families..percentage.of.family.units.$State[6]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Families..percentage.of.family.units.$Label[7]} & \Sexpr{Families..percentage.of.family.units.$ED[7]}& \Sexpr{Families..percentage.of.family.units.$AC[7]}& \Sexpr{Families..percentage.of.family.units.$State[7]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[8]} & \Sexpr{Families..percentage.of.family.units.$ED[8]}& \Sexpr{Families..percentage.of.family.units.$AC[8]}& \Sexpr{Families..percentage.of.family.units.$State[8]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[9]} & \Sexpr{Families..percentage.of.family.units.$ED[9]}& \Sexpr{Families..percentage.of.family.units.$AC[9]}& \Sexpr{Families..percentage.of.family.units.$State[9]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Families..percentage.of.family.units.$Label[10]} & \Sexpr{Families..percentage.of.family.units.$ED[10]}& \Sexpr{Families..percentage.of.family.units.$AC[10]}& \Sexpr{Families..percentage.of.family.units.$State[10]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[11]} & \Sexpr{Families..percentage.of.family.units.$ED[11]}& \Sexpr{Families..percentage.of.family.units.$AC[11]}& \Sexpr{Families..percentage.of.family.units.$State[11]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[12]} & \Sexpr{Families..percentage.of.family.units.$ED[12]}& \Sexpr{Families..percentage.of.family.units.$AC[12]}& \Sexpr{Families..percentage.of.family.units.$State[12]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[13]} & \Sexpr{Families..percentage.of.family.units.$ED[13]}& \Sexpr{Families..percentage.of.family.units.$AC[13]}& \Sexpr{Families..percentage.of.family.units.$State[13]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[14]} & \Sexpr{Families..percentage.of.family.units.$ED[14]}& \Sexpr{Families..percentage.of.family.units.$AC[14]}& \Sexpr{Families..percentage.of.family.units.$State[14]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[15]} & \Sexpr{Families..percentage.of.family.units.$ED[15]}& \Sexpr{Families..percentage.of.family.units.$AC[15]}& \Sexpr{Families..percentage.of.family.units.$State[15]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[16]} & \Sexpr{Families..percentage.of.family.units.$ED[16]}& \Sexpr{Families..percentage.of.family.units.$AC[16]}& \Sexpr{Families..percentage.of.family.units.$State[16]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[17]} & \Sexpr{Families..percentage.of.family.units.$ED[7]}& \Sexpr{Families..percentage.of.family.units.$AC[17]}& \Sexpr{Families..percentage.of.family.units.$State[17]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Families..percentage.of.family.units.$Label[18]} & \Sexpr{Families..percentage.of.family.units.$ED[18]}& \Sexpr{Families..percentage.of.family.units.$AC[18]}& \Sexpr{Families..percentage.of.family.units.$State[8]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[19]} & \Sexpr{Families..percentage.of.family.units.$ED[19]}& \Sexpr{Families..percentage.of.family.units.$AC[19]}& \Sexpr{Families..percentage.of.family.units.$State[19]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[20]} & \Sexpr{Families..percentage.of.family.units.$ED[20]}& \Sexpr{Families..percentage.of.family.units.$AC[20]}& \Sexpr{Families..percentage.of.family.units.$State[20]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[21]} & \Sexpr{Families..percentage.of.family.units.$ED[21]}& \Sexpr{Families..percentage.of.family.units.$AC[21]}& \Sexpr{Families..percentage.of.family.units.$State[21]}\\
+\Sexpr{Families..percentage.of.family.units.$Label[22]} & \Sexpr{Families..percentage.of.family.units.$ED[22]}& \Sexpr{Families..percentage.of.family.units.$AC[22]}& \Sexpr{Families..percentage.of.family.units.$State[22]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Health (Percentage of population)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Health..percentage.of.population.$Label[1]} & \Sexpr{Health..percentage.of.population.$ED[1]}& \Sexpr{Health..percentage.of.population.$AC[1]}& \Sexpr{Health..percentage.of.population.$State[1]}\\
+\Sexpr{Health..percentage.of.population.$Label[2]} & \Sexpr{Health..percentage.of.population.$ED[2]}& \Sexpr{Health..percentage.of.population.$AC[2]}& \Sexpr{Health..percentage.of.population.$State[2]}\\
+\Sexpr{Health..percentage.of.population.$Label[3]} & \Sexpr{Health..percentage.of.population.$ED[3]}& \Sexpr{Health..percentage.of.population.$AC[3]}& \Sexpr{Health..percentage.of.population.$State[3]}\\
+\Sexpr{Health..percentage.of.population.$Label[4]} & \Sexpr{Health..percentage.of.population.$ED[4]}& \Sexpr{Health..percentage.of.population.$AC[4]}& \Sexpr{Health..percentage.of.population.$State[4]}\\
+\Sexpr{Health..percentage.of.population.$Label[5]} & \Sexpr{Health..percentage.of.population.$ED[5]}& \Sexpr{Health..percentage.of.population.$AC[5]}& \Sexpr{Health..percentage.of.population.$State[5]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Health..percentage.of.population.$Label[6]} & \Sexpr{Health..percentage.of.population.$ED[6]}& \Sexpr{Health..percentage.of.population.$AC[6]}& \Sexpr{Health..percentage.of.population.$State[6]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Health..percentage.of.population.$Label[7]} & \Sexpr{Health..percentage.of.population.$ED[7]}& \Sexpr{Health..percentage.of.population.$AC[7]}& \Sexpr{Health..percentage.of.population.$State[7]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Household composition (Percentage of Private Households)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[1]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[1]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[1]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[1]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[2]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[2]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[2]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[2]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[3]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[3]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[3]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[3]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[4]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[4]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[4]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[4]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[5]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[5]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[5]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[5]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[6]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[6]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[6]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[6]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[7]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[7]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[7]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[7]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[8]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[8]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[8]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[8]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[9]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[9]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[9]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[9]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[10]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[10]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[10]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[10]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[11]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[11]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[11]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[11]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[12]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[12]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[12]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[12]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[13]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[13]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[13]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[13]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[14]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[14]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[14]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[14]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[15]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[15]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[15]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[15]}\\
+\Sexpr{Household.Composition..percentage.of.private.households.$Label[16]} & \Sexpr{Household.Composition..percentage.of.private.households.$ED[16]}& \Sexpr{Household.Composition..percentage.of.private.households.$AC[16]}& \Sexpr{Household.Composition..percentage.of.private.households.$State[16]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Housing (Percentage of permanent dwellings)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Housing..percentage.of.permanent.dwellings.$Label[1]} & \Sexpr{Housing..percentage.of.permanent.dwellings.$ED[1]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$AC[1]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$State[1]}\\
+\Sexpr{Housing..percentage.of.permanent.dwellings.$Label[2]} & \Sexpr{Housing..percentage.of.permanent.dwellings.$ED[2]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$AC[2]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$State[2]}\\
+\Sexpr{Housing..percentage.of.permanent.dwellings.$Label[3]} & \Sexpr{Housing..percentage.of.permanent.dwellings.$ED[3]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$AC[3]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$State[3]}\\
+\Sexpr{Housing..percentage.of.permanent.dwellings.$Label[4]} & \Sexpr{Housing..percentage.of.permanent.dwellings.$ED[4]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$AC[4]}& \Sexpr{Housing..percentage.of.permanent.dwellings.$State[4]}\\
+\hline
+\end{tabular}
+\end{table}
+\pagebreak
+\begin{table}[h]	
+\centering
+		\begin{tabular}{KTTT}
+ \arrayrulecolor{black} \hline
+& \textbf{\Sexpr{EDForTables}} & \textbf{\Sexpr{ACForTablesShort}} & \textbf{State}\\ 
+\hline
+    \multicolumn{4}{l}{\textbf{Housing (Percentage of permanent private households)}}\\ 
+    \arrayrulecolor{black}   \hline
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[1]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[1]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[1]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[1]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[2]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[2]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[2]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[2]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[3]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[3]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[3]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[3]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[4]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[4]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[4]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[4]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[5]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[5]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[5]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[5]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[6]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[6]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[6]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[6]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[7]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[7]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[7]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[7]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[8]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[8]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[8]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[8]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[9]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[9]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[9]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[9]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[10]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[10]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[10]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[10]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[11]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[11]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[11]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[11]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[12]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[12]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[12]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[12]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[13]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[13]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[13]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[13]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[14]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[14]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[14]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[14]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[15]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[15]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[15]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[15]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[16]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[16]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[16]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[16]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[17]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[17]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[17]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[17]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[18]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[18]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[18]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[18]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[19]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[19]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[19]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[19]}\\
+\Sexpr{Housing..percentage.of.permanent.private.households.$Label[20]} & \Sexpr{Housing..percentage.of.permanent.private.households.$ED[20]}& \Sexpr{Housing..percentage.of.permanent.private.households.$AC[20]}& \Sexpr{Housing..percentage.of.permanent.private.households.$State[20]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Housing (Percentage of private households)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Housing..percentage.of.private.households.$Label[1]} & \Sexpr{Housing..percentage.of.private.households.$ED[1]}& \Sexpr{Housing..percentage.of.private.households.$AC[1]}& \Sexpr{Housing..percentage.of.private.households.$State[1]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[2]} & \Sexpr{Housing..percentage.of.private.households.$ED[2]}& \Sexpr{Housing..percentage.of.private.households.$AC[2]}& \Sexpr{Housing..percentage.of.private.households.$State[2]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[3]} & \Sexpr{Housing..percentage.of.private.households.$ED[3]}& \Sexpr{Housing..percentage.of.private.households.$AC[3]}& \Sexpr{Housing..percentage.of.private.households.$State[3]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[4]} & \Sexpr{Housing..percentage.of.private.households.$ED[4]}& \Sexpr{Housing..percentage.of.private.households.$AC[4]}& \Sexpr{Housing..percentage.of.private.households.$State[4]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Housing..percentage.of.private.households.$Label[5]} & \Sexpr{Housing..percentage.of.private.households.$ED[5]}& \Sexpr{Housing..percentage.of.private.households.$AC[5]}& \Sexpr{Housing..percentage.of.private.households.$State[5]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[6]} & \Sexpr{Housing..percentage.of.private.households.$ED[6]}& \Sexpr{Housing..percentage.of.private.households.$AC[6]}& \Sexpr{Housing..percentage.of.private.households.$State[6]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[7]} & \Sexpr{Housing..percentage.of.private.households.$ED[7]}& \Sexpr{Housing..percentage.of.private.households.$AC[7]}& \Sexpr{Housing..percentage.of.private.households.$State[7]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[8]} & \Sexpr{Housing..percentage.of.private.households.$ED[8]}& \Sexpr{Housing..percentage.of.private.households.$AC[8]}& \Sexpr{Housing..percentage.of.private.households.$State[8]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[9]} & \Sexpr{Housing..percentage.of.private.households.$ED[9]}& \Sexpr{Housing..percentage.of.private.households.$AC[9]}& \Sexpr{Housing..percentage.of.private.households.$State[9]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[10]} & \Sexpr{Housing..percentage.of.private.households.$ED[10]}& \Sexpr{Housing..percentage.of.private.households.$AC[10]}& \Sexpr{Housing..percentage.of.private.households.$State[10]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[11]} & \Sexpr{Housing..percentage.of.private.households.$ED[11]}& \Sexpr{Housing..percentage.of.private.households.$AC[11]}& \Sexpr{Housing..percentage.of.private.households.$State[11]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[12]} & \Sexpr{Housing..percentage.of.private.households.$ED[12]}& \Sexpr{Housing..percentage.of.private.households.$AC[12]}& \Sexpr{Housing..percentage.of.private.households.$State[12]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[13]} & \Sexpr{Housing..percentage.of.private.households.$ED[13]}& \Sexpr{Housing..percentage.of.private.households.$AC[13]}& \Sexpr{Housing..percentage.of.private.households.$State[13]}\\
+\Sexpr{Housing..percentage.of.private.households.$Label[14]} & \Sexpr{Housing..percentage.of.private.households.$ED[14]}& \Sexpr{Housing..percentage.of.private.households.$AC[14]}& \Sexpr{Housing..percentage.of.private.households.$State[14]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Marital Status (Percentage of population)}}\\
+    \arrayrulecolor{black}\hline
+\Sexpr{Marital.Status..percentage.of.population.$Label[1]} & \Sexpr{Marital.Status..percentage.of.population.$ED[1]}& \Sexpr{Marital.Status..percentage.of.population.$AC[1]}& \Sexpr{Marital.Status..percentage.of.population.$State[1]}\\
+\Sexpr{Marital.Status..percentage.of.population.$Label[2]} & \Sexpr{Marital.Status..percentage.of.population.$ED[2]}& \Sexpr{Marital.Status..percentage.of.population.$AC[2]}& \Sexpr{Marital.Status..percentage.of.population.$State[2]}\\
+\Sexpr{Marital.Status..percentage.of.population.$Label[3]} & \Sexpr{Marital.Status..percentage.of.population.$ED[3]}& \Sexpr{Marital.Status..percentage.of.population.$AC[3]}& \Sexpr{Marital.Status..percentage.of.population.$State[3]}\\
+\Sexpr{Marital.Status..percentage.of.population.$Label[4]} & \Sexpr{Marital.Status..percentage.of.population.$ED[4]}& \Sexpr{Marital.Status..percentage.of.population.$AC[4]}& \Sexpr{Marital.Status..percentage.of.population.$State[4]}\\
+\Sexpr{Marital.Status..percentage.of.population.$Label[5]} & \Sexpr{Marital.Status..percentage.of.population.$ED[5]}& \Sexpr{Marital.Status..percentage.of.population.$AC[5]}& \Sexpr{Marital.Status..percentage.of.population.$State[5]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Migration and ethnicity (Percentage of population)}}\\ 
+   \arrayrulecolor{black} \hline
+\Sexpr{Migration.and.Ethnicity..percentage.of.population.$Label[1]} & \Sexpr{Migration.and.Ethnicity..percentage.of.population.$ED[1]}& \Sexpr{Migration.and.Ethnicity..percentage.of.population.$AC[1]}& \Sexpr{Migration.and.Ethnicity..percentage.of.population.$State[1]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.population.$Label[2]} & \Sexpr{Migration.and.Ethnicity..percentage.of.population.$ED[2]}& \Sexpr{Migration.and.Ethnicity..percentage.of.population.$AC[2]}& \Sexpr{Migration.and.Ethnicity..percentage.of.population.$State[2]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Occupation (Percentage of those at work or unemployed)}}\\
+   \arrayrulecolor{black} \hline
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[1]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[1]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[1]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[1]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[2]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[2]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[2]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[2]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[3]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[3]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[3]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[3]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[4]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[4]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[4]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[4]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[5]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[5]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[5]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[5]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[6]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[6]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[6]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[6]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[7]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[7]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[7]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[7]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[8]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[8]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[8]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[8]}\\
+\Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$Label[9]} & \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$ED[9]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$AC[9]}& \Sexpr{Occupation..percentage.of.those.at.work.or.unemployed.$State[9]}\\
+\arrayrulecolor{black}\hline
+\end{tabular}
+\end{table}
+\pagebreak
+\begin{table}[h]	
+\centering
+		\begin{tabular}{KTTT}
+ \arrayrulecolor{black} \hline
+& \textbf{\Sexpr{EDForTables}} & \textbf{\Sexpr{ACForTablesShort}} & \textbf{State}\\ 
+ \arrayrulecolor{black} \hline
+    \multicolumn{4}{l}{\textbf{Migration and ethnicity (Percentage of usually resident population)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[1]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[1]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[1]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[1]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[2]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[2]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[2]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[2]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[3]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[3]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[3]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[3]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[4]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[4]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[4]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[4]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[5]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[5]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[5]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[5]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[6]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[6]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[6]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[6]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[7]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[7]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[7]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[7]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[8]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[8]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[8]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[8]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[9]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[9]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[9]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[9]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[10]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[10]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[10]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[10]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[11]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[11]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[11]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[11]}\\
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[12]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[12]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[12]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[12]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$Label[13]} & \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$ED[13]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$AC[13]}& \Sexpr{Migration.and.Ethnicity..percentage.of.usually.resident.population.$State[13]}\\
+
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Socio-economic group of ref. person (percentage of private households)}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[1]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[1]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[1]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[1]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[2]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[2]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[2]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[2]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[3]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[3]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[3]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[3]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[4]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[4]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[4]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[4]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[5]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[5]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[5]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[5]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[6]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[6]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[6]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[6]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[7]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[7]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[7]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[7]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[8]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[8]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[8]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[8]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[9]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[9]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[9]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[9]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[10]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[10]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[10]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[10]}\\
+\Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$Label[11]} & \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$ED[11]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$AC[11]}& \Sexpr{Socio.economic.group.of.reference.person..percentage.of.private.households...$State[11]}\\
+\hline
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Transport (Percentage of population aged 5+)}}\\ 
+   \arrayrulecolor{black} \hline
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[1]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[1]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[1]}& 
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[1]}\\
+    \arrayrulecolor{lightgray}\hline
+\emph{Travel to work, school, College or childcare:} & & & \\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[2]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[2]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[2]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[2]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[3]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[3]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[3]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[3]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[4]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[4]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[4]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[4]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[5]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[5]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[5]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[5]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[6]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[6]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[6]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[6]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[7]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[7]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[7]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[7]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[8]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[8]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[8]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[8]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[9]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[9]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[9]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[9]}\\
+\quad \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[10]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[10]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[10]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[10]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[11]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[11]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[11]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[11]}\\
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[12]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[12]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[12]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[12]}\\
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[13]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[13]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[13]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[13]}\\
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[14]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[14]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[14]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[14]}\\
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[15]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[15]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[15]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[15]}\\
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[16]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[16]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[16]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[16]}\\
+\Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$Label[17]} & \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$ED[17]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$AC[17]}& \Sexpr{Transport..percentage.of.population.aged.5.years.and.over.$State[17]}\\
+\arrayrulecolor{black}\hline
+    \multicolumn{4}{l}{\textbf{Other}}\\ 
+    \arrayrulecolor{black}\hline
+\Sexpr{Other$Label[1]} & \Sexpr{Other$ED[1]}& \Sexpr{Other$AC[1]}& \Sexpr{Other$State[1]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Other$Label[2]} & \Sexpr{Other$ED[2]}& \Sexpr{Other$AC[2]}& \Sexpr{Other$State[2]}\\
+    \arrayrulecolor{lightgray}\hline
+\Sexpr{Housing..percentage.of.households.$Label[1]}& \Sexpr{Housing..percentage.of.households.$ED[1]}& \Sexpr{Housing..percentage.of.households.$AC[1]}& \Sexpr{Housing..percentage.of.households.$State[1]}\\
+\arrayrulecolor{black}\hline
+\end{tabular}
+\end{table}
+
+\end{document}

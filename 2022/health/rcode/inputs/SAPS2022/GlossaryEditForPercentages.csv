@@ -1,0 +1,791 @@
+﻿Themes ,ColName,TotalColForPerc,PercentageOf,Description of Field,Label,LatexTableTitle,Rank,Table
+,T10_4_NFT,T10_4_TT,Persons aged 15+,No formal education - Total,No formal education,Education (percentage of those aged 15+),1,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_PT,T10_4_TT,Persons aged 15+,Primary education - Total,Primary education,Education (percentage of those aged 15+),2,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_LST,T10_4_TT,Persons aged 15+,Lower secondary - Total,Lower secondary,Education (percentage of those aged 15+),3,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_UST,T10_4_TT,Persons aged 15+,Upper secondary - Total,Upper secondary,Education (percentage of those aged 15+),4,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_TVT,T10_4_TT,Persons aged 15+,Technical or vocational qualification - Total,Technical or vocational qualification ,Education (percentage of those aged 15+),5,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_ACCAT,T10_4_TT,Persons aged 15+,Advanced certificate/Completed apprenticeship - Total,Advanced certificate/Completed apprenticeship,Education (percentage of those aged 15+),6,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_HCT,T10_4_TT,Persons aged 15+,Higher certificate - Total,Higher certificate,Education (percentage of those aged 15+),7,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_ODNDT,T10_4_TT,Persons aged 15+,Ordinary bachelor degree or national diploma - Total,Ordinary bachelor degree or national diploma,Education (percentage of those aged 15+),8,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_HDPQT,T10_4_TT,Persons aged 15+,"Honours bachelor degree, professional qualification or both - Total","Hns bach. degree, prof. qual. or both",Education (percentage of those aged 15+),9,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_PDT,T10_4_TT,Persons aged 15+,Postgraduate diploma or degree - Total,Postgraduate diploma or degree,Education (percentage of those aged 15+),10,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_DT,T10_4_TT,Persons aged 15+,Doctorate(Ph.D) or higher - Total,Doctorate(Ph.D) or higher,Education (percentage of those aged 15+),11,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_NST,T10_4_TT,Persons aged 15+,Not stated - Total,Missing,Education (percentage of those aged 15+),Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T8_1_WT,T8_1_TT,Persons aged 15+,At work - Total,At work,Employment (percentage of those aged 15+),1,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LFFJT,T8_1_TT,Persons aged 15+,Looking for first regular job - Total,Looking for first regular job,Employment (percentage of those aged 15+),2,Population aged 15 years and over by principal economic status and sex 
+,T8_1_STUT,T8_1_TT,Persons aged 15+,short Term Unemployed  - Total ,short Term Unemployed ,Employment (percentage of those aged 15+),3,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LTUT,T8_1_TT,Persons aged 15+,Long Term Unemployed - Total,Long Term Unemployed ,Employment (percentage of those aged 15+),4,Population aged 15 years and over by principal economic status and sex 
+,T8_1_ST,T8_1_TT,Persons aged 15+,Student - Total,Student ,Employment (percentage of those aged 15+),5,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LAHFT,T8_1_TT,Persons aged 15+,Looking after home/family - Total,Looking after home/family  ,Employment (percentage of those aged 15+),6,Population aged 15 years and over by principal economic status and sex 
+,T8_1_RT,T8_1_TT,Persons aged 15+,Retired - Total,Retired ,Employment (percentage of those aged 15+),7,Population aged 15 years and over by principal economic status and sex 
+,T8_1_UTWSDT,T8_1_TT,Persons aged 15+,Unable to work due to permanent sickness or disability - Total,Unable to work - perm. sickness or disability,Employment (percentage of those aged 15+),8,Population aged 15 years and over by principal economic status and sex 
+,T8_1_OTHT,T8_1_TT,Persons aged 15+,Other - Total,Other,Employment (percentage of those aged 15+),9,Population aged 15 years and over by principal economic status and sex 
+,T14_1_AFFT,T14_1_TT,Persons at work,"Agriculture, forestry and fishing - Total","Agriculture, forestry and fishing ",Employment (percentage of those at work),1,Persons at work by industry and sex
+,T14_1_BCT,T14_1_TT,Persons at work,Building and construction - Total,Building and construction,Employment (percentage of those at work),2,Persons at work by industry and sex
+,T14_1_MIT,T14_1_TT,Persons at work,Manufacturing industries - Total,Manufacturing industries,Employment (percentage of those at work),3,Persons at work by industry and sex
+,T14_1_CTT,T14_1_TT,Persons at work,Commerce and trade - Total,Commerce and trade ,Employment (percentage of those at work),4,Persons at work by industry and sex
+,T14_1_TCT,T14_1_TT,Persons at work,Transport and communications - Total,Transport and communications ,Employment (percentage of those at work),5,Persons at work by industry and sex
+,T14_1_PAT,T14_1_TT,Persons at work,Public administration - Total,Public administration,Employment (percentage of those at work),6,Persons at work by industry and sex
+,T14_1_PST,T14_1_TT,Persons at work,Professional services - Total,Professional services,Employment (percentage of those at work),7,Persons at work by industry and sex
+,T14_1_OTHT,T14_1_TT,Persons at work,Other - Total,Other,Employment (percentage of those at work),8,Persons at work by industry and sex
+,T4_2_NCT,T4_2_TCT,Family Units With Children,Families without children - Total,Families without children,Families (percentage of family units),1,Family units with children by size and age of children 
+,T4_2_1CT,T4_2_TCT,Family Units With Children,Families with 1 child - Total,Families with 1 child,Families (percentage of family units),2,Family units with children by size and age of children 
+,T4_2_2CT,T4_2_TCT,Family Units With Children,Families with 2 children - Total,Families with 2 children,Families (percentage of family units),3,Family units with children by size and age of children 
+,T4_2_3CT,T4_2_TCT,Family Units With Children,Familes with 3 children - Total,Families with 3 children,Families (percentage of family units),4,Family units with children by size and age of children 
+,T4_2_4CT,T4_2_TCT,Family Units With Children,Families with 4 children - Total,Families with 4 children,Families (percentage of family units),5,Family units with children by size and age of children 
+,T4_2_GE5CT,T4_2_TCT,Family Units With Children,Families with 5 or more children - Total,Families with 5 or more children,Families (percentage of family units),6,Family units with children by size and age of children 
+,T4_3FCCT,T4_2_TCT,Family Units With Children,Total couples with children (No. of families),Couples with children,Families (percentage of family units),7,Family units with children by type of family and age of children
+,T4_3FOPMCT,T4_2_TCT,Family Units With Children,Total one parent family (mother) with children (No. of families),Lone parent (mother),Families (percentage of family units),8,Family units with children by type of family and age of children
+,T4_3FOPFCT,T4_2_TCT,Family Units With Children,Total one parent family (father) with children (No. of families),Lone parent (father),Families (percentage of family units),9,Family units with children by type of family and age of children
+Theme 4: Families ,T4_5PFF,T4_5TF,Families,Pre-family (No. of families),Pre-family families,Families (percentage of family units),10,Families by family cycle 
+,T4_5ENF,T4_5TF,Families,Empty nest (No. of families),Empty nest families,Families (percentage of family units),11,Families by family cycle 
+,T4_5RF,T4_5TF,Families,Retired (No. of families),Retired families,Families (percentage of family units),12,Families by family cycle 
+,T4_5PSF,T4_5TF,Families,Pre-school (No. of families),Per-school families,Families (percentage of family units),13,Families by family cycle 
+,T4_5ESF,T4_5TF,Families,Early school (No. of families),Early school families,Families (percentage of family units),14,Families by family cycle 
+,T4_5PAF,T4_5TF,Families,Pre-adolescent (No. of families),Pre-adolescent families,Families (percentage of family units),15,Families by family cycle 
+,T4_5ADOF,T4_5TF,Families,Adolescent (No. of families),Adolescent families,Families (percentage of family units),16,Families by family cycle 
+,T4_5ADUF,T4_5TF,Families,Adult (No. of families),Adult families,Families (percentage of family units),17,Families by family cycle 
+Theme 4: Families ,T4_4AGE0_4F,T4_4TF,Families,Families with youngest child aged 0 - 4 (No. of families),Families with youngest child aged 0 - 4,Families (percentage of family units),18,Families by age of youngest child 
+,T4_4AGE5_9F,T4_4TF,Families,Families with youngest child aged 5 - 9 (No. of families),Families with youngest child aged 5 - 9,Families (percentage of family units),19,Families by age of youngest child 
+,T4_4AGE10_14F,T4_4TF,Families,Families with youngest child aged 10 - 14 (No. of families),Families with youngest child aged 10 - 14,Families (percentage of family units),20,Families by age of youngest child 
+,T4_4AGE15_19F,T4_4TF,Families,Families with youngest child aged 15 - 19 (No. of families),Families with youngest child aged 15 - 19,Families (percentage of family units),21,Families by age of youngest child 
+,T4_4AGE_GE20F,T4_4TF,Families,Families with youngest child aged 20 and over (No. of families),Families with youngest child aged 20 and over,Families (percentage of family units),22,Families by age of youngest child 
+,T12_1_T,T1_1AGETT,Persons,Total Persons,With a disability (to some or to a great extent),Health (percentage of population),15,Overall prevalence of persons with disability (to some and/or to a great extent) by sex
+,T12_2_T,T1_1AGETT,Persons,Total,Missing,Missing,2,Carers by sex
+,T12_3_VGT,T12_3_TT,Persons,Very good - Total,Very good general health,Health (percentage of population),3,Population by general health and sex
+,T12_3_GT,T12_3_TT,Persons,Good - Total,Good general health,Health (percentage of population),4,Population by general health and sex
+,T12_3_FT,T12_3_TT,Persons,Fair - Total,Fair general health,Health (percentage of population),5,Population by general health and sex
+,T12_3_BT,T12_3_TT,Persons,Bad - Total,Bad general health,Health (percentage of population),6,Population by general health and sex
+,T12_3_VBT,T12_3_TT,Persons,Very bad - Total,Very bad general health,Health (percentage of population),7,Population by general health and sex
+,T12_3_NST,T12_3_TT,Persons,Not stated - Total,Missing,Missing,8,Population by general health and sex
+"Theme 12: Disability, Carers, General Health and Smoking",T12_4_YES,T12_4_T,Persons,Persons who smoke,Persons who smoke,Health (percentage of population),9,Persons with who smoke 
+,T5_1MC_H,T5_1T_H,Private Households,Married couple households (No. of households),Married couple households,Household Composition (percentage of private households),1,Private households by type
+,T5_1CC_H,T5_1T_H,Private Households,Cohabiting couple households (No. of households),Cohabiting couple households,Household Composition (percentage of private households),2,Private households by type
+,T5_1MCC_H,T5_1T_H,Private Households,Married couple with children households (No. of households),Married couple with children households,Household Composition (percentage of private households),3,Private households by type
+,T5_1CCC_H,T5_1T_H,Private Households,Cohabiting couple with children households (No. of households),Cohabiting couple with children households,Household Composition (percentage of private households),4,Private households by type
+,T5_1OPFC_H,T5_1T_H,Private Households,One parent family (father) with  children households (No. of households),One parent family (father) with  children households,Household Composition (percentage of private households),5,Private households by type
+,T5_1OPMC_H,T5_1T_H,Private Households,One parent family (mother) and children households (No. of households),One parent family (mother) and children households,Household Composition (percentage of private households),6,Private households by type
+,T5_1CO_H,T5_1T_H,Private Households,Couple and others households (No. of households),Couple and others households ,Household Composition (percentage of private households),7,Private households by type
+,T5_1GENP_H,T5_1T_H,Private Households,Two or more non-related persons households (No. of households),Two or more non-related persons households,Household Composition (percentage of private households),8,Private households by type
+Theme 5: Private Households ,T5_2_1PH,T5_2_TH,Private Households,1 person households (No. of households),1 person households,Household Composition (percentage of private households),9,Private households by size 
+,T5_2_2PH,T5_2_TH,Private Households,2 person households (No. of households),2 person households,Household Composition (percentage of private households),10,Private households by size 
+,T5_2_3PH,T5_2_TH,Private Households,3 person households (No. of households),3 person households,Household Composition (percentage of private households),11,Private households by size 
+,T5_2_4PH,T5_2_TH,Private Households,4 person households (No. of households),4 person households,Household Composition (percentage of private households),12,Private households by size 
+,T5_2_5PH,T5_2_TH,Private Households,5 person households (No. of households),5 person households,Household Composition (percentage of private households),13,Private households by size 
+,T5_2_6PH,T5_2_TH,Private Households,6 person households (No. of households),6 person households,Household Composition (percentage of private households),14,Private households by size 
+,T5_2_7PH,T5_2_TH,Private Households,7 person households (No. of households),7 person households,Household Composition (percentage of private households),15,Private households by size 
+,T5_2_GE8PH,T5_2_TH,Private Households,8 or more persons households (No. of households),8 or more person households,Household Composition (percentage of private households),16,Private households by size 
+,T15_2_NO,T15_2_T,Households,No internet connection,No internet connection,Housing (percentage of households),1,Number of households with internet
+Theme 6: Housing ,T6_8_O,T6_8_T,Permanent Dwellings,Occupied,Occupied,Housing (percentage of permanent dwellings),2,Occupancy status of permanent dwellings on Census night
+,T6_8_TA,T6_8_T,Permanent Dwellings,Temporarily absent,Temporarily absent,Housing (percentage of permanent dwellings),3,Occupancy status of permanent dwellings on Census night
+,T6_8_UHH,T6_8_T,Permanent Dwellings,Unoccupied holiday homes,Unoccupied holiday homes,Housing (percentage of permanent dwellings),4,Occupancy status of permanent dwellings on Census night
+,T6_8_OVD,T6_8_T,Permanent Dwellings,Other vacant dwellings,Other vacant dwellings,Housing (percentage of permanent dwellings),5,Occupancy status of permanent dwellings on Census night
+,T6_3_OMLH,T6_3_TH,Permanent Private Households,Owned with mortgage or loan (No. of households),Owned with mortgage or loan,Housing (percentage of permanent private households),6,Permanent private households by type of occupancy 
+,T6_3_OOH,T6_3_TH,Permanent Private Households,Owned outright (No. of households),Owned outright,Housing (percentage of permanent private households),7,Permanent private households by type of occupancy 
+,T6_3_RPLH,T6_3_TH,Permanent Private Households,Rented from private landlord (No. of households) ,Rented from private landlord,Housing (percentage of permanent private households),8,Permanent private households by type of occupancy 
+,T6_3_RLAH,T6_3_TH,Permanent Private Households,Rented from Local Authority (No. of households),Rented from Local Authority,Housing (percentage of permanent private households),9,Permanent private households by type of occupancy 
+,T6_3_RVCHBH,T6_3_TH,Permanent Private Households,Rented from voluntary/co-operative housing body (No. of households),Rented from voluntary/co-operative housing body,Housing (percentage of permanent private households),10,Permanent private households by type of occupancy 
+,T6_3_OFRH,T6_3_TH,Permanent Private Households,Occupied free of rent (No. of households),Occupied free of rent,Housing (percentage of permanent private households),11,Permanent private households by type of occupancy 
+Theme 6: Housing ,T6_4_1RH,T6_4_TH,Permanent Private Households,1 room (No. of households),1 room,Housing (percentage of permanent private households),12,Permanent private households by number of rooms 
+,T6_4_2RH,T6_4_TH,Permanent Private Households,2 rooms (No. of households),2 rooms,Housing (percentage of permanent private households),13,Permanent private households by number of rooms 
+,T6_4_3RH,T6_4_TH,Permanent Private Households,3 rooms (No. of households),3 rooms,Housing (percentage of permanent private households),14,Permanent private households by number of rooms 
+,T6_4_4RH,T6_4_TH,Permanent Private Households,4 rooms (No. of households),4 rooms,Housing (percentage of permanent private households),15,Permanent private households by number of rooms 
+,T6_4_5RH,T6_4_TH,Permanent Private Households,5 rooms (No. of households),5 rooms,Housing (percentage of permanent private households),16,Permanent private households by number of rooms 
+,T6_4_6RH,T6_4_TH,Permanent Private Households,6 rooms (No. of households),6 rooms,Housing (percentage of permanent private households),17,Permanent private households by number of rooms 
+,T6_4_7RH,T6_4_TH,Permanent Private Households,7 rooms (No. of households),7 rooms,Housing (percentage of permanent private households),18,Permanent private households by number of rooms 
+,T6_4_GE8RH,T6_4_TH,Permanent Private Households,8 or more rooms (No. of households),8 or more rooms,Housing (percentage of permanent private households),19,Permanent private households by number of rooms 
+Theme 6: Housing ,T6_5_NCH,T6_5_T,Permanent Private Households,No central heating,No central heating,Housing (percentage of permanent private households),20,Permanent private households by central heating 
+,T6_6_PM,T6_6_T,Permanent Private Households,Public main,Public main water supply,Housing (percentage of permanent private households),21,Permanent private households by central heating 
+Theme 6: Housing ,T6_6_GSLA,T6_6_T,Permanent Private Households,Group scheme with public source,Group scheme with public source water supply,Housing (percentage of permanent private households),22,Permanent private households by water supply 
+,T6_6_GSP,T6_6_T,Permanent Private Households,Group scheme with private source,Group scheme with private source water supply,Housing (percentage of permanent private households),23,Permanent private households by water supply 
+,T6_6_OP,T6_6_T,Permanent Private Households,Other private source,Other private source water supply,Housing (percentage of permanent private households),24,Permanent private households by water supply 
+,T6_6_N,T6_6_T,Permanent Private Households,None,No water supply,Housing (percentage of permanent private households),25,Permanent private households by water supply 
+Theme 6: Housing ,T6_1_HB_H,T6_1_TH,Private Households,House/Bungalow (No. of households),House/Bungalow,Housing (percentage of private households),26,Private households by type of accommodation 
+,T6_1_FA_H,T6_1_TH,Private Households,Flat/Apartment (No. of households),Flat/Apartment,Housing (percentage of private households),27,Private households by type of accommodation 
+,T6_1_BS_H,T6_1_TH,Private Households,Bed-Sit (No. of households),Bed-Sit,Housing (percentage of private households),28,Private households by type of accommodation 
+,T6_1_CM_H,T6_1_TH,Private Households,Caravan/Mobile home (No. of households),Caravan/Mobile home,Housing (percentage of private households),29,Private households by type of accommodation 
+Theme 6: Housing ,T6_2_PRE19H,T6_2_TH,Permanent Private Households,Pre 1919 (No. of households),Built Pre 1919,Housing (percentage of private households),30,Permanent private households by year built 
+,T6_2_19_45H,T6_2_TH,Permanent Private Households,1919 - 1945 (No. of households),Built 1919 - 1945,Housing (percentage of private households),31,Permanent private households by year built 
+,T6_2_46_60H,T6_2_TH,Permanent Private Households,1946 - 1960 (No. of households),Built  1946 - 1960,Housing (percentage of private households),32,Permanent private households by year built 
+,T6_2_61_70H,T6_2_TH,Permanent Private Households,1961 - 1970 (No. of households),Built  1961 - 1970,Housing (percentage of private households),33,Permanent private households by year built 
+,T6_2_71_80H,T6_2_TH,Permanent Private Households,1971 - 1980 (No. of households),Built  1971 - 1980,Housing (percentage of private households),34,Permanent private households by year built 
+,T6_2_81_90H,T6_2_TH,Permanent Private Households,1981 - 1990 (No. of households),Built  1981 - 1990,Housing (percentage of private households),35,Permanent private households by year built 
+,T6_2_91_00H,T6_2_TH,Permanent Private Households,1991 - 2000 (No. of households),Built  1991 - 2000,Housing (percentage of private households),36,Permanent private households by year built 
+,T6_2_01_10H,T6_2_TH,Permanent Private Households,2001 - 2010 (No. of households),Built  2001 - 2010,Housing (percentage of private households),37,Permanent private households by year built 
+,T6_2_11_15H,T6_2_TH,Permanent Private Households,2011 - 2015 (No. of households),Built  2011 - 2015,Housing (percentage of private households),38,Permanent private households by year built 
+,T6_2_16LH,T6_2_TH,Permanent Private Households,2016 or later  (No. of households),Built  2016 or later,Housing (percentage of private households),39,Permanent private households by year built 
+,T1_2SGLT,T1_2T,Persons,Single - Total,Single,Marital Status (percentage of population),1,Population by sex and marital status
+,T1_2MART,T1_2T,Persons,Married (incl. same sex civil partnership) - Total,Married (incl. same sex civil partnership),Marital Status (percentage of population),2,Population by sex and marital status
+,T1_2SEPT,T1_2T,Persons,Separated - Total,Separated ,Marital Status (percentage of population),3,Population by sex and marital status
+,T1_2DIVT,T1_2T,Persons,Divorced - Total,Divorced ,Marital Status (percentage of population),4,Population by sex and marital status
+,T1_2WIDT,T1_2T,Persons,Widowed - Total,Widowed,Marital Status (percentage of population),5,Population by sex and marital status
+,T2_6NW,T1_1AGETT,Speakers of Foreign Languages,Not well,Speak english not well,Migration and Ethnicity (percentage of population),1,Speakers of foreign languages by ability to speak English 
+,T2_6NAA,T1_1AGETT,Speakers of Foreign Languages,Not at all,Speak english not at all,Migration and Ethnicity (percentage of population),2,Speakers of foreign languages by ability to speak English 
+"Theme 2: Migration, Ethnicity, Religion and Foreign Languages",T2_1IEBP,T2_1TBP,Usually Resident Population,Ireland - Birthplace,Ireland - Birthplace,Migration and Ethnicity (percentage of usually resident population),3,Usually resident population by place of birth and nationality 
+,T2_1UKBP,T2_1TBP,Usually Resident Population,UK - Birthplace,UK - Birthplace,Migration and Ethnicity (percentage of usually resident population),4,Usually resident population by place of birth and nationality 
+,T2_1PLBP,T2_1TBP,Usually Resident Population,Poland - Birthplace,Poland - Birthplace,Migration and Ethnicity (percentage of usually resident population),5,Usually resident population by place of birth and nationality 
+,T2_1INBP,T2_1TBP,Usually Resident Population,India - Birthplace,India - Birthplace,Migration and Ethnicity (percentage of usually resident population),6,Usually resident population by place of birth and nationality 
+,T2_1EUBP,T2_1TBP,Usually Resident Population,Other EU28 - Birthplace,Other EU28 - Birthplace,Migration and Ethnicity (percentage of usually resident population),7,Usually resident population by place of birth and nationality 
+,T2_1RWBP,T2_1TBP,Usually Resident Population,Rest of world - Birthplace,Rest of world - Birthplace,Migration and Ethnicity (percentage of usually resident population),8,Usually resident population by place of birth and nationality 
+"Theme 2: Migration, Ethnicity, Religion and Foreign Languages",T2_2WI,T2_2T,Usually Resident Population,White Irish,White Irish,Migration and Ethnicity (percentage of usually resident population),9,Usually resident population by ethnic or cultural background 
+,T2_2WIT,T2_2T,Usually Resident Population,White Irish Traveller,White Irish Traveller,Migration and Ethnicity (percentage of usually resident population),10,Usually resident population by ethnic or cultural background 
+,T2_2OW,T2_2T,Usually Resident Population,Other White,Other White,Migration and Ethnicity (percentage of usually resident population),11,Usually resident population by ethnic or cultural background 
+,T2_2BBI,T2_2T,Usually Resident Population,Black or Black Irish,Black or Black Irish,Migration and Ethnicity (percentage of usually resident population),12,Usually resident population by ethnic or cultural background 
+,T2_2AAI,T2_2T,Usually Resident Population,Asian or Asian Irish,Asian or Asian Irish,Migration and Ethnicity (percentage of usually resident population),13,Usually resident population by ethnic or cultural background 
+,T2_2OTH,T2_2T,Usually Resident Population,Other,Other ethnic or cultural background,Migration and Ethnicity (percentage of usually resident population),14,Usually resident population by ethnic or cultural background 
+,T2_3OI,T2_3T,Usually Resident Population,Outside Ireland,Usual residence 1 year before census day - Outside Ireland,Migration and Ethnicity (percentage of usually resident population),15,Usually resident population aged 1 year and over by usual residence 1 year before Census Day
+,T13_1_MDSOT,T13_1_TT,Persons at work or unemployed,"Managers, directors and senior officials - Total","Managers, directors and senior officials",Occupation (percentage of those at work or unemployed),1,Persons at work or unemployed by occupation and sex
+,T13_1_POT,T13_1_TT,Persons at work or unemployed,Professional occupations - Total,Professional occupations,Occupation (percentage of those at work or unemployed),2,Persons at work or unemployed by occupation and sex
+,T13_1_APTOT,T13_1_TT,Persons at work or unemployed,Associate professional and technical occupations - Total,Associate professional and technical occupations,Occupation (percentage of those at work or unemployed),3,Persons at work or unemployed by occupation and sex
+,T13_1_ASOT,T13_1_TT,Persons at work or unemployed,Administrative and secretarial occupations - Total,Administrative and secretarial occupations,Occupation (percentage of those at work or unemployed),4,Persons at work or unemployed by occupation and sex
+,T13_1_STOT,T13_1_TT,Persons at work or unemployed,Skilled trades occupations - Total,Skilled trades occupations,Occupation (percentage of those at work or unemployed),5,Persons at work or unemployed by occupation and sex
+,T13_1_CLOSOT,T13_1_TT,Persons at work or unemployed,"Caring, leisure and other service occupations - Total","Caring, leisure and other service occupations",Occupation (percentage of those at work or unemployed),6,Persons at work or unemployed by occupation and sex
+,T13_1_SCSOT,T13_1_TT,Persons at work or unemployed,Sales and customer service occupations - Total,Sales and customer service occupations,Occupation (percentage of those at work or unemployed),7,Persons at work or unemployed by occupation and sex
+,T13_1_PPMOT,T13_1_TT,Persons at work or unemployed,"Process, plant and machine operatives - Total","Process, plant and machine operatives",Occupation (percentage of those at work or unemployed),8,Persons at work or unemployed by occupation and sex
+,T13_1_EOT,T13_1_TT,Persons at work or unemployed,Elementary occupations - Total,Elementary occupations,Occupation (percentage of those at work or unemployed),9,Persons at work or unemployed by occupation and sex
+Theme 6: Housing ,T6_10_RE,T6_10_T,Permanent Private Households,Has renewable Energy,Has renewable energy source (percentage of permanent private households),Other,1,Permanent private households by number of renewables
+Theme 7: Volunteers,T7_1_VOL,T1_1AGETT,Persons,Number of volunteers,Volunteers (percentage of population),Other,2,Number of volunteers
+,T9_1_PWT,T9_1_TT,Persons,Professional workers - Total,Professional workers ,Social Class (percentage of population??),1,Population by sex and social class
+,T9_1_MTT,T9_1_TT,Persons,Managerial and technical - Total,Managerial and technical,Social Class (percentage of population??),2,Population by sex and social class
+,T9_1_NMT,T9_1_TT,Persons,Non-manual - Total,Non-manual,Social Class (percentage of population??),3,Population by sex and social class
+,T9_1_ST,T9_1_TT,Persons,Skilled manual - Total,Skilled manual,Social Class (percentage of population??),4,Population by sex and social class
+,T9_1_SST,T9_1_TT,Persons,Semi-skilled - Total,Semi-skilled,Social Class (percentage of population??),5,Population by sex and social class
+,T9_1_UST,T9_1_TT,Persons,Unskilled - Total,Unskilled ,Social Class (percentage of population??),6,Population by sex and social class
+,T9_1_OTHGEUT,T9_1_TT,Persons,All others gainfully occupied and unknown - Total,All others gainfully occupied and unknown,Social Class (percentage of population??),7,Population by sex and social class
+,T9_2_HA,T9_2_HT,Persons in private households,A Employers and managers (No. of households),A Employers and managers,Socio-economic group of reference person (percentage of private households??),1,Persons in private households by socio-economic group of reference person
+Theme 9: Social Class and Socio-Economic Group ,T9_2_HB,T9_2_HT,Persons in private households,B Higher professional (No. of households),B Higher professional,Socio-economic group of reference person (percentage of private households??),2,Persons in private households by socio-economic group of reference person
+,T9_2_HC,T9_2_HT,Persons in private households,C Lower professional (No. of households),C Lower professional,Socio-economic group of reference person (percentage of private households??),3,Persons in private households by socio-economic group of reference person
+,T9_2_HD,T9_2_HT,Persons in private households,D Non-manual (No. of households),D Non-manual,Socio-economic group of reference person (percentage of private households??),4,Persons in private households by socio-economic group of reference person
+,T9_2_HE,T9_2_HT,Persons in private households,E Manual skilled (No. of households),E Manual skilled,Socio-economic group of reference person (percentage of private households??),5,Persons in private households by socio-economic group of reference person
+,T9_2_HF,T9_2_HT,Persons in private households,F Semi-skilled (No. of households),F Semi-skilled,Socio-economic group of reference person (percentage of private households??),6,Persons in private households by socio-economic group of reference person
+,T9_2_HG,T9_2_HT,Persons in private households,G Unskilled (No. of households),G Unskilled,Socio-economic group of reference person (percentage of private households??),7,Persons in private households by socio-economic group of reference person
+,T9_2_HH,T9_2_HT,Persons in private households,H Own account workers (No. of households),H Own account workers,Socio-economic group of reference person (percentage of private households??),8,Persons in private households by socio-economic group of reference person
+,T9_2_HI,T9_2_HT,Persons in private households,I Farmers (No. of households),I Farmers,Socio-economic group of reference person (percentage of private households??),9,Persons in private households by socio-economic group of reference person
+,T9_2_HJ,T9_2_HT,Persons in private households,J Agricultural workers (No. of households),J Agricultural workers,Socio-economic group of reference person (percentage of private households??),10,Persons in private households by socio-economic group of reference person
+,T9_2_HZ,T9_2_HT,Persons in private households,Z All others gainfully occupied and unknown (No. of households),Z All others gainfully occupied and unknown,Socio-economic group of reference person (percentage of private households??),11,Persons in private households by socio-economic group of reference person
+"Theme 15: Motor Car Availability, PC Ownership and Internet Access",T15_1_NC,T15_1_TC,Households,No motor car,No motor car (percentage of households),Transport (percentage of population aged 5 years and over),1,Number of households with cars
+,T11_1_FT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",On foot - Total,"Travel to work, school, college or childcare on foot",Transport (percentage of population aged 5 years and over),2,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_BIT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Bicycle - Total,"Travel to work, school, college or childcare by Bicycle",Transport (percentage of population aged 5 years and over),3,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_BUT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare","Bus, minibus or coach - Total","Travel to work, school, college or childcare by Bus, minibus or coach",Transport (percentage of population aged 5 years and over),4,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_TDLT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare","Train, DART or LUAS - Total","Travel to work, school, college or childcare by Train, DART or LUAS",Transport (percentage of population aged 5 years and over),5,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_MT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Motorcycle or scooter - Total,"Travel to work, school, college or childcare by Motorcycle or scooter",Transport (percentage of population aged 5 years and over),6,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_CDT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Car driver - Total,"Travel to work, school, college or childcare by Car driver",Transport (percentage of population aged 5 years and over),7,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_CPT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Car passenger - Total,"Travel to work, school, college or childcare by Car passenger",Transport (percentage of population aged 5 years and over),8,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_VT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Van - Total,"Travel to work, school, college or childcare by Van",Transport (percentage of population aged 5 years and over),9,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_OTHT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Other (incl. lorry) - Total,"Travel to work, school, college or childcare by Other (incl. lorry)",Transport (percentage of population aged 5 years and over),10,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_WMFHT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Work mainly at or from home - Total,Work mainly at or from home,Transport (percentage of population aged 5 years and over),11,"Population aged 5 years and over by means of travel to work, school or college"
+"Theme 11: Commuting  , Working from Home and Childcare",T11_3_D1,T11_3_T,Population aged 5 years and over,Under 15 mins,"Journey time to work, school or college is Under 15 mins",Transport (percentage of population aged 5 years and over),12,"Population aged 5 years and over by journey time to work, school or college "
+,T11_3_D2,T11_3_T,Population aged 5 years and over,1/4 hour - under 1/2 hour,"Journey time to work, school or college is 1/4 hour - under 1/2 hour",Transport (percentage of population aged 5 years and over),13,"Population aged 5 years and over by journey time to work, school or college "
+,T11_3_D3,T11_3_T,Population aged 5 years and over,1/2 hour - under 3/4 hour,"Journey time to work, school or college is 1/2 hour - under 3/4 hour",Transport (percentage of population aged 5 years and over),14,"Population aged 5 years and over by journey time to work, school or college "
+,T11_3_D4,T11_3_T,Population aged 5 years and over,3/4 hour - under 1 hour,"Journey time to work, school or college is 3/4 hour - under 1 hour",Transport (percentage of population aged 5 years and over),15,"Population aged 5 years and over by journey time to work, school or college "
+,T11_3_D5,T11_3_T,Population aged 5 years and over,1 hour - under 1 1/2 hours,"Journey time to work, school or college is 1 hour - under 1 1/2 hours",Transport (percentage of population aged 5 years and over),16,"Population aged 5 years and over by journey time to work, school or college "
+,T11_3_D6,T11_3_T,Population aged 5 years and over,1 1/2 hours and over,"Journey time to work, school or college is 1 1/2 hours and over",Transport (percentage of population aged 5 years and over),17,"Population aged 5 years and over by journey time to work, school or college "
+,T1_1AGE0T,T1_1AGETT,Persons,Age 0 - Total,Age 0 - Total,Age1,1,Population by Age
+,T1_1AGE1T,T1_1AGETT,Persons,Age 1 - Total,Age 1 - Total,Age1,2,Population by Age
+,T1_1AGE2T,T1_1AGETT,Persons,Age 2 - Total,Age 2 - Total,Age1,3,Population by Age
+,T1_1AGE3T,T1_1AGETT,Persons,Age 3 - Total,Age 3 - Total,Age1,4,Population by Age
+,T1_1AGE4T,T1_1AGETT,Persons,Age 4 - Total,Age 4 - Total,Age1,5,Population by Age
+,T1_1AGE5T,T1_1AGETT,Persons,Age 5 - Total,Age 5 - Total,Age1,6,Population by Age
+,T1_1AGE6T,T1_1AGETT,Persons,Age 6 - Total,Age 6 - Total,Age1,7,Population by Age
+,T1_1AGE7T,T1_1AGETT,Persons,Age 7 - Total,Age 7 - Total,Age1,8,Population by Age
+,T1_1AGE8T,T1_1AGETT,Persons,Age 8 - Total,Age 8 - Total,Age1,9,Population by Age
+,T1_1AGE9T,T1_1AGETT,Persons,Age 9 - Total,Age 9 - Total,Age1,10,Population by Age
+,T1_1AGE10T,T1_1AGETT,Persons,Age 10 - Total,Age 10 - Total,Age1,11,Population by Age
+,T1_1AGE11T,T1_1AGETT,Persons,Age 11 - Total,Age 11 - Total,Age1,12,Population by Age
+,T1_1AGE12T,T1_1AGETT,Persons,Age 12 - Total,Age 12 - Total,Age1,13,Population by Age
+,T1_1AGE13T,T1_1AGETT,Persons,Age 13 - Total,Age 13 - Total,Age1,14,Population by Age
+,T1_1AGE14T,T1_1AGETT,Persons,Age 14 - Total,Age 14 - Total,Age1,15,Population by Age
+,T1_1AGE15T,T1_1AGETT,Persons,Age 15 - Total,Age 15 - Total,Age1,16,Population by Age
+,T1_1AGE16T,T1_1AGETT,Persons,Age 16 - Total,Age 16 - Total,Age1,17,Population by Age
+,T1_1AGE17T,T1_1AGETT,Persons,Age 17 - Total,Age 17 - Total,Age1,18,Population by Age
+,T1_1AGE18T,T1_1AGETT,Persons,Age 18 - Total,Age 18 - Total,Age1,19,Population by Age
+,T1_1AGE19T,T1_1AGETT,Persons,Age 19 - Total,Age 19 - Total,Age1,20,Population by Age
+,T1_1AGE20_24T,T1_1AGETT,Persons,Age 20 - 24 - Total,Age 20 - 24 - Total,Age1,21,Population by Age
+,T1_1AGE25_29T,T1_1AGETT,Persons,Age 25 - 29 - Total,Age 25 - 29 - Total,Age1,22,Population by Age
+,T1_1AGE30_34T,T1_1AGETT,Persons,Age 30 - 34 - Total,Age 30 - 34 - Total,Age1,23,Population by Age
+,T1_1AGE35_39T,T1_1AGETT,Persons,Age 35 - 39 - Total,Age 35 - 39 - Total,Age1,24,Population by Age
+,T1_1AGE40_44T,T1_1AGETT,Persons,Age 40 - 44 - Total,Age 40 - 44 - Total,Age1,25,Population by Age
+,T1_1AGE45_49T,T1_1AGETT,Persons,Age 45 - 49 - Total,Age 45 - 49 - Total,Age1,26,Population by Age
+,T1_1AGE50_54T,T1_1AGETT,Persons,Age 50 - 54 - Total,Age 50 - 54 - Total,Age1,27,Population by Age
+,T1_1AGE55_59T,T1_1AGETT,Persons,Age 55 - 59 - Total,Age 55 - 59 - Total,Age1,28,Population by Age
+,T1_1AGE60_64T,T1_1AGETT,Persons,Age 60 - 64 - Total,Age 60 - 64 - Total,Age1,29,Population by Age
+,T1_1AGE65_69T,T1_1AGETT,Persons,Age 65 - 69 - Total,Age 65 - 69 - Total,Age1,30,Population by Age
+,T1_1AGE70_74T,T1_1AGETT,Persons,Age 70 - 74 - Total,Age 70 - 74 - Total,Age1,31,Population by Age
+,T1_1AGE75_79T,T1_1AGETT,Persons,Age 75 - 79 - Total,Age 75 - 79 - Total,Age1,32,Population by Age
+,T1_1AGE80_84T,T1_1AGETT,Persons,Age 80 - 84 - Total,Age 80 - 84 - Total,Age1,33,Population by Age
+,T1_1AGEGE_85T,T1_1AGETT,Persons,Age 85 and over - Total,Age 85 and over - Total,Age1,34,Population by Age
+,T1_1AGETT,T1_1AGETT,Persons,Total,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+"Theme 1: Sex, Age and Marital Status ",T1_1AGE0M,T1_1AGETM,Males,Age 0 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE1M,T1_1AGETM,Males,Age 1 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE2M,T1_1AGETM,Males,Age 2 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE3M,T1_1AGETM,Males,Age 3 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE4M,T1_1AGETM,Males,Age 4 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE5M,T1_1AGETM,Males,Age 5 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE6M,T1_1AGETM,Males,Age 6 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE7M,T1_1AGETM,Males,Age 7 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE8M,T1_1AGETM,Males,Age 8 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE9M,T1_1AGETM,Males,Age 9 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE10M,T1_1AGETM,Males,Age 10 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE11M,T1_1AGETM,Males,Age 11 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE12M,T1_1AGETM,Males,Age 12 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE13M,T1_1AGETM,Males,Age 13 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE14M,T1_1AGETM,Males,Age 14 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE15M,T1_1AGETM,Males,Age 15 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE16M,T1_1AGETM,Males,Age 16 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE17M,T1_1AGETM,Males,Age 17 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE18M,T1_1AGETM,Males,Age 18 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE19M,T1_1AGETM,Males,Age 19 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE20_24M,T1_1AGETM,Males,Age 20 - 24 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE25_29M,T1_1AGETM,Males,Age 25 - 29 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE30_34M,T1_1AGETM,Males,Age 30 - 34 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE35_39M,T1_1AGETM,Males,Age 35 - 39 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE40_44M,T1_1AGETM,Males,Age 40 - 44 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE45_49M,T1_1AGETM,Males,Age 45 - 49 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE50_54M,T1_1AGETM,Males,Age 50 - 54 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE55_59M,T1_1AGETM,Males,Age 55 - 59 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE60_64M,T1_1AGETM,Males,Age 60 - 64 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE65_69M,T1_1AGETM,Males,Age 65 - 69 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE70_74M,T1_1AGETM,Males,Age 70 - 74 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE75_79M,T1_1AGETM,Males,Age 75 - 79 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE80_84M,T1_1AGETM,Males,Age 80 - 84 - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGEGE_85M,T1_1AGETM,Males,Age 85 and over - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGETM,T1_1AGETM,Males,Total - Males,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE0F,T1_1AGETF,Females,Age 0 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE1F,T1_1AGETF,Females,Age 1 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE2F,T1_1AGETF,Females,Age 2 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE3F,T1_1AGETF,Females,Age 3 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE4F,T1_1AGETF,Females,Age 4 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE5F,T1_1AGETF,Females,Age 5 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE6F,T1_1AGETF,Females,Age 6 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE7F,T1_1AGETF,Females,Age 7 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE8F,T1_1AGETF,Females,Age 8 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE9F,T1_1AGETF,Females,Age 9 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE10F,T1_1AGETF,Females,Age 10 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE11F,T1_1AGETF,Females,Age 11 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE12F,T1_1AGETF,Females,Age 12 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE13F,T1_1AGETF,Females,Age 13 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE14F,T1_1AGETF,Females,Age 14 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE15F,T1_1AGETF,Females,Age 15 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE16F,T1_1AGETF,Females,Age 16 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE17F,T1_1AGETF,Females,Age 17 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE18F,T1_1AGETF,Females,Age 18 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE19F,T1_1AGETF,Females,Age 19 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE20_24F,T1_1AGETF,Females,Age 20 - 24 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE25_29F,T1_1AGETF,Females,Age 25 - 29 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE30_34F,T1_1AGETF,Females,Age 30 - 34 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE35_39F,T1_1AGETF,Females,Age 35 - 39 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE40_44F,T1_1AGETF,Females,Age 40 - 44 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE45_49F,T1_1AGETF,Females,Age 45 - 49 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE50_54F,T1_1AGETF,Females,Age 50 - 54 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE55_59F,T1_1AGETF,Females,Age 55 - 59 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE60_64F,T1_1AGETF,Females,Age 60 - 64 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE65_69F,T1_1AGETF,Females,Age 65 - 69 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE70_74F,T1_1AGETF,Females,Age 70 - 74 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE75_79F,T1_1AGETF,Females,Age 75 - 79 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGE80_84F,T1_1AGETF,Females,Age 80 - 84 - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGEGE_85F,T1_1AGETF,Females,Age 85 and over - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+,T1_1AGETF,T1_1AGETF,Females,Total - Females,Missing,Missing,Missing,"Population aged 0 - 19 by sex and year of age, persons aged 20 years and over by sex and age group"
+"Theme 1: Sex, Age and Marital Status ",T1_2SGLM,T1_2TM,Males,Single - Males,Missing,Missing,Missing,Population by sex and marital status
+,T1_2MARM,T1_2TM,Males,Married (incl. same sex civil partnership) - Males,Missing,Missing,Missing,Population by sex and marital status
+,T1_2SEPM,T1_2TM,Males,Separated - Males,Missing,Missing,Missing,Population by sex and marital status
+,T1_2DIVM,T1_2TM,Males,Divorced - Males,Missing,Missing,Missing,Population by sex and marital status
+,T1_2WIDM,T1_2TM,Males,Widowed - Males,Missing,Missing,Missing,Population by sex and marital status
+,T1_2TM,T1_2TM,Males,Total - Males,Missing,Missing,Missing,Population by sex and marital status
+,T1_2SGLF,T1_2TF,Females,Single - Females,Missing,Missing,Missing,Population by sex and marital status
+,T1_2MARF,T1_2TF,Females,Married (incl. same sex civil partnership) - Females,Missing,Missing,Missing,Population by sex and marital status
+,T1_2SEPF,T1_2TF,Females,Separated - Females,Missing,Missing,Missing,Population by sex and marital status
+,T1_2DIVF,T1_2TF,Females,Divorced - Females,Missing,Missing,Missing,Population by sex and marital status
+,T1_2WIDF,T1_2TF,Females,Widowed - Females,Missing,Missing,Missing,Population by sex and marital status
+,T1_2TF,T1_2TF,Females,Total - Females,Missing,Missing,Missing,Population by sex and marital status
+,T1_2T,T1_2T,Persons,Total ,Missing,Missing,Missing,Population by sex and marital status
+,T2_1TBP,T2_1TBP,Usually Resident Population,Total - Birthplace,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1IEC,T2_1TC,Usually Resident Population,Ireland - Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1UKC,T2_1TC,Usually Resident Population,UK - Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1PLC,T2_1TC,Usually Resident Population,Poland - Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1INC,T2_1TC,Usually Resident Population,India - Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1EUC,T2_1TC,Usually Resident Population,Other EU28 - Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1RWC,T2_1TC,Usually Resident Population,Rest of world -Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1NSC,T2_1TC,Usually Resident Population,Not stated -Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_1TC,T2_1TC,Usually Resident Population,Total - Citizenship,Missing,Missing,Missing,Usually resident population by place of birth and nationality 
+,T2_2NS,T2_2T,Usually Resident Population,Not stated,Missing,Missing,Missing,Usually resident population by ethnic or cultural background 
+,T2_2T,T2_2T,Usually Resident Population,Total,Missing,Missing,Missing,Usually resident population by ethnic or cultural background 
+"Theme 2: Migration, Ethnicity, Religion and Foreign Languages",T2_3SA,T2_3T,Usually Resident Population,Same address,Missing,Missing,Missing,Usually resident population aged 1 year and over by usual residence 1 year before Census Day
+,T2_3EC,T2_3T,Usually Resident Population,Elsewhere in county,Missing,Missing,Missing,Usually resident population aged 1 year and over by usual residence 1 year before Census Day
+,T2_3EI,T2_3T,Usually Resident Population,Elsewhere in Ireland,Missing,Missing,Missing,Usually resident population aged 1 year and over by usual residence 1 year before Census Day
+,T2_3T,T2_3T,Usually Resident Population,Total,Missing,Missing,Missing,Usually resident population aged 1 year and over by usual residence 1 year before Census Day
+"Theme 2: Migration, Ethnicity, Religion and Foreign Languages",T2_4CA,T2_4T,Persons,Catholic,Missing,Missing,Missing,Population by religion
+,T2_4OR,T2_4T,Persons,Other religion,Missing,Missing,Missing,Population by religion
+,T2_4NR,T2_4T,Persons,No religion,Missing,Missing,Missing,Population by religion
+,T2_4NS,T2_4T,Persons,Not stated,Missing,Missing,Missing,Population by religion
+,T2_4T,T2_4T,Persons,Total,Missing,Missing,Missing,Population by religion
+"Theme 2: Migration, Ethnicity, Religion and Foreign Languages",T2_5PL,T2_5T,Speakers of Foreign Languages,Polish,Missing,Missing,Missing,Speakers of foreign languages by language spoken 
+,T2_5FR,T2_5T,Speakers of Foreign Languages,French,Missing,Missing,Missing,Speakers of foreign languages by language spoken 
+,T2_5ES,T2_5T,Speakers of Foreign Languages,Spanish,Missing,Missing,Missing,Speakers of foreign languages by language spoken 
+,T2_5OTH,T2_5T,Speakers of Foreign Languages,Other (incl. not stated),Missing,Missing,Missing,Speakers of foreign languages by language spoken 
+,T2_5T,T2_5T,Speakers of Foreign Languages,Total,Missing,Missing,Missing,Speakers of foreign languages by language spoken 
+"Theme 2: Migration, Ethnicity, Religion and Foreign Languages",T2_6VW,T2_6T,Speakers of Foreign Languages,Very well,Missing,Missing,Missing,Speakers of foreign languages by ability to speak English 
+,T2_6W,T2_6T,Speakers of Foreign Languages,Well,Missing,Missing,Missing,Speakers of foreign languages by ability to speak English 
+,T2_6NS,T2_6T,Speakers of Foreign Languages,Not stated,Missing,Missing,Missing,Speakers of foreign languages by ability to speak English 
+,T2_6T,T2_6T,Speakers of Foreign Languages,Total,Missing,Missing,Missing,Speakers of foreign languages by ability to speak English 
+Theme 3: Irish Language ,T3_1YES,T3_1T,Population aged 3 years and over,Yes,Missing,Missing,Missing,Population aged 3 years and over by ability to speak Irish
+,T3_1NO,T3_1T,Population aged 3 years and over,No,Missing,Missing,Missing,Population aged 3 years and over by ability to speak Irish
+,T3_1NS,T3_1T,Population aged 3 years and over,Not stated,Missing,Missing,Missing,Population aged 3 years and over by ability to speak Irish
+,T3_1T,T3_1T,Population aged 3 years and over,Total,Missing,Missing,Missing,Population aged 3 years and over by ability to speak Irish
+Theme 3: Irish Language ,T3_2DIM,T1_1AGETM,Males,Daily only within the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIDOM,T1_1AGETM,Males,Daily within and daily outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIWOM,T1_1AGETM,Males,Daily within and weekly outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DILOOM,T1_1AGETM,Males,Daily within and less often outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DINOM,T1_1AGETM,Males,Daily within and never outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DOESM,T1_1AGETM,Males,Daily only outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2WOESM,T1_1AGETM,Males,Weekly only outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2LOOESM,T1_1AGETM,Males,Less often only outside the education system - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2NOESM,T1_1AGETM,Males,Never speaks Irish - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2NSM,T1_1AGETM,Males,Not stated - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2ALLM,T1_1AGETM,Males,All Irish speakers - Males,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIF,T1_1AGETF,Females,Daily only within the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIDOF,T1_1AGETF,Females,Daily within and daily outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIWOF,T1_1AGETF,Females,Daily within and weekly outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DILOOF,T1_1AGETF,Females,Daily within and less often outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DINOF,T1_1AGETF,Females,Daily within and never outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DOESF,T1_1AGETF,Females,Daily only outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2WOESF,T1_1AGETF,Females,Weekly only outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2LOOESF,T1_1AGETF,Females,Less often only outside the education system - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2NOESF,T1_1AGETF,Females,Never speaks Irish - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2NSF,T1_1AGETF,Females,Not stated - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2ALLF,T1_1AGETF,Females,All Irish speakers - Females,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIT,T1_1AGETT,Persons,Daily only within the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIDOT,T1_1AGETT,Persons,Daily within and daily outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DIWOT,T1_1AGETT,Persons,Daily within and weekly outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DILOOT,T1_1AGETT,Persons,Daily within and less often outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DINOT,T1_1AGETT,Persons,Daily within and never outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2DOEST,T1_1AGETT,Persons,Daily only outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2WOEST,T1_1AGETT,Persons,Weekly only outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2LOOEST,T1_1AGETT,Persons,Less often only outside the education system - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2NOEST,T1_1AGETT,Persons,Never speaks Irish - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2NST,T1_1AGETT,Persons,Not stated - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+,T3_2ALLT,T1_1AGETT,Persons,All Irish speakers - Total,Missing,Missing,Missing,Irish speakers aged 3 years and over by frequency of speaking Irish
+Theme 4: Families ,T4_1_2PF,T4_1_TF,Families,2 persons (No. of families),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_3PF,T4_1_TF,Families,3 persons (No. of families),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_4PF,T4_1_TF,Families,4 persons (No. of families),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_5PF,T4_1_TF,Families,5 persons (No. of families),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_GRE_6PF,T4_1_TF,Families,6 or more persons (No. of families),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_TF,T4_1_TF,Families,Total (No. of families),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_2PP,T4_1_TP,Persons,2 persons (No. of persons),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_3PP,T4_1_TP,Persons,3 persons (No. of persons),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_4PP,T4_1_TP,Persons,4 persons (No. of persons),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_5PP,T4_1_TP,Persons,5 persons (No. of persons),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_GRE_6PP,T4_1_TP,Persons,6 or more persons (No. of persons),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_TP,T4_1_TP,Persons,Total (No. of persons),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_2PC,T4_1_TC,Children,2 persons (No. of children),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_3PC,T4_1_TC,Children,3 persons (No. of children),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_4PC,T4_1_TC,Children,4 persons (No. of children),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_5PC,T4_1_TC,Children,5 persons (No. of children),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_GRE_6PC,T4_1_TC,Children,6 or more persons (No. of children),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+,T4_1_TC,T4_1_TC,Children,Total (No. of children),Missing,Missing,Missing,"Families, family members and children in families, by size of family"
+Theme 4: Families ,T4_2_1CU15,T4_2_TCT,Family Units With Children,Families with 1 child - All children aged under 15,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_2CU15,T4_2_TCT,Family Units With Children,Families with 2 children - All children aged under 15,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_3CU15,T4_2_TCT,Family Units With Children,Familes with 3 children - All children aged under 15,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_4CU15,T4_2_TCT,Family Units With Children,Families with 4 children - All children aged under 15,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_GE5CU15,T4_2_TCT,Family Units With Children,Families with 5 or more children - All children aged under 15,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_TCU15,T4_2_TCT,Family Units With Children,Total families - All children aged under 15,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_1CO15,T4_2_TCT,Family Units With Children,Families with 1 child - All children aged 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_2CO15,T4_2_TCT,Family Units With Children,Families with 2 children - All children aged 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_3CO15,T4_2_TCT,Family Units With Children,Familes with 3 children - All children aged 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_4CO15,T4_2_TCT,Family Units With Children,Families with 4 children - All children aged 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_GE5CO15,T4_2_TCT,Family Units With Children,Families with 5 or more children - All children aged 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_TCO15,T4_2_TCT,Family Units With Children,Total families - All children aged 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_2CUO15,T4_2_TCT,Family Units With Children,Families with 2 children - All children aged both under 15 and 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_3CUO15,T4_2_TCT,Family Units With Children,Familes with 3 children - All children aged both under 15 and 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_4CUO15,T4_2_TCT,Family Units With Children,Families with 4 children - All children aged both under 15 and 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_GE5CUO15,T4_2_TCT,Family Units With Children,Families with 5 or more children - All children aged both under 15 and 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_TCUO15,T4_2_TCT,Family Units With Children,Total families - All children aged both under 15 and 15 and over,Missing,Missing,Missing,Family units with children by size and age of children 
+,T4_2_TCT,T4_2_TCT,Family Units With Children,Total families - Total,Missing,Missing,Missing,Family units with children by size and age of children 
+Theme 4: Families ,T4_3FCCU15,T4_2_TCT,Family Units With Children,Couples with all children aged under 15 (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FCCO15,T4_2_TCT,Family Units With Children,Couples with all children aged 15 and over (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FCCUO15,T4_2_TCT,Family Units With Children,Couples with all children aged both under 15 and 15 and over (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FOPMCU15,T4_2_TCT,Family Units With Children,One parent family (mother) with all children aged under 15 (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FOPMCO15,T4_2_TCT,Family Units With Children,One parent family (mother) with all children aged 15 and over (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FOPMCUO15,T4_2_TCT,Family Units With Children,One parent family (mother) with all children aged both under 15 and 15 and over (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FOPFCU15,T4_2_TCT,Family Units With Children,One parent family (father) with all children aged under 15 (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FOPFCO15,T4_2_TCT,Family Units With Children,One parent family (father) with all children aged 15 and over (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3FOPFCUO15,T4_2_TCT,Family Units With Children,One parent family (father) with all children aged both under 15 and 15 and over (No. of families),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3CCCU15,T4_2_TCT,Family Units With Children,Couples with all children aged under 15 (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3CCCO15,T4_2_TCT,Family Units With Children,Couples with all children aged 15 and over (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3CCCUO15,T4_2_TCT,Family Units With Children,Couples with all children aged both under 15 and 15 and over (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3CCCT,T4_2_TCT,Family Units With Children,Total couples with children (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPMCU15,T4_2_TCT,Family Units With Children,One parent family (mother) with all children aged under 15 (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPMCO15,T4_2_TCT,Family Units With Children,One parent family (mother) with all children aged 15 and over (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPMCUO15,T4_2_TCT,Family Units With Children,One parent family (mother) with all children aged both under 15 and 15 and over (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPMCT,T4_2_TCT,Family Units With Children,Total one parent family (mother) with children (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPFCU15,T4_2_TCT,Family Units With Children,One parent family (father) with all children aged under 15 (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPFCO15,T4_2_TCT,Family Units With Children,One parent family (father) with all children aged 15 and over (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPFCUO15,T4_2_TCT,Family Units With Children,One parent family (father) with all children aged both under 15 and 15 and over (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_3COPFCT,T4_2_TCT,Family Units With Children,Total one parent family (father) with children (No. of children),Missing,Missing,Missing,Family units with children by type of family and age of children
+,T4_4TF,T4_4TF,Families,Total  (No. of families),Missing,Missing,Missing,Families by age of youngest child 
+,T4_4AGE0_4P,T4_4TP,Persons,Families with youngest child aged 0 - 4 (No. of persons),Missing,Missing,Missing,Families by age of youngest child 
+,T4_4AGE5_9P,T4_4TP,Persons,Families with youngest child aged 5 - 9 (No. of persons),Missing,Missing,Missing,Families by age of youngest child 
+,T4_4AGE10_14P,T4_4TP,Persons,Families with youngest child aged 10 - 14 (No. of persons),Missing,Missing,Missing,Families by age of youngest child 
+,T4_4AGE15_19P,T4_4TP,Persons,Families with youngest child aged 15 - 19 (No. of persons),Missing,Missing,Missing,Families by age of youngest child 
+,T4_4AGE_GE20P,T4_4TP,Persons,Families with youngest child aged 20 and over (No. of persons),Missing,Missing,Missing,Families by age of youngest child 
+,T4_4TP,T4_4TP,Persons,Total  (No. of persons),Missing,Missing,Missing,Families by age of youngest child 
+,T4_5TF,T4_5TF,Families,Total (No. of families),Missing,Missing,Missing,Families by family cycle 
+,T4_5PFP,T4_5TP,Persons,Pre-family (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5ENP,T4_5TP,Persons,Empty nest (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5RP,T4_5TP,Persons,Retired (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5PSP,T4_5TP,Persons,Pre-school (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5ESP,T4_5TP,Persons,Early school (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5PAP,T4_5TP,Persons,Pre-adolescent (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5ADOP,T4_5TP,Persons,Adolescent (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5ADUP,T4_5TP,Persons,Adult (No. of persons),Missing,Missing,Missing,Families by family cycle 
+,T4_5TP,T4_5TP,Persons,Total (No. of persons),Missing,Missing,Missing,Families by family cycle 
+Theme 5: Private Households ,T5_1OP_H,T5_1T_H,Private Households,One person households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1CCO_H,T5_1T_H,Private Households,Couple with children and others households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1OPFCO_H,T5_1T_H,Private Households,One parent family (father) with children and others households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1OPMCO_H,T5_1T_H,Private Households,One parent family (mother) with children and others households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1GETFU_H,T5_1T_H,Private Households,Two or more family units households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1NHR_H,T5_1T_H,Private Households,Non-family households and relations households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1T_H,T5_1T_H,Private Households,Total households (No. of households),Missing,Missing,Missing,Private households by type
+,T5_1OP_P,T5_1T_P,Persons,One person households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1MC_P,T5_1T_P,Persons,Married couple households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1CC_P,T5_1T_P,Persons,Cohabiting couple households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1MCC_P,T5_1T_P,Persons,Married couple with children households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1CCC_P,T5_1T_P,Persons,Cohabiting couple with children households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1OPFC_P,T5_1T_P,Persons,One parent family (father) with  children households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1OPMC_P,T5_1T_P,Persons,One parent family (mother) and children households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1CO_P,T5_1T_P,Persons,Couple and others households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1CCO_P,T5_1T_P,Persons,Couple with children and others households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1OPFCO_P,T5_1T_P,Persons,One parent family (father) with children and others households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1OPMCO_P,T5_1T_P,Persons,One parent family (mother) with children and others households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1GETFU_P,T5_1T_P,Persons,Two or more family units households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1NHR_P,T5_1T_P,Persons,Non-family households and relations households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1GENP_P,T5_1T_P,Persons,Two or more non-related persons households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_1T_P,T5_1T_P,Persons,Total households (No. of persons),Missing,Missing,Missing,Private households by type
+,T5_2_TH,T5_2_TH,Private Households,Total households (No. of households),Missing,Missing,Missing,Private households by size 
+,T5_2_1PP,T5_2_TP,Persons,1 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_2PP,T5_2_TP,Persons,2 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_3PP,T5_2_TP,Persons,3 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_4PP,T5_2_TP,Persons,4 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_5PP,T5_2_TP,Persons,5 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_6PP,T5_2_TP,Persons,6 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_7PP,T5_2_TP,Persons,7 person households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_GE8PP,T5_2_TP,Persons,8 or more persons households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T5_2_TP,T5_2_TP,Persons,Total households (No. of persons),Missing,Missing,Missing,Private households by size 
+,T6_1_TH,T6_1_TH,Private Households,Total (No. of households),Missing,Missing,Missing,Private households by type of accommodation 
+,T6_1_HB_P,T6_1_TP,Persons,House/Bungalow (No. of persons),Missing,Missing,Missing,Private households by type of accommodation 
+,T6_1_FA_P,T6_1_TP,Persons,Flat/Apartment (No. of persons),Missing,Missing,Missing,Private households by type of accommodation 
+,T6_1_BS_P,T6_1_TP,Persons,Bed-Sit (No. of persons),Missing,Missing,Missing,Private households by type of accommodation 
+,T6_1_CM_P,T6_1_TP,Persons,Caravan/Mobile home (No. of persons),Missing,Missing,Missing,Private households by type of accommodation 
+,T6_1_TP,T6_1_TP,Persons,Total (No. of persons),Missing,Missing,Missing,Private households by type of accommodation 
+,T6_2_NSH,T6_2_TH,Permanent Private Households,Not stated (No. of households),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_TH,T6_2_TH,Permanent Private Households,Total (No. of households),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_PRE19P,T6_2_TP,Persons,Pre 1919 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_19_45P,T6_2_TP,Persons,1919 - 1945 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_46_60P,T6_2_TP,Persons,1946 - 1960 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_61_70P,T6_2_TP,Persons,1961 - 1970 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_71_80P,T6_2_TP,Persons,1971 - 1980 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_81_90P,T6_2_TP,Persons,1981 - 1990 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_91_00P,T6_2_TP,Persons,1991 - 2000 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_01_10P,T6_2_TP,Persons,2001 - 2010 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_11_15P,T6_2_TP,Persons,2011 or 2015 (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+,T6_2_16LP,T6_2_TP,Persons,2016 or later  (No. of persons),Missing,Missing,Missing,Permanent private households by year built 
+Theme 6: Housing ,T6_2_NSP,T6_2_TP,Persons,Not stated (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_2_TP,T6_2_TP,Persons,Total (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_NSH,T6_3_TH,Permanent Private Households,Not stated (No. of households),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_TH,T6_3_TH,Permanent Private Households,Total (No. of households),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_OMLP,T6_3_TP,Persons,Owned with mortgage or loan (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_OOP,T6_3_TP,Persons,Owned outright (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_RPLP,T6_3_TP,Persons,Rented from private landlord (No. of persons) ,Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_RLAP,T6_3_TP,Persons,Rented from Local Authority (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_RVCHBP,T6_3_TP,Persons,Rented from voluntary/co-operative housing body (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_OFRP,T6_3_TP,Persons,Occupied free of rent (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_NSP,T6_3_TP,Persons,Not stated (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_3_TP,T6_3_TP,Persons,Total (No. of persons),Missing,Missing,Missing,Permanent private households by type of occupancy 
+,T6_4_NSH,T6_4_TH,Permanent Private Households,Not stated (No. of households),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_TH,T6_4_TH,Permanent Private Households,Total (No. of households),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_1RP,T6_4_TP,Persons,1 room (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_2RP,T6_4_TP,Persons,2 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_3RP,T6_4_TP,Persons,3 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_4RP,T6_4_TP,Persons,4 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_5RP,T6_4_TP,Persons,5 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_6RP,T6_4_TP,Persons,6 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_7RP,T6_4_TP,Persons,7 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_GE8RP,T6_4_TP,Persons,8 or more rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_NSP,T6_4_TP,Persons,Not stated (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_4_TP,T6_4_TP,Persons,Total (No. of persons),Missing,Missing,Missing,Permanent private households by number of rooms 
+,T6_5_OCH,T6_5_T,Permanent Private Households,Oil,Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_NGCH,T6_5_T,Permanent Private Households,Natural gas,Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_ECH,T6_5_T,Permanent Private Households,Electricity,Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_CCH,T6_5_T,Permanent Private Households,Coal (incl. anthracite),Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_PCH,T6_5_T,Permanent Private Households,Peat (incl. turf),Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_LPGCH,T6_5_T,Permanent Private Households,Liquid petroleum gas (LPG),Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_WCH,T6_5_T,Permanent Private Households,Wood (incl. wood pellets),Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_OTH,T6_5_T,Permanent Private Households,Other,Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_NS,T6_5_T,Permanent Private Households,Not stated,Missing,Missing,Missing,Permanent private households by central heating 
+,T6_5_T,T6_5_T,Permanent Private Households,Total,Missing,Missing,Missing,Permanent private households by central heating 
+,T6_6_NS,T6_6_T,Permanent Private Households,Not stated,Missing,Missing,Missing,Permanent private households by water supply 
+,T6_6_T,T6_6_T,Permanent Private Households,Total,Missing,Missing,Missing,Permanent private households by water supply 
+Theme 6: Housing ,T6_7_PS,T6_7_T,Permanent Private Households,Public scheme,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_7_IST,T6_7_T,Permanent Private Households,Individual septic tank,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_7_OIT,T6_7_T,Permanent Private Households,Other individual treatment,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_7_OTH,T6_7_T,Permanent Private Households,Other,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_7_NSF,T6_7_T,Permanent Private Households,No sewerage facility,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_7_NS,T6_7_T,Permanent Private Households,Not stated,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_7_T,T6_7_T,Permanent Private Households,Total,Missing,Missing,Missing,Permanent private households by sewerage facility 
+,T6_8_T,T6_8_T,Permanent Dwellings,Total,Missing,Missing,Missing,Occupancy status of permanent dwellings on Census night
+Theme 6: Housing ,T6_9_0BRH,T6_9_TH,Permanent Private Households,0 Bedrooms (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_1BRH,T6_9_TH,Permanent Private Households,1 bedroom (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_2BRH,T6_9_TH,Permanent Private Households,2 bedrooms (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_3BRH,T6_9_TH,Permanent Private Households,3 bedrooms (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_4BRH,T6_9_TH,Permanent Private Households,4 bedrooms (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_GE5BRH,T6_9_TH,Permanent Private Households,5 bedrooms (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_NSH,T6_9_TH,Permanent Private Households,Non stated (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_TH,T6_9_TH,Permanent Private Households,Total (No. of households),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_0BRP,T6_9_TP,Persons,0 Bedrooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_1BRP,T6_9_TP,Persons,1 bedroom (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_2BRP,T6_9_TP,Persons,2 rooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_3BRP,T6_9_TP,Persons,3 bedrooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_4BRP,T6_9_TP,Persons,4 bedrooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_GE5BRP,T6_9_TP,Persons,5 bedrooms (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_NSP,T6_9_TP,Persons,Non stated (No. of persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_9_TP,T6_9_TP,Persons,Total (No. of Persons),Missing,Missing,Missing,Permanent private households by number of bedrooms 
+,T6_10_NORE,T6_10_T,Permanent Private Households,No Renewable Energy,Missing,Missing,Missing,Permanent private households by number of renewables
+,T6_10_NS,T6_10_T,Permanent Private Households,Not stated,Missing,Missing,Missing,Permanent private households by number of renewables
+,T6_10_T,T6_10_T,Permanent Private Households,Total Renewables,Missing,Missing,Missing,Permanent private households by number of renewables
+Theme 6: Housing ,T6_11_GE1SA,T6_11_T,Permanent Private Households,Has at least 1 smoke alarm,Missing,Missing,Missing,Permanent private households by smoke alarms
+,T6_11_NOSA,T6_11_T,Permanent Private Households,No smoke alarms,Missing,Missing,Missing,Permanent private households by smoke alarms
+,T6_11_NS,T6_11_T,Permanent Private Households,Not stated,Missing,Missing,Missing,Permanent private households by smoke alarms
+,T6_11_T,T6_11_T,Permanent Private Households,Total,Missing,Missing,Missing,Permanent private households by smoke alarms
+Theme 8: Principal Status ,T8_1_WM,T8_1_TM,Males aged 15+,At work - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LFFJM,T8_1_TM,Males aged 15+,Looking for first regular job - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_STUM,T8_1_TM,Males aged 15+,short Term Unemployed  - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LTUM,T8_1_TM,Males aged 15+,Long Term Unemployed - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_SM,T8_1_TM,Males aged 15+,Student - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LAHFM,T8_1_TM,Males aged 15+,Looking after home/family - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_RM,T8_1_TM,Males aged 15+,Retired - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_UTWSDM,T8_1_TM,Males aged 15+,Unable to work due to permanent sickness or disability - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_OTHM,T8_1_TM,Males aged 15+,Other - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_TM,T8_1_TM,Males aged 15+,Total - Males,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_WF,T8_1_TF,Females aged 15+,At work - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LFFJF,T8_1_TF,Females aged 15+,Looking for first regular job - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_STUF,T8_1_TF,Females aged 15+,short Term Unemployed  - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LTUF,T8_1_TF,Females aged 15+,Long Term Unemployed - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_SF,T8_1_TF,Females aged 15+,Student - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_LAHFF,T8_1_TF,Females aged 15+,Looking after home/family - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_RF,T8_1_TF,Females aged 15+,Retired - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_UTWSDF,T8_1_TF,Females aged 15+,Unable to work due to permanent sickness or disability - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_OTHF,T8_1_TF,Females aged 15+,Other - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_TF,T8_1_TF,Females aged 15+,Total - Females,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+,T8_1_TT,T8_1_TT,Persons aged 15+,Total,Missing,Missing,Missing,Population aged 15 years and over by principal economic status and sex 
+Theme 9: Social Class and Socio-Economic Group ,T9_1_PWM,T9_1_TM,Males,Professional workers - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_MTM,T9_1_TM,Males,Managerial and technical - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_NMM,T9_1_TM,Males,Non-manual - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_SM,T9_1_TM,Males,Skilled manual - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_SSM,T9_1_TM,Males,Semi-skilled - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_USM,T9_1_TM,Males,Unskilled - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_OTHGEUM,T9_1_TM,Males,All others gainfully occupied and unknown - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_TM,T9_1_TM,Males,Total - Males,Missing,Missing,Missing,Population by sex and social class
+,T9_1_PWF,T9_1_TF,Females,Professional workers - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_MTF,T9_1_TF,Females,Managerial and technical - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_NMF,T9_1_TF,Females,Non-manual - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_SF,T9_1_TF,Females,Skilled manual - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_SSF,T9_1_TF,Females,Semi-skilled - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_USF,T9_1_TF,Females,Unskilled - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_OTHGEUF,T9_1_TF,Females,All others gainfully occupied and unknown - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_TF,T9_1_TF,Females,Total - Females,Missing,Missing,Missing,Population by sex and social class
+,T9_1_TT,T9_1_TT,Persons,Total,Missing,Missing,Missing,Population by sex and social class
+,T9_2_HT,T9_2_HT,Persons in private households,Total (No. of households),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PA,T9_2_PT,Persons in private households,A Employers and managers (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PB,T9_2_PT,Persons in private households,B Higher professional (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PC,T9_2_PT,Persons in private households,C Lower professional (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PD,T9_2_PT,Persons in private households,D Non-manual (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PE,T9_2_PT,Persons in private households,E Manual skilled (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PF,T9_2_PT,Persons in private households,F Semi-skilled (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PG,T9_2_PT,Persons in private households,G Unskilled (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PH,T9_2_PT,Persons in private households,H Own account workers (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PI,T9_2_PT,Persons in private households,I Farmers (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PJ,T9_2_PT,Persons in private households,J Agricultural workers (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PZ,T9_2_PT,Persons in private households,Z All others gainfully occupied and unknown (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+,T9_2_PT,T9_2_PT,Persons in private households,Total (No. of persons),Missing,Missing,Missing,Persons in private households by socio-economic group of reference person
+Theme 10: Education ,T10_1_LT15M,T10_1_TM,Males aged 15+,Age under 15 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_15M,T10_1_TM,Males aged 15+,Age 15 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_16M,T10_1_TM,Males aged 15+,Age 16 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_17M,T10_1_TM,Males aged 15+,Age 17 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_18M,T10_1_TM,Males aged 15+,Age 18 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_19M,T10_1_TM,Males aged 15+,Age 19 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_20M,T10_1_TM,Males aged 15+,Age 20 - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_GE21M,T10_1_TM,Males aged 15+,Age 21 and over - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_NSM,T10_1_TM,Males aged 15+,Not stated - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_TM,T10_1_TM,Males aged 15+,Total - Males,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_LT15F,T10_1_TF,Females aged 15+,Age under 15 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_15F,T10_1_TF,Females aged 15+,Age 15 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_16F,T10_1_TF,Females aged 15+,Age 16 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_17F,T10_1_TF,Females aged 15+,Age 17 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_18F,T10_1_TF,Females aged 15+,Age 18 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_19F,T10_1_TF,Females aged 15+,Age 19 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_20F,T10_1_TF,Females aged 15+,Age 20 - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_GE21F,T10_1_TF,Females aged 15+,Age 21 and over - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_NSF,T10_1_TF,Females aged 15+,Not stated - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_TF,T10_1_TF,Females aged 15+,Total - Females,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_LT15T,T10_1_TT,Persons aged 15+,Age under 15 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_15T,T10_1_TT,Persons aged 15+,Age 15 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_16T,T10_1_TT,Persons aged 15+,Age 16 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_17T,T10_1_TT,Persons aged 15+,Age 17 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_18T,T10_1_TT,Persons aged 15+,Age 18 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_19T,T10_1_TT,Persons aged 15+,Age 19 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_20T,T10_1_TT,Persons aged 15+,Age 20 - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_GE21T,T10_1_TT,Persons aged 15+,Age 21 and over - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_NST,T10_1_TT,Persons aged 15+,Not stated - Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+,T10_1_TT,T10_1_TT,Persons aged 15+,Total,Missing,Missing,Missing,Population aged 15 years and over by age education ceased 
+Theme 10: Education ,T10_2_SASM,T10_1_TM,Males aged 15+,Still at school or college - Males,Missing,Missing,Missing,Population aged 15 years and over whose education has not ceased
+,T10_2_OTHM,T10_1_TM,Males aged 15+,Other - Males,Missing,Missing,Missing,Population aged 15 years and over whose education has not ceased
+,T10_2_SASF,T10_1_TF,Females aged 15+,Still at school or college - Females,Missing,Missing,Missing,Population aged 15 years and over whose education has not ceased
+,T10_2_OTHF,T10_1_TF,Females aged 15+,Other - Females,Missing,Missing,Missing,Population aged 15 years and over whose education has not ceased
+,T10_2_SAST,T10_1_TT,Persons aged 15+,Still at school or college - Total,Missing,Missing,Missing,Population aged 15 years and over whose education has not ceased
+,T10_2_OTHT,T10_1_TT,Persons aged 15+,Other - Total,Missing,Missing,Missing,Population aged 15 years and over whose education has not ceased
+Theme 10: Education ,T10_4_NFM,T10_4_TM,Males aged 15+,No formal education - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_PM,T10_4_TM,Males aged 15+,Primary education - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_LSM,T10_4_TM,Males aged 15+,Lower secondary - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_USM,T10_4_TM,Males aged 15+,Upper secondary - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_TVM,T10_4_TM,Males aged 15+,Technical or vocational qualification - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_ACCAM,T10_4_TM,Males aged 15+,Advanced certificate/Completed apprenticeship - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_HCM,T10_4_TM,Males aged 15+,Higher certificate - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_ODNDM,T10_4_TM,Males aged 15+,Ordinary bachelor degree or national diploma - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_HDPQM,T10_4_TM,Males aged 15+,"Honours bachelor degree, professional qualification or both - Males",Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_PDM,T10_4_TM,Males aged 15+,Postgraduate diploma or degree - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_DM,T10_4_TM,Males aged 15+,Doctorate(Ph.D) or higher - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_NSM,T10_4_TM,Males aged 15+,Not stated - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_TM,T10_4_TM,Males aged 15+,Total - Males,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_NFF,T10_4_TF,Females aged 15+,No formal education - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_PF,T10_4_TF,Females aged 15+,Primary education - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_LSF,T10_4_TF,Females aged 15+,Lower secondary - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_USF,T10_4_TF,Females aged 15+,Upper secondary - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_TVF,T10_4_TF,Females aged 15+,Technical or vocational qualification - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_ACCAF,T10_4_TF,Females aged 15+,Advanced certificate/Completed apprenticeship - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_HCF,T10_4_TF,Females aged 15+,Higher certificate - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_ODNDF,T10_4_TF,Females aged 15+,Ordinary bachelor degree or national diploma - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_HDPQF,T10_4_TF,Females aged 15+,"Honours bachelor degree, professional qualification or both - Females",Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_PDF,T10_4_TF,Females aged 15+,Postgraduate diploma or degree - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_DF,T10_4_TF,Females aged 15+,Doctorate(Ph.D) or higher - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_NSF,T10_4_TF,Females aged 15+,Not stated - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_TF,T10_4_TF,Females aged 15+,Total - Females,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+,T10_4_TT,T10_4_TT,Persons aged 15+,Total,Missing,Missing,Missing,Population aged 15 years and over by sex and highest level of education completed 
+"Theme 11: Commuting  , Working from Home and Childcare",T11_1_FW,T11_1_TW,Population aged 5 years+ travelling to work,On foot - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_BIW,T11_1_TW,Population aged 5 years+ travelling to work,Bicycle - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_BUW,T11_1_TW,Population aged 5 years+ travelling to work,"Bus, minibus or coach - Work",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_TDLW,T11_1_TW,Population aged 5 years+ travelling to work,"Train, DART or LUAS - Work",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_MW,T11_1_TW,Population aged 5 years+ travelling to work,Motorcycle or scooter - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_CDW,T11_1_TW,Population aged 5 years+ travelling to work,Car driver - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_CPW,T11_1_TW,Population aged 5 years+ travelling to work,Car passenger - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_VW,T11_1_TW,Population aged 5 years+ travelling to work,Van - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_OTHW,T11_1_TW,Population aged 5 years+ travelling to work,Other (incl. lorry) - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_WMFHW,T11_1_TW,Population aged 5 years+ travelling to work,Work mainly at or from home - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_NSW,T11_1_TW,Population aged 5 years+ travelling to work,Not stated - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_TW,T11_1_TW,Population aged 5 years+ travelling to work,Total - Work,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_FSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","On foot - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_BISCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Bicycle - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_BUSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Bus, minibus or coach - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_TDLSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Train, DART or LUAS - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_MSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Motorcycle or scooter - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_CDSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Car driver - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_CPSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Car passenger - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_VSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Van - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_OTHSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Other (incl. lorry) - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_WMFHSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Work mainly at or from home - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_NSSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Not stated - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_TSCCC,T11_1_TSCCC,"Population aged 5 years+ travelling to school, college or childcare","Total - School, college or childcare",Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_NST,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Not stated - Total,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+,T11_1_TT,T11_1_TT,"Population aged 5 years+ travelling to work, school, college or childcare",Total,Missing,Missing,Missing,"Population aged 5 years and over by means of travel to work, school or college"
+"Theme 11: Commuting  , Working from Home and Childcare",T11_2_T1,T11_2_T,Population aged 5 years and over,Before 06:30,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T2,T11_2_T,Population aged 5 years and over,06:30 - 07:00,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T3,T11_2_T,Population aged 5 years and over,07:01 - 07:30,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T4,T11_2_T,Population aged 5 years and over,07:31 - 08:00,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T5,T11_2_T,Population aged 5 years and over,08:01 - 08:30,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T6,T11_2_T,Population aged 5 years and over,08:31 - 09:00,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T7,T11_2_T,Population aged 5 years and over,09:01 - 09:30,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T8,T11_2_T,Population aged 5 years and over,After 09:30,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_NS,T11_2_T,Population aged 5 years and over,Not stated,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_2_T,T11_2_T,Population aged 5 years and over,Total,Missing,Missing,Missing,"Population aged 5 years and over by time leaving home to travel to work, school or college "
+,T11_3_NS,T11_3_T,Population aged 5 years and over,Not stated,Missing,Missing,Missing,"Population aged 5 years and over by journey time to work, school or college "
+,T11_3_T,T11_3_T,Population aged 5 years and over,Total,Missing,Missing,Missing,"Population aged 5 years and over by journey time to work, school or college "
+,T11_4_WFH,T11_4_T,Population aged 15 years and over,Persons who work from home,Missing,Missing,Missing,Population aged 15 years and over by working from home
+,T11_4_NWFH,T11_4_T,Population aged 15 years and over,Persons who never work from home,Missing,Missing,Missing,Population aged 15 years and over by working from home
+,T11_4_NS,T11_4_T,Population aged 15 years and over,Not Stated,Missing,Missing,Missing,Population aged 15 years and over by working from home
+,T11_4_T,T11_4_T,Population aged 15 years and over,Total ,Missing,Missing,Missing,Population aged 15 years and over by working from home
+"Theme 11: Commuting  , Working from Home and Childcare",T11_5_CC_AGE0_4,T11_5_CC_T,Children under 15 in childcare,Children ages 0-4 in childcare,Missing,Missing,Missing,Number of children under 15 in Childcare by age
+,T11_5_CC_AGE5_14,T11_5_CC_T,Children under 15 in childcare,Children ages 5-14 in childcare,Missing,Missing,Missing,Number of children under 15 in Childcare by age
+,T11_5_CC_T,T11_5_CC_T,Children under 15 in childcare,Total children under 15 in childcare,Missing,Missing,Missing,Number of children under 15 in Childcare by age
+"Theme 12: Disability, Carers, General Health and Smoking",T12_1_M,T1_1AGETM,Males,Males,Missing,Missing,Missing,Overall prevalence of persons with disability (to some and/or to a great extent) by sex
+,T12_1_F,T1_1AGETF,Females,Females,Missing,Missing,Missing,Overall prevalence of persons with disability (to some and/or to a great extent) by sex
+"Theme 12: Disability, Carers, General Health and Smoking",T12_2_M,T1_1AGETM,Males,Males,Missing,Missing,Missing,Carers by sex
+,T12_2_F,T1_1AGETF,Females,Females,Missing,Missing,Missing,Carers by sex
+"Theme 12: Disability, Carers, General Health and Smoking",T12_3_VGM,T12_3_TM,Males,Very good - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_VGF,T12_3_TF,Females,Very good - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_GM,T12_3_TM,Males,Good - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_GF,T12_3_TF,Females,Good - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_FM,T12_3_TM,Males,Fair - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_FF,T12_3_TF,Females,Fair - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_BM,T12_3_TM,Males,Bad - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_BF,T12_3_TF,Females,Bad - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_VBM,T12_3_TM,Males,Very bad - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_VBF,T12_3_TF,Females,Very bad - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_NSM,T12_3_TM,Males,Not stated - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_NSF,T12_3_TF,Females,Not stated - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_TM,T12_3_TM,Males,Total - Males,Missing,Missing,Missing,Population by general health and sex
+,T12_3_TF,T12_3_TF,Females,Total - Females,Missing,Missing,Missing,Population by general health and sex
+,T12_3_TT,T12_3_TT,Persons,Total,Missing,Missing,Missing,Population by general health and sex
+,T12_4_NO,T12_4_T,Persons,Persons who don’t smoke,Missing,Missing,Missing,Persons with who smoke 
+,T12_4_NS,T12_4_T,Persons,Non stated,Missing,Missing,Missing,Persons with who smoke 
+,T12_4_T,T12_4_T,Persons,Total persons,Missing,Missing,Missing,Persons with who smoke 
+Theme 13: Occupations,T13_1_MDSOM,T13_1_TM,Males at work or unemployed,"Managers, directors and senior officials - Males",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_POM,T13_1_TM,Males at work or unemployed,Professional occupations - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_APTOM,T13_1_TM,Males at work or unemployed,Associate professional and technical occupations - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_ASOM,T13_1_TM,Males at work or unemployed,Administrative and secretarial occupations - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_STOM,T13_1_TM,Males at work or unemployed,Skilled trades occupations - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_CLOSOM,T13_1_TM,Males at work or unemployed,"Caring, leisure and other service occupations - Males",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_SCSOM,T13_1_TM,Males at work or unemployed,Sales and customer service occupations - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_PPMOM,T13_1_TM,Males at work or unemployed,"Process, plant and machine operatives - Males",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_EOM,T13_1_TM,Males at work or unemployed,Elementary occupations - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_NSM,T13_1_TM,Males at work or unemployed,Not stated - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_TM,T13_1_TM,Males at work or unemployed,Total - Males,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_MDSOF,T13_1_TF,Females at work or unemployed,"Managers, directors and senior officials - Females",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_POF,T13_1_TF,Females at work or unemployed,Professional occupations - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_APTOF,T13_1_TF,Females at work or unemployed,Associate professional and technical occupations - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_ASOF,T13_1_TF,Females at work or unemployed,Administrative and secretarial occupations - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_STOF,T13_1_TF,Females at work or unemployed,Skilled trades occupations - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_CLOSOF,T13_1_TF,Females at work or unemployed,"Caring, leisure and other service occupations - Females",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_SCSOF,T13_1_TF,Females at work or unemployed,Sales and customer service occupations - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_PPMOF,T13_1_TF,Females at work or unemployed,"Process, plant and machine operatives - Females",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_EOF,T13_1_TF,Females at work or unemployed,Elementary occupations - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_NSF,T13_1_TF,Females at work or unemployed,Not stated - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_TF,T13_1_TF,Females at work or unemployed,Total - Females,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_NST,T13_1_TT,Persons at work or unemployed,Not stated - Total,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T13_1_TT,T13_1_TT,Persons at work or unemployed,Total,Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+,T14_1_AFFM,T14_1_TM,Males at work,"Agriculture, forestry and fishing - Males",Missing,Missing,Missing,Persons at work or unemployed by occupation and sex
+Theme 14: Industries ,T14_1_BCM,T14_1_TM,Males at work,Building and construction - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_MIM,T14_1_TM,Males at work,Manufacturing industries - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_CTM,T14_1_TM,Males at work,Commerce and trade - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_TCM,T14_1_TM,Males at work,Transport and communications - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_PAM,T14_1_TM,Males at work,Public administration - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_PSM,T14_1_TM,Males at work,Professional services - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_OTHM,T14_1_TM,Males at work,Other - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_TM,T14_1_TM,Males at work,Total - Males,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_AFFF,T14_1_TF,Females at work,"Agriculture, forestry and fishing - Females",Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_BCF,T14_1_TF,Females at work,Building and construction - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_MIF,T14_1_TF,Females at work,Manufacturing industries - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_CTF,T14_1_TF,Females at work,Commerce and trade - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_TCF,T14_1_TF,Females at work,Transport and communications - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_PAF,T14_1_TF,Females at work,Public administration - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_PSF,T14_1_TF,Females at work,Professional services - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_OTHF,T14_1_TF,Females at work,Other - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_TF,T14_1_TF,Females at work,Total - Females,Missing,Missing,Missing,Persons at work by industry and sex
+,T14_1_TT,T14_1_TT,Persons at work,Total,Missing,Missing,Missing,Persons at work by industry and sex
+,T15_1_1C,T15_1_TC,Households,1 motor car,Missing,Missing,Missing,Number of households with cars
+,T15_1_2C,T15_1_TC,Households,2 motor cars,Missing,Missing,Missing,Number of households with cars
+,T15_1_3C,T15_1_TC,Households,3 motor cars,Missing,Missing,Missing,Number of households with cars
+,T15_1_GE4C,T15_1_TC,Households,4 or more motor cars,Missing,Missing,Missing,Number of households with cars
+,T15_1_NSC,T15_1_TC,Households,Not stated,Missing,Missing,Missing,Number of households with cars
+,T15_1_TC,T15_1_TC,Households,Total,Missing,Missing,Missing,Number of households with cars
+"Theme 15: Motor Car Availability, PC Ownership and Internet Access",T15_2_BB,T15_2_T,Households,Broadband,Missing,Missing,Missing,Number of households with internet
+,T15_2_OIC,T15_2_T,Households,Other internet connection,Missing,Missing,Missing,Number of households with internet
+,T15_2_NS,T15_2_T,Households,Type of internet connection not stated,Missing,Missing,Missing,Number of households with internet
+,T15_2_T,T15_2_T,Households,All internet connections,Missing,Missing,Missing,Number of households with internet

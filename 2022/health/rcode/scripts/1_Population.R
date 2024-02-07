@@ -1,0 +1,220 @@
+
+#read the pxstat file for EDs
+PopSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/")
+PopSourceTable <- as.data.frame(PopSourceTable.px)
+
+
+#Read pxStat table for ACs (Removing Ireland as this is in the ED table and change geotitle to ED to be able to bind correctly)
+PopSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/")
+PopSourceTableAC <- as.data.frame(PopSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022 !="Ireland")
+
+#Bind the two tables into one
+PopSourceTable <- rbind(PopSourceTable, PopSourceTableAC)
+
+#Change formatting of ED to join correctly
+PopSourceTable$CSO.Electoral.Divisions.2022 <- as.character(PopSourceTable$CSO.Electoral.Divisions.2022)
+
+#remove special chars etc
+PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",PopSourceTable$CSO.Electoral.Divisions.2022)
+PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", PopSourceTable$CSO.Electoral.Divisions.2022)
+PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", PopSourceTable$CSO.Electoral.Divisions.2022)
+PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", PopSourceTable$CSO.Electoral.Divisions.2022)
+
+#Rename Ireland State
+PopSourceTable$CSO.Electoral.Divisions.2022[PopSourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
+
+# Fix Special characters in Dun Laoghaire AC
+PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire Rathdown County Council|D├║n Laoghaire Rathdown County Council","Dun Laoghaire Rathdown County Council", PopSourceTable$CSO.Electoral.Divisions.2022)
+
+
+
+#factorise age
+PopSourceTable$Age <- factor(PopSourceTable$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over","Total"))
+
+
+#Create a duplicate table where the age groups will be recategorised for tables
+PopSourceTable2 <- PopSourceTable
+
+# recategorise
+PopSourceTable2$Age <- gsub("Age 0-4|Age 5-9|Age 10-14", "0-14", PopSourceTable2$Age )
+PopSourceTable2$Age <- gsub("Age 15-19|Age 20-24", "15-24", PopSourceTable2$Age )
+PopSourceTable2$Age <- gsub("Age 25-29|Age 30-34|Age 35-39|Age 40-44", "25-44", PopSourceTable2$Age )
+PopSourceTable2$Age <- gsub("Age 45-49|Age 50-54|Age 55-59|Age 60-64", "45-64", PopSourceTable2$Age )
+PopSourceTable2$Age <- gsub("Age 65-69|Age 70-74|Age 75-79|Age 80-84|Age 85 and over", "65 years and over", PopSourceTable2$Age )
+
+#remove word age from category
+#PopSourceTable2$Age <- as.character(gsub("Age ","", PopSourceTable2$Age))
+
+#group by new categories for summary
+PopSourceTableRegrouped <- PopSourceTable2%>%group_by(Sex,Age,CSO.Electoral.Divisions.2022)%>%dplyr::summarise(value = sum(value, na.rm=T))
+PopSourceTableRegrouped$Age <- as.character(gsub("Age ","", PopSourceTableRegrouped$Age))
+
+#factorise age
+PopSourceTableRegrouped$Age <- factor(PopSourceTableRegrouped$Age, levels = c("0-14","15-24","25-44", "45-64","65 years and over","Total"))
+
+
+# Create Pop Table for ED
+PopEDMales <- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Males")
+PopEDFemales <- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Females")
+PopEDBothSexes<- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Both Sexes")
+
+# Males table ED including percentage and total
+PopEDMalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Males")
+PopEDMalesFull$Percentage <-sprintf("%.1f", round(PopEDMalesFull$value*100/PopEDMalesFull$value[PopEDMalesFull$Age == "Total"],1))
+
+#Males table ED without total (For plots)
+PopEDMalesFullLessT <- PopEDMalesFull%>%filter(Age!="Total")
+PopEDMalesFullLessT$Gender <- "Male"
+PopEDMalesFullLessT$Age <- factor(PopEDMalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+
+#Females table ED including percentage and total
+PopEDFemalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Females")
+PopEDFemalesFull$Percentage <- sprintf("%.1f", round(PopEDFemalesFull$value*100/PopEDFemalesFull$value[PopEDFemalesFull$Age == "Total"],1))
+
+#Females table ED without total (for plots)
+PopEDFemalesFullLessT <- PopEDFemalesFull%>%filter(Age!="Total")
+PopEDFemalesFullLessT$Gender = "Female"
+PopEDFemalesFullLessT$Age <- factor(PopEDFemalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+
+#Both sexes ED with Percentage and Total
+PopEDBothSexesFull<- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Both Sexes")
+PopEDBothSexesFull$Percentage <- sprintf("%.1f", round(PopEDBothSexesFull$value*100/PopEDBothSexesFull$value[PopEDBothSexesFull$Age == "Total"],1))
+
+#Both sexess ED without total (for plots)
+PopEDBothSexesFullLessT <- PopEDBothSexesFull%>%filter(Age!="Total")
+PopEDBothSexesFullLessT$Age <- factor(PopEDBothSexesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+
+# Total population of males, females and both sexes in ED
+TotalPopEDFemales <- PopEDFemalesFull$value[PopEDFemalesFull$Age == "Total"]
+TotalPopEDMales <- PopEDMalesFull$value[PopEDMalesFull$Age == "Total"]
+TotalPopEDBothSexes <- PopEDBothSexesFull$value[PopEDBothSexesFull$Age == "Total"]
+
+# Pop tables for AC
+PopACMales <- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Males")
+PopACFemales <- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Females")
+PopACBothSexes<- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Both Sexes")
+
+# Males AC with percentage
+PopACMalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Males")
+PopACMalesFull$Percentage <-PopACMalesFull$value*100/PopACMalesFull$value[PopACMalesFull$Age == "Total"]
+
+#Males Ac without total (for plots)
+PopACMalesFullLessT <- PopACMalesFull%>%filter(Age!="Total")
+PopACMalesFullLessT$Gender <- "Male"
+PopACMalesFullLessT$Age <- factor(PopACMalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+
+#Females AC full table with percentage
+PopACFemalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Females")
+PopACFemalesFull$Percentage <- PopACFemalesFull$value*100/PopACFemalesFull$value[PopACFemalesFull$Age == "Total"]
+
+#Females AC without total
+PopACFemalesFullLessT <- PopACFemalesFull%>%filter(Age!="Total")
+PopACFemalesFullLessT$Gender = "Female"
+PopACFemalesFullLessT$Age <- factor(PopACFemalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+
+
+#Both sexes AC with percentage
+PopACBothSexesFull<- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Both Sexes")
+PopACBothSexesFull$Percentage <- sprintf("%.1f", round(PopACBothSexesFull$value*100/PopACBothSexesFull$value[PopACBothSexesFull$Age == "Total"],1))
+
+#both sexes AC wthout total (for plots)
+PopACBothSexesFullLessT <- PopACBothSexesFull%>%filter(Age!="Total")
+PopACBothSexesFullLessT$Age <- factor(PopACBothSexesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+
+
+# Total population of males, females and both sexes in AC
+TotalPopACFemales <- PopACFemalesFull$value[PopACFemalesFull$Age == "Total"]
+TotalPopACMales <- PopACMalesFull$value[PopACMalesFull$Age == "Total"]
+TotalPopACBothSexes <- PopACBothSexesFull$value[PopACBothSexesFull$Age == "Total"]
+
+# Total Population of State
+PopStateMales <- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == "State" & Sex == "Males")
+PopStateFemales <- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == "State"  & Sex == "Females")
+PopStateBothSexes<- PopSourceTableRegrouped%>%filter(CSO.Electoral.Divisions.2022 == "State"  & Sex == "Both Sexes")
+
+# Population males state with percentage and total
+PopStateMalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == "State"  & Sex == "Males")
+PopStateMalesFull$Percentage <- sprintf("%.1f", round(PopStateMalesFull$value*100/PopStateMalesFull$value[PopStateMalesFull$Age == "Total"],1))
+
+#Population males state without total (for plots)
+PopStateMalesFullLessT <- PopStateMalesFull%>%filter(Age!="Total")
+PopStateMalesFullLessT$Gender <- "Male"
+
+# Population Females state with percentage and total
+PopStateFemalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == "State"  & Sex == "Females")
+PopStateFemalesFull$Percentage <- PopStateFemalesFull$value*100/PopStateFemalesFull$value[PopStateFemalesFull$Age == "Total"]
+
+# without total(for plots)
+PopStateFemalesFullLessT <- PopStateFemalesFull%>%filter(Age!="Total")
+PopStateFemalesFullLessT$Gender = "Female"
+
+# both sexes state with percentage and total
+PopStateBothSexesFull<- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == "State"  & Sex == "Both Sexes")
+PopStateBothSexesFull$Percentage <- sprintf("%.1f", round(PopStateBothSexesFull$value*100/PopStateBothSexesFull$value[PopStateBothSexesFull$Age == "Total"],1))
+
+# without total (for plots)
+PopStateBothSexesFullLessT <- PopStateBothSexesFull%>%filter(Age!="Total")
+
+
+#Total population of males, females and both sexes in the state
+TotalPopStateFemales <- PopStateFemalesFull$value[PopStateFemalesFull$Age == "Total"]
+TotalPopStateMales <- PopStateMalesFull$value[PopStateMalesFull$Age == "Total"]
+TotalPopStateBothSexes <- PopStateBothSexesFull$value[PopStateBothSexesFull$Age == "Total"]
+
+
+
+# Change percentage to numeric for pyramid plot
+PopEDMalesFullLessT$Percentage <- as.numeric(PopEDMalesFullLessT$Percentage )
+PopEDFemalesFullLessT$Percentage <- as.numeric(PopEDFemalesFullLessT$Percentage )
+
+# Change males to negative to be displayed correctly in plot (labels in plot are then changed to positive later)
+PopEDMalesFullLessT$value <- PopEDMalesFullLessT$value*-1
+
+
+PyramidLevels <- levels(PopEDMalesFullLessT$Age)
+
+#Create pyramid plot
+PyramidPlot <- ggplot() +
+  geom_bar(data = PopEDMalesFullLessT, aes(x = 1:length(PyramidLevels), y = value, fill = "red"), width= 0.4,
+           position = position_nudge(0.05), stat = "identity") +
+  geom_bar(data = PopEDFemalesFullLessT, aes(x =  1:length(PyramidLevels), y = value, fill = "blue"), width= 0.4,
+           position = position_nudge(0.05), stat = "identity") +
+  scale_x_continuous(name = "Age Group", breaks = 1:length(PyramidLevels),labels = PyramidLevels,
+                     sec.axis = sec_axis(~.,
+                                         breaks = 1:length(PyramidLevels),
+                                         labels = NULL))+
+  labs(fill = "Legend") +
+  theme_classic()+
+  theme(axis.text.x = element_text(margin = margin(t = 0.25, unit = "in")),
+        axis.title.x = element_text(margin = margin(0.5, 0.5, 0.5, 0.5)),
+        legend.position = "none"
+  )+
+  coord_flip()+
+  scale_fill_discrete(labels=c('Males', 'Females'))+
+  scale_y_continuous(name = "Persons",labels = abs, limits = c(-1*max(c(PopEDMalesFullLessT$value*-1,PopEDFemalesFullLessT$value)),max(c(PopEDMalesFullLessT$value*-1,PopEDFemalesFullLessT$value)))) +
+  annotate("text", x=length(PyramidLevels),y=max(PopEDFemalesFullLessT$value) - max(PopEDFemalesFullLessT$value)*0.2, hjust=.2,label= "Females", color = "red", size = 5) +
+  annotate("text",  x=length(PyramidLevels),y=min(PopEDMalesFullLessT$value) + -1*min(PopEDMalesFullLessT$value)*0.2,hjust=.2, label= "Males", color = "blue", size = 5)
+
+# Export pyramid plot for Latex
+pdf(paste0(getwd(),"/figures/PyramidPlot.pdf"))
+print(PyramidPlot)
+dev.off()
+
+# Export plot for RMD
+svg(paste0(getwd(),"/figures/PyramidPlot.svg"))
+print(PyramidPlot)
+dev.off()
+
+
+#reformat percentages so that they are rounded and  formatted correctly for tables
+PopEDMalesFullLessT$Percentage <- sprintf("%.1f", round(as.numeric(PopEDMalesFullLessT$Percentage)*-1,1))
+PopEDFemalesFullLessT$Percentage <- sprintf("%.1f", round(PopEDFemalesFullLessT$Percentage,1))
+PopEDBothSexesFullLessT$Percentage <- sprintf("%.1f", round(as.numeric(PopEDBothSexesFullLessT$Percentage),1))
+
+PopStateMalesFullLessT$Percentage <- sprintf("%.1f", round(as.numeric(PopStateMalesFullLessT$Percentage)*-1,1))
+PopStateFemalesFullLessT$Percentage <- sprintf("%.1f", round(PopStateFemalesFullLessT$Percentage,1))
+PopStateBothSexesFullLessT$Percentage <- sprintf("%.1f", round(as.numeric(PopStateBothSexesFullLessT$Percentage),1))
+
+PopACMalesFullLessT$Percentage <- sprintf("%.1f", round(as.numeric(PopACMalesFullLessT$Percentage)*-1,1))
+PopACFemalesFullLessT$Percentage <- sprintf("%.1f", round(PopACFemalesFullLessT$Percentage,1))
+PopACBothSexesFullLessT$Percentage <- sprintf("%.1f", round(as.numeric(PopACBothSexesFullLessT$Percentage),1))
