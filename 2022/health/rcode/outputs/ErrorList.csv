@@ -1,10 +1,1 @@
-"","X.Error.in.Iteration.2..for.ED..Dromtrasna..Limerick..running..texi2dvi..on..2..csohealthprofile..edname..dromtrasna..limerick..acname..limerick.city.and.county.council..edguid..2ae19629.1795.13a3.e055.000000000001.tex..failed.n.nLaTeX.errors..n1.tex.59..Package.pdftex.def.Error..File..01.BigDataDev.Projects.HealthProfilin.ng.EdProfilesClone.edprofiles.2022.health.rcode.inputs.exportededmaps.2ae19629.1.n795.13a3.e055.000000000001.jpg..not.found..using.draft.setting..n.nSee.the.pdftex.def.package.documentation.for.explanation..n."
-"1","Error in Iteration 2: for ED -Dromtrasna, Limerick- running 'texi2dvi' on '2--csohealthprofile--edname--dromtrasna--limerick--acname--limerick-city-and-county-council--edguid--2ae19629-1795-13a3-e055-000000000001.tex' failed
-
-LaTeX errors:
-1.tex:59: Package pdftex.def Error: File `01/BigDataDev/Projects/HealthProfilin
-g/EdProfilesClone/edprofiles/2022/health/rcode/inputs/exportededmaps/2ae19629-1
-795-13a3-e055-000000000001.jpg' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-"
+""
