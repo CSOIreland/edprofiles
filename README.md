@@ -33,13 +33,17 @@ To use this code, one first needs to clone the repository to a local location an
 
 **“HealthProfileMain”** is the main driver file. This file will run all the appropriate subfiles and generate the reports without having the user need to open any other files. Initially, it creates a dataframe with ED names, AC names and GUIDs. It then creates a csv of this information that also contains appropriate formatted links to the reports that will be created. It then loops through a list of ED names and finds the associated EDGUID, AC name and AC GUID, which are used to select the appropriate data from given tables/files. It also creates shortened versions of ED and AC names to be used in tables to ensure consistent spacing. For Every ED, AC combination, it sources a map of the ED (see notes for a description of how these maps were created) and loops through all of the associated subfiles to process data and create plots/tables. It then uses the R package Sweave to build the pdf for the Electoral Division. Sweave is a bridge between R and Latex (a language/technology used to create the actual pdf). Finally, it uses RMarkdown to create the HTML report.
 
-**"ReadAndFormatPXStat.R" reads in the PXStat data for each theme, formats it correctly and restructures where appropriate. It also calculates percentages for each SAPS variable using configuration settings from “GlossaryEditForPercentages.csv”. It calculates percentages for individual variables based on “TotalColForPerc” in the csv. 
+**"ReadAndFormatPXStat.R" reads in the PXStat data for each theme, formats it correctly and restructures where appropriate. 
 
-The process is divided thematically in **files 2-15**. Each file here extracts the data for the appropriate ED and AC, as well as State and creates specific tables and plots to  be later included in the outputted report. 
+**"SAPSPercentages.R" calculates percentages for each SAPS variable using configuration settings from “GlossaryEditForPercentages.csv”. It calculates percentages for individual variables based on “TotalColForPerc” in the csv. 
 
-**“16_KeyPointsAndOtherCalcs”** calculates some figures for the Key Points section that are not calculated elsewhere, such as ED Area, ED Population Density, Age Dependency Ratios and aggregations of multiple variables within themes.
+The process is divided thematically in **files 3-16**. Each file here extracts the data for the appropriate ED and AC, as well as State and creates specific tables and plots to  be later included in the outputted report. 
 
-**“17_SAPS”** Selects the appropriate SAPS data for ED AC and State and creates associated tables. It creates the tables used in the "Detailed Tables" section of the report using "GLossaryEditForPercentages.csv" as the driver. It creates a dataframe for every “LatexTableTitle” in the file, with one row per “Label”, one column for “ED”,”AC” and “State” and orders the rows by “Rank”.
+**“17_KeyPointsAndOtherCalcs”** calculates some figures for the Key Points section that are not calculated elsewhere, such as ED Area, ED Population Density, Age Dependency Ratios and aggregations of multiple variables within themes.
+
+**“18_SAPS”** Selects the appropriate SAPS data for ED, AC and State and creates associated tables. It creates the tables used in the "Detailed Tables" section of the report using "GLossaryEditForPercentages.csv" as the driver. It creates a dataframe for every “LatexTableTitle” in the file, with one row per “Label”, one column for “ED”,”AC” and “State” and orders the rows by “Rank”.
+
+**“19_EDSearchTool”** creates the html map of EDs, from which reports can be selected.
 
 **“HealthProfileTemplate.Rnw”** is the file that the R package Sweave uses to create the “.tex” Latex file that Latex uses to build the pdf. It extracts textual/tabular data from R objects via the \Sexpr{} function, which are then included in the “.tex” file (due to the fact that Latex cannot process R code). Note: Latex errors outputted in R are not as descriptive as errors via Texnic Centre. When troubleshooting, it can sometimes be beneficial to run the .tex file generated via Sweave in Texnic Centre.
 
