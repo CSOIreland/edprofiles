@@ -85,9 +85,11 @@ CSVForHTML <- CSVForHTML%>%select(ED,AC,Report, GUID)
 write.csv(CSVForHTML, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
 
 # #sample dataset if running tests
-Sample <- sample(1:nrow(EDWGUIDAC),200)
+Sample <- sample(1:nrow(EDWGUIDAC),2)
 EDWGUIDAC <- EDWGUIDAC[Sample,]
 
+# Read and Format PX Stat Files
+source(paste0(getwd(),"/scripts/1_ReadAndFormatPXStatAndSAPS.R"))
 
 # create an empty list for errors, to be filled later
 ErrorList <- list()
@@ -133,15 +135,15 @@ for (i in 1:nrow(EDWGUIDAC))  {
     EDMapLink <- paste0("../inputs/exportededmaps/",EDGUID,".jpg")
     
     # Run through Subfiles
-    source(paste0(getwd(),"/scripts/1_Population.R"))
-    source(paste0(getwd(),"/scripts/2_Carers.R"))
-    source(paste0(getwd(),"/scripts/3_GeneralHealth.R"))
-    source(paste0(getwd(),"/scripts/4_Disability.R"))
-    source(paste0(getwd(),"/scripts/5_Smoking.R"))
-    source(paste0(getwd(),"/scripts/6_Education.R"))
-    source(paste0(getwd(),"/scripts/7_PrincipleEconomicStatus.R"))
-    source(paste0(getwd(),"/scripts/8_Families.R"))
-    source(paste0(getwd(),"/scripts/9_Birthplace.R"))
+    source(paste0(getwd(),"/scripts/2_Population.R"))
+    source(paste0(getwd(),"/scripts/3_Carers.R"))
+    source(paste0(getwd(),"/scripts/4_GeneralHealth.R"))
+    source(paste0(getwd(),"/scripts/5_Disability.R"))
+    source(paste0(getwd(),"/scripts/6_Smoking.R"))
+    source(paste0(getwd(),"/scripts/7_Education.R"))
+    source(paste0(getwd(),"/scripts/8_PrincipleEconomicStatus.R"))
+    source(paste0(getwd(),"/scripts/9_Families.R"))
+    source(paste0(getwd(),"/scripts/10_Birthplace.R"))
     source(paste0(getwd(),"/scripts/11_Volunteering.R"))
     source(paste0(getwd(),"/scripts/12_SocialClass.R"))
     source(paste0(getwd(),"/scripts/13_Households.R"))
@@ -171,7 +173,7 @@ for (i in 1:nrow(EDWGUIDAC))  {
     
     # log errors
   }, error = function(e) {
-    ErrorMessage <- paste0("Error in Iteration ", i ,": for ED -",ED,"- ", conditionMessage(e))
+    ErrorMessage <- paste0("Error in Iteration _", i ,"_: for ED -",ED,"- ", conditionMessage(e))
     ErrorList <<- c(ErrorList,ErrorMessage)
     SkipToNext <<-TRUE
   }
@@ -188,5 +190,5 @@ print(ErrorList)
 #write a csv of errors
 write.csv(as.data.frame(ErrorList), file = paste0(OutputFilesLoc,"/ErrorList.csv"))
 
-#setWD to if rerunning runs correctly
+#setWD so if rerunning runs correctly
 setwd(RootWD)

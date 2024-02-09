@@ -1,27 +1,3 @@
-#REad ED and AC  table from PXSTat
-TravelSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T1ED/PX/2013/")
-TravelSourceTable <- as.data.frame(TravelSourceTable.px)%>%filter(Statistic == "Usually resident by means of travel to work, school, college or childcare (total)")
-
-TravelSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T1CTY/PX/2013/")
-#removing ireland as this is already in the EDtable
-TravelSourceTableAC <- as.data.frame(TravelSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Statistic == "Usually resident by means of travel to work, school, college or childcare (total)")
-
-#EDs as cahracter for correct join
-TravelSourceTable$CSO.Electoral.Divisions.2022<- as.character(TravelSourceTable$CSO.Electoral.Divisions.2022)
-#rename Ireland State
-TravelSourceTable$CSO.Electoral.Divisions.2022[TravelSourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
-
-#Fix special characters in AC table
-TravelSourceTableAC$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire|D├║n Laoghaire","Dun Laoghaire Rathdown County Council", TravelSourceTableAC$CSO.Electoral.Divisions.2022)
-
-TravelSourceTable <- rbind(TravelSourceTable,TravelSourceTableAC)
-
-
-#remove special chars etc
-TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",TravelSourceTable$CSO.Electoral.Divisions.2022)
-TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", TravelSourceTable$CSO.Electoral.Divisions.2022)
-TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", TravelSourceTable$CSO.Electoral.Divisions.2022)
-TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", TravelSourceTable$CSO.Electoral.Divisions.2022)
 
 # ED Table
 TravelED <- TravelSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED)

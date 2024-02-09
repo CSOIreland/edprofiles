@@ -1,13 +1,5 @@
+#Area Stats
 
-#key points stats - names used here should be self explanatory
-Area.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/F1011/PX/2013/")
-Area <- as.data.frame(Area.px)
-
-
-Area$Electoral.Divisions <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",Area$Electoral.Divisions)
-Area$Electoral.Divisions <- gsub("D├║n Laoghaire","Dun Laoghaire", Area$Electoral.Divisions)
-Area$Electoral.Divisions<- gsub("'","", Area$Electoral.Divisions)
-Area$Electoral.Divisions<- gsub("&","and", Area$Electoral.Divisions)
 
 ED<- as.character(ED)
 AreaED <- Area%>%filter(Electoral.Divisions == ED)
@@ -18,13 +10,6 @@ StatePopDens <- AreaState$value[AreaState$Statistic == "Population density (pers
 StateArea <- AreaState$value[AreaState$Statistic == "Area (sq km)"]
 
 #families
-FamiliesInPrivateHouseholds.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T1ED/PX/2013/")
-  
-FamiliesInPrivateHouseholds <- as.data.frame(FamiliesInPrivateHouseholds.px)
-FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
-FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
-FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("'","", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
-FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("&","and", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
 
 EDFamiliesInPrivateHouseholds <- FamiliesInPrivateHouseholds$value[FamiliesInPrivateHouseholds$Household.Size == "Total" & FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 == ED & FamiliesInPrivateHouseholds$Statistic == "Number of families in private households"]
 StateFamiliesInPrivateHouseholds <- FamiliesInPrivateHouseholds$value[FamiliesInPrivateHouseholds$Household.Size == "Total" & FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 == "State" & FamiliesInPrivateHouseholds$Statistic == "Number of families in private households"]

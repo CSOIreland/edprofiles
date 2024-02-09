@@ -1,27 +1,3 @@
-#REad ED and AC  table from PXSTat
-SocialClassSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1ED/PX/2013/")
-SocialClassSourceTable <- as.data.frame(SocialClassSourceTable.px)%>%filter(Sex == "Both Sexes")
-
-SocialClassSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1CTY/PX/2013/")
-#removing ireland as this is already in the EDtable
-SocialClassSourceTableAC <- as.data.frame(SocialClassSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Sex == "Both Sexes")
-
-#EDs as cahracter for correct join
-SocialClassSourceTable$CSO.Electoral.Divisions.2022<- as.character(SocialClassSourceTable$CSO.Electoral.Divisions.2022)
-#rename Ireland State
-SocialClassSourceTable$CSO.Electoral.Divisions.2022[SocialClassSourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
-
-#Fix special characters in AC table
-SocialClassSourceTableAC$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire|D├║n Laoghaire","Dun Laoghaire", SocialClassSourceTableAC$CSO.Electoral.Divisions.2022)
-
-SocialClassSourceTable <- rbind(SocialClassSourceTable,SocialClassSourceTableAC)
-
-
-#remove special chars etc
-SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",SocialClassSourceTable$CSO.Electoral.Divisions.2022)
-SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
-SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
-SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
 # ED Table
 SocialClassED <- SocialClassSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED)
 

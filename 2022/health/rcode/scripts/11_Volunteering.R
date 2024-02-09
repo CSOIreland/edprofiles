@@ -1,28 +1,3 @@
-#REad ED and AC  table from PXSTat
-VolunteersSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T7T1ED/PX/2013/")
-VolunteersSourceTable <- as.data.frame(VolunteersSourceTable.px)
-
-VolunteersSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T7T1CTY/PX/2013/")
-#removing ireland as this is already in the EDtable
-VolunteersSourceTableAC <- as.data.frame(VolunteersSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland")
-
-
-#EDs as cahracter for correct join
-VolunteersSourceTable$CSO.Electoral.Divisions.2022<- as.character(VolunteersSourceTable$CSO.Electoral.Divisions.2022)
-#rename Ireland State
-VolunteersSourceTable$CSO.Electoral.Divisions.2022[VolunteersSourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
-
-#Fix special characters in AC table
-VolunteersSourceTableAC$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire |D├║n Laoghaire","Dun Laoghaire", VolunteersSourceTableAC$CSO.Electoral.Divisions.2022)
-
-VolunteersSourceTable <- rbind(VolunteersSourceTable,VolunteersSourceTableAC)
-
-
-#remove special chars etc
-VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",VolunteersSourceTable$CSO.Electoral.Divisions.2022)
-VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
-VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
-VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
 # ED Table
 VolunteersED <- VolunteersSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED)
 

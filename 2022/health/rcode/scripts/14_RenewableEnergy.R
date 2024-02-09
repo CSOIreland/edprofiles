@@ -1,28 +1,3 @@
-#REad ED and AC  table from PXSTat
-RenewableEnergySourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T10ED/PX/2013/")
-RenewableEnergySourceTable <- as.data.frame(RenewableEnergySourceTable.px)
-
-RenewableEnergySourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T10CTY/PX/2013/")
-#removing ireland as this is already in the EDtable
-RenewableEnergySourceTableAC <- as.data.frame(RenewableEnergySourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland")
-
-
-#EDs as cahracter for correct join
-RenewableEnergySourceTable$CSO.Electoral.Divisions.2022<- as.character(RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
-#rename Ireland State
-RenewableEnergySourceTable$CSO.Electoral.Divisions.2022[RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
-
-#Fix special characters in AC table
-RenewableEnergySourceTableAC$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire|D├║n Laoghaire","Dun Laoghaire", RenewableEnergySourceTableAC$CSO.Electoral.Divisions.2022)
-
-RenewableEnergySourceTable <- rbind(RenewableEnergySourceTable,RenewableEnergySourceTableAC)
-
-
-#remove special chars etc
-RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
-RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
-RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
-RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
 
 # ED Table
 RenewableEnergyED <- RenewableEnergySourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED)

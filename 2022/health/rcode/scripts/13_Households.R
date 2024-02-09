@@ -1,25 +1,3 @@
-#REad ED and AC  table from PXSTat
-HouseholdsSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3ED/PX/2013/")
-HouseholdsSourceTable <- as.data.frame(HouseholdsSourceTable.px)%>%filter(Statistic == "Permanent private households")
-
-HouseholdsSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3CTY/PX/2013/")
-HouseholdsSourceTableAC<- as.data.frame(HouseholdsSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Statistic == "Permanent private households")
-
-#EDs as cahracter for correct join
-HouseholdsSourceTable$CSO.Electoral.Divisions.2022<- as.character(HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
-#rename Ireland State
-HouseholdsSourceTable$CSO.Electoral.Divisions.2022[HouseholdsSourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
-
-#Fix special characters in AC table
-HouseholdsSourceTableAC$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire|D├║n Laoghaire","Dun Laoghaire", HouseholdsSourceTableAC$CSO.Electoral.Divisions.2022)
-
-HouseholdsSourceTable <- rbind(HouseholdsSourceTable,HouseholdsSourceTableAC)
-
-
-HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
-HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
-HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
-HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 
 # ED Table
 HouseholdsED <- HouseholdsSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED)
