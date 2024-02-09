@@ -56,7 +56,7 @@ ACList$Administrative.Counties.2019 <- gsub("&","and", ACList$Administrative.Cou
 
 
 #Lookup table from ED to AC and replacing of special chars
-EDACLookup <- as.data.frame(read.csv(paste0(InputFilesLoc,"/EDACLookup.csv")))
+EDACLookup <- as.data.frame(read.csv(paste0(InputFilesLoc,"/EDACLookupFinal.csv")))%>%select(ED_GUID,AC)
 EDACLookup$AC <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire", EDACLookup$AC)
 EDACLookup$AC <- gsub("D├║n Laoghaire","Dun Laoghaire", EDACLookup$AC)
 EDACLookup$AC <- gsub("'","", EDACLookup$AC)
@@ -65,7 +65,7 @@ EDACLookup$AC <- gsub("&","and", EDACLookup$AC)
 
 # Create combined dataframe of EDs GUIDs and ACs
 # also creates lower case names of EDs and ACs with dashes instead of spaces so they can be used for filenames
-EDWGUIDAC <- merge(EDWGUID,EDACLookup, by.x = "GUID", by.y = "GUID")
+EDWGUIDAC <- merge(EDWGUID,EDACLookup, by.x = "GUID", by.y = "ED_GUID")
 EDWGUIDAC$EDLC <- make.names(tolower(EDWGUIDAC$ED))
 EDWGUIDAC$EDLC <- gsub(".","-",EDWGUIDAC$EDLC, fixed = T)
 EDWGUIDAC$ACLC <- make.names(tolower(EDWGUIDAC$AC))
@@ -77,16 +77,16 @@ CSVForHTML <- EDWGUIDAC%>%select(ED,GUID,AC,EDLC,ACLC,GUIDLC)
 CSVForHTML$ReportNumber <- 1:nrow(CSVForHTML)
 
 #add links for html and pdf reports
-CSVForHTML$Report <- paste0("<a href=\".\\reports\\html\\",CSVForHTML$ReportNumber,"--csohealthprofile--edname--",CSVForHTML$EDLC,"--acname--",CSVForHTML$ACLC,"--edguid--",CSVForHTML$GUIDLC,".html","\">","HTML","</a>", "  ",
-                            "<a href=\".\\reports\\pdf\\",CSVForHTML$ReportNumber,"--csohealthprofile--edname--",CSVForHTML$EDLC,"--acname--",CSVForHTML$ACLC,"--edguid--",CSVForHTML$GUIDLC,".pdf","\">","PDF","</a>"  )
+CSVForHTML$Report <- paste0("<a href=\".\\reports\\html\\",CSVForHTML$ReportNumber,"--csohealthprofile--edname--",CSVForHTML$EDLC,"--acname--",CSVForHTML$ACLC,"--edguid--",CSVForHTML$GUIDLC,".html","\"", " target=\"_blank\"", ">","HTML","</a>", "  ",
+                            "<a href=\".\\reports\\pdf\\",CSVForHTML$ReportNumber,"--csohealthprofile--edname--",CSVForHTML$EDLC,"--acname--",CSVForHTML$ACLC,"--edguid--",CSVForHTML$GUIDLC,".pdf","\"", " target=\"_blank\"", ">","PDF","</a>"  )
 
 CSVForHTML <- CSVForHTML%>%select(ED,AC,Report, GUID)
 
 write.csv(CSVForHTML, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
 
 # #sample dataset if running tests
-# Sample <- sample(1:nrow(EDWGUIDAC),2)
-# EDWGUIDAC <- EDWGUIDAC[Sample,]
+Sample <- sample(1:nrow(EDWGUIDAC),200)
+EDWGUIDAC <- EDWGUIDAC[Sample,]
 
 
 # create an empty list for errors, to be filled later
