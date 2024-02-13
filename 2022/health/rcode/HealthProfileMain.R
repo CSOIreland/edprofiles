@@ -40,6 +40,7 @@ EDWGUID$ED <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",EDWGUID$ED)
 EDWGUID$ED <- gsub("D├║n Laoghaire","Dun Laoghaire", EDWGUID$ED)
 EDWGUID$ED <- gsub("'","", EDWGUID$ED)
 EDWGUID$ED <- gsub("&","and", EDWGUID$ED)
+EDWGUID$ED  <- gsub("M├│r","Mor", EDWGUID$ED)
 
 #List of ACs and associated GUIDs
 ACListStart <- as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/"))
@@ -53,7 +54,7 @@ ACList$Administrative.Counties.2019 <- gsub("Dâ”œâ•‘n Laoghaire","Dun L
 ACList$Administrative.Counties.2019 <- gsub("D├║n Laoghaire","Dun Laoghaire", ACList$Administrative.Counties.2019)
 ACList$Administrative.Counties.2019 <- gsub("'","", ACList$Administrative.Counties.2019)
 ACList$Administrative.Counties.2019 <- gsub("&","and", ACList$Administrative.Counties.2019)
-
+ACList$Administrative.Counties.2019 <- gsub("M├│r","Mor", ACList$Administrative.Counties.2019)
 
 #Lookup table from ED to AC and replacing of special chars
 EDACLookup <- as.data.frame(read.csv(paste0(InputFilesLoc,"/EDACLookupFinal.csv")))%>%select(ED_GUID,AC)
@@ -61,7 +62,7 @@ EDACLookup$AC <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire", EDACLookup$
 EDACLookup$AC <- gsub("D├║n Laoghaire","Dun Laoghaire", EDACLookup$AC)
 EDACLookup$AC <- gsub("'","", EDACLookup$AC)
 EDACLookup$AC <- gsub("&","and", EDACLookup$AC)
-
+EDACLookup$AC <- gsub("M├│r","Mor", EDACLookup$AC)
 
 # Create combined dataframe of EDs GUIDs and ACs
 # also creates lower case names of EDs and ACs with dashes instead of spaces so they can be used for filenames
@@ -77,16 +78,16 @@ CSVForHTML <- EDWGUIDAC%>%select(ED,GUID,AC,EDLC,ACLC,GUIDLC)
 CSVForHTML$ReportNumber <- 1:nrow(CSVForHTML)
 
 #add links for html and pdf reports
-CSVForHTML$Report <- paste0("<a href=\".\\reports\\html\\",CSVForHTML$ReportNumber,"--csohealthprofile--edname--",CSVForHTML$EDLC,"--acname--",CSVForHTML$ACLC,"--edguid--",CSVForHTML$GUIDLC,".html","\"", " target=\"_blank\"", ">","HTML","</a>", "  ",
-                            "<a href=\".\\reports\\pdf\\",CSVForHTML$ReportNumber,"--csohealthprofile--edname--",CSVForHTML$EDLC,"--acname--",CSVForHTML$ACLC,"--edguid--",CSVForHTML$GUIDLC,".pdf","\"", " target=\"_blank\"", ">","PDF","</a>"  )
+CSVForHTML$Report <- paste0("<a href=\".\\reports\\html\\",CSVForHTML$ReportNumber,"--",CSVForHTML$EDLC,"--ac--",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"A HTML summary report (without accompanying data tables)\"", ">","HTML","</a>", "  ",
+                            "<a href=\".\\reports\\pdf\\",CSVForHTML$ReportNumber,"--",CSVForHTML$EDLC,"--ac--",CSVForHTML$ACLC,".pdf","\"", " target=\"_blank\"", " title=\"A PDF report (detailed, print-friendly and with accompanying data tables)\">","PDF","</a>"  )
 
-CSVForHTML <- CSVForHTML%>%select(ED,AC,Report, GUID)
+CSVForHTMLToExport <- CSVForHTML%>%select(ED,AC,Report, GUID)%>%dplyr::rename("Electoral Division" = "ED", "Administrative County" = "AC")
 
-write.csv(CSVForHTML, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
+write.csv(CSVForHTMLToExport, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
 
 # #sample dataset if running tests
-# Sample <- sample(1:nrow(EDWGUIDAC),2)
-# EDWGUIDAC <- EDWGUIDAC[Sample,]
+Sample <- sample(1:nrow(EDWGUIDAC),2)
+EDWGUIDAC <- EDWGUIDAC[Sample,]
 
 # Read and Format PX Stat Files
 source(paste0(getwd(),"/scripts/1_ReadAndFormatPXStat.R"))
@@ -99,6 +100,7 @@ ErrorList <- list()
 
 # Loop through every file in the process for every ED
 for (i in 1:nrow(EDWGUIDAC))  {
+  
   setwd(RootWD)
   
   #skip to next controls whether an iteration should be skipped if there is an error(if SkipToNext == TRUE)
@@ -158,17 +160,15 @@ for (i in 1:nrow(EDWGUIDAC))  {
     setwd(paste0(getwd(),"/scripts"))
     
     #Create the .RNW file using sweave for compiling
-    Sweave("HealthProfileTemplate.Rnw",output=paste0(i,"--csohealthprofile--edname--",EDLC,"--acname--",ACLC,"--edguid--",EDGUIDLC,".tex"))
-    
+    Sweave("HealthProfileTemplate.Rnw",output=paste0(i,"--",EDLC,"--ac--",ACLC,".tex"))
     #Compile the .rnw with Latex
-    tools::texi2pdf(paste0(i,"--csohealthprofile--edname--",EDLC,"--acname--",ACLC,"--edguid--",EDGUIDLC,".tex"))
-    tools::texi2pdf(paste0(i,"--csohealthprofile--edname--",EDLC,"--acname--",ACLC,"--edguid--",EDGUIDLC,".tex"))
-    
+    tools::texi2pdf(paste0(i,"--",EDLC,"--ac--",ACLC,".tex"))
+    tools::texi2pdf(paste0(i,"--",EDLC,"--ac--",ACLC,".tex"))
     #EDProfile pdf Link for RMD
-    EDLinkPDF<- paste0("<font size=\"5\"><a href=\"..\\pdf\\",i,"--csohealthprofile--edname--",EDLC,"--acname--",ACLC,"--edguid--",EDGUIDLC,".pdf\""," style=\"text-decoration: none\">A more detailed and print friendly pdf profile - with accompanying tables - is available here.</a></font>")
+    EDLinkPDF<- paste0("<font size=\"5\"><a href=\"..\\pdf\\",i,"--",EDLC,"--ac--",ACLC,".pdf\""," style=\"text-decoration: none\">A more detailed and print friendly pdf profile - with accompanying tables - is available here.</a></font>")
     
     #render R Markdown  
-    rmarkdown::render("HealthProfileMarkdown.Rmd", output_file =paste0(i,"--csohealthprofile--edname--",EDLC,"--acname--",ACLC,"--edguid--",EDGUIDLC,".html"))
+    rmarkdown::render("HealthProfileMarkdown.Rmd", output_file =paste0(i,"--",EDLC,"--ac--",ACLC,".html"))
     
     
     # print progress
@@ -195,3 +195,29 @@ write.csv(as.data.frame(ErrorList), file = paste0(OutputFilesLoc,"/ErrorList.csv
 
 #setWD so if rerunning runs correctly
 setwd(RootWD)
+
+###Run was randomly crashing before error list was saved so had to identify runs that didn't complete below
+
+##List files
+FileListPDF <- as.data.frame(list.files(paste0("../reports/pdf/")))
+FileListHTML <- as.data.frame(list.files(paste0("../reports/html/")))
+#List HTML only
+colnames(FileListHTML) <- "FileName"
+#Extract file numbers from filenames
+FileNumberList <- as.numeric(sub("--.*","",FileListHTML$FileName))
+
+#compare numbers completed with entire set that should be completed to identify failed runs
+FullSequence <- seq(1, 3420)
+MissingHTMLFiles <- setdiff(FullSequence, FileNumberList)
+
+# Do the same for PDFs
+colnames(FileListPDF) <- "FileName"
+FileNumberListPDF <- as.numeric(sub("--.*","",FileListPDF$FileName))
+MissingPDFFiles <- setdiff(FullSequence, FileNumberListPDF)
+
+# join missing pdfs and htmls
+UnionMissingFiles <- union(MissingHTMLFiles, MissingPDFFiles)
+str(MissingPDFFiles)
+
+#investigate missing
+EDWGUIDACMissing <- EDWGUIDAC[UnionMissingFiles,]

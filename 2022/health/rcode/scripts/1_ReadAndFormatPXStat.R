@@ -21,7 +21,7 @@ PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire
 PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", PopSourceTable$CSO.Electoral.Divisions.2022)
 PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", PopSourceTable$CSO.Electoral.Divisions.2022)
 PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", PopSourceTable$CSO.Electoral.Divisions.2022)
-
+PopSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", PopSourceTable$CSO.Electoral.Divisions.2022)
 #Rename Ireland State
 PopSourceTable$CSO.Electoral.Divisions.2022[PopSourceTable$CSO.Electoral.Divisions.2022 == "Ireland"] <- "State"
 
@@ -82,7 +82,7 @@ CarersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laogha
 CarersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", CarersSourceTable$CSO.Electoral.Divisions.2022)
 CarersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", CarersSourceTable$CSO.Electoral.Divisions.2022)
 CarersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", CarersSourceTable$CSO.Electoral.Divisions.2022)
-
+CarersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", CarersSourceTable$CSO.Electoral.Divisions.2022)
 ############################GENERAL HEALTH###########################################
 
 #import ED and AC tables
@@ -107,6 +107,7 @@ GenSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire
 GenSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", GenSourceTable$CSO.Electoral.Divisions.2022)
 GenSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", GenSourceTable$CSO.Electoral.Divisions.2022)
 GenSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", GenSourceTable$CSO.Electoral.Divisions.2022)
+GenSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", GenSourceTable$CSO.Electoral.Divisions.2022)
 # pivot table to wider for easier prep
 GenWider <- GenSourceTable %>%
   pivot_wider(
@@ -148,6 +149,7 @@ DisSourceTable2$Electoral.Divisions <- gsub("Dâ”œâ•‘n Laoghaire","Dun L
 DisSourceTable2$Electoral.Divisions <- gsub("D├║n Laoghaire","Dun Laoghaire", DisSourceTable2$Electoral.Divisions)
 DisSourceTable2$Electoral.Divisions <- gsub("'","", DisSourceTable2$Electoral.Divisions)
 DisSourceTable2$Electoral.Divisions <- gsub("&","and", DisSourceTable2$Electoral.Divisions)
+DisSourceTable2$Electoral.Divisions <- gsub("M├│r","Mor", DisSourceTable2$Electoral.Divisions)
 
 #Rename Categories
 DisSourceTable2$Statistic <- gsub("Population with a disability to any extent", "Population with any disability",DisSourceTable2$Statistic)
@@ -188,6 +190,7 @@ SmokingSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laogh
 SmokingSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", SmokingSourceTable$CSO.Electoral.Divisions.2022)
 SmokingSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", SmokingSourceTable$CSO.Electoral.Divisions.2022)
 SmokingSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", SmokingSourceTable$CSO.Electoral.Divisions.2022)
+SmokingSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", SmokingSourceTable$CSO.Electoral.Divisions.2022)
 
 #pivot wider to make table easier to work with
 SmokingWider <- SmokingSourceTable %>%
@@ -228,6 +231,7 @@ EduSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire
 EduSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", EduSourceTable$CSO.Electoral.Divisions.2022)
 EduSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", EduSourceTable$CSO.Electoral.Divisions.2022)
 EduSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", EduSourceTable$CSO.Electoral.Divisions.2022)
+EduSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", EduSourceTable$CSO.Electoral.Divisions.2022)
 
 # filter only both sexes as that is all we are interested in here
 EduSourceTable <- EduSourceTable%>%filter(Sex == "Both Sexes")
@@ -260,6 +264,7 @@ PESSource$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Du
 PESSource$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", PESSource$CSO.Electoral.Divisions.2022)
 PESSource$CSO.Electoral.Divisions.2022 <- gsub("'","", PESSource$CSO.Electoral.Divisions.2022)
 PESSource$CSO.Electoral.Divisions.2022 <- gsub("&","and", PESSource$CSO.Electoral.Divisions.2022)
+PESSource$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", PESSource$CSO.Electoral.Divisions.2022)
 
 PESSource <- PESSource%>%filter(Sex == "Both Sexes")
 
@@ -290,6 +295,7 @@ FamSource$CSO.Electoral.Divisions.2020 <- gsub("Dâ”œâ•‘n Laoghaire","Du
 FamSource$CSO.Electoral.Divisions.2020 <- gsub("D├║n Laoghaire","Dun Laoghaire", FamSource$CSO.Electoral.Divisions.2020)
 FamSource$CSO.Electoral.Divisions.2020 <- gsub("'","", FamSource$CSO.Electoral.Divisions.2020)
 FamSource$CSO.Electoral.Divisions.2020 <- gsub("&","and", FamSource$CSO.Electoral.Divisions.2020)
+FamSource$CSO.Electoral.Divisions.2020 <- gsub("M├│r","Mor", FamSource$CSO.Electoral.Divisions.2020)
 
 ################################BIRTHPLACE########################################
 #read pxstat tabls for ac and ED
@@ -319,6 +325,7 @@ BirthSource$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","
 BirthSource$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", BirthSource$CSO.Electoral.Divisions.2022)
 BirthSource$CSO.Electoral.Divisions.2022 <- gsub("'","", BirthSource$CSO.Electoral.Divisions.2022)
 BirthSource$CSO.Electoral.Divisions.2022 <- gsub("&","and", BirthSource$CSO.Electoral.Divisions.2022)
+BirthSource$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", BirthSource$CSO.Electoral.Divisions.2022)
 
 ###############################VOLUNTEERING####################################
 #REad ED and AC  table from PXSTat
@@ -346,7 +353,7 @@ VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n La
 VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
 VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
 VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
-
+VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
 #########################################SOCIAL CLASS##########################################
 #REad ED and AC  table from PXSTat
 SocialClassSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1ED/PX/2013/")
@@ -372,6 +379,7 @@ SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n L
 SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
 SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
 SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
+SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", SocialClassSourceTable$CSO.Electoral.Divisions.2022)
 
 ##################################################HOUSEHOLDS##################################################
 #REad ED and AC  table from PXSTat
@@ -396,6 +404,8 @@ HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n La
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
+HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
+
 #REad ED and AC  table from PXSTat
 HouseholdsSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3ED/PX/2013/")
 HouseholdsSourceTable <- as.data.frame(HouseholdsSourceTable.px)%>%filter(Statistic == "Permanent private households")
@@ -418,6 +428,7 @@ HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n La
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
+HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 
 #################################RENEWABLE ENERGY################################
 #REad ED and AC  table from PXSTat
@@ -445,6 +456,7 @@ RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•�
 RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
 RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
 RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
+RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", RenewableEnergySourceTable$CSO.Electoral.Divisions.2022)
 
 ######################################TRAVEL#########################################
 #REad ED and AC  table from PXSTat
@@ -471,7 +483,7 @@ TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laogha
 TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", TravelSourceTable$CSO.Electoral.Divisions.2022)
 TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("'","", TravelSourceTable$CSO.Electoral.Divisions.2022)
 TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", TravelSourceTable$CSO.Electoral.Divisions.2022)
-
+TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", TravelSourceTable$CSO.Electoral.Divisions.2022)
 
 ############################KEY POINTS AND OTHER CALCS#####################################
 
@@ -484,6 +496,7 @@ Area$Electoral.Divisions <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",A
 Area$Electoral.Divisions <- gsub("D├║n Laoghaire","Dun Laoghaire", Area$Electoral.Divisions)
 Area$Electoral.Divisions<- gsub("'","", Area$Electoral.Divisions)
 Area$Electoral.Divisions<- gsub("&","and", Area$Electoral.Divisions)
+Area$Electoral.Divisions<- gsub("M├│r","Mor", Area$Electoral.Divisions)
 
 FamiliesInPrivateHouseholds.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T1ED/PX/2013/")
 
@@ -492,4 +505,4 @@ FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•�
 FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("D├║n Laoghaire","Dun Laoghaire", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
 FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("'","", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
 FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("&","and", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)
-
+FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)

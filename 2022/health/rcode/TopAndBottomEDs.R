@@ -16,57 +16,35 @@ SAPSPercentages <- readRDS(paste0(OutputFilesLoc,"/SAPSPercentages.Rds"))
 ForJoin <- read.csv(paste0(InputFilesLoc, "/EDCountyLink.csv"))
 SAPSPercentages <- merge(SAPSPercentages, ForJoin, by.x = "GUID", by.y = "ED_GUID",all.x=T)
 
-SAPSPercentages$PopulationAge15PUnemployed <- SAPSPercentages$T8_1_STUT + SAPSPercentages$T8_1_LTUT
-PopulationAge15PUnemployed <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG,PopulationAge15PUnemployed)%>%arrange(desc(PopulationAge15PUnemployed))%>%slice_head(n=10)
-PopulationAge15PUnemployed$Rank <- 1:10
-PopulationAge15PUnemployed$Ireland <- SAPSPercentages$PopulationAge15PUnemployed[SAPSPercentages$GUID == "IE0"]
+##############VERY GOOD HEALTH####################
+SAPSPercentages$VeryGoodHealth <- SAPSPercentages$T12_3_VGT
 
-PopulationAge15PUnemployedBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, PopulationAge15PUnemployed)%>%arrange(desc(PopulationAge15PUnemployed))%>%slice_tail(n=10)
-PopulationAge15PUnemployedBottom$Rank <- 3412:3421
+VeryGoodHealth <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, VeryGoodHealth)%>%arrange(desc(VeryGoodHealth))%>%slice_head(n=10)
+VeryGoodHealth$Rank <- 1:10
+VeryGoodHealth$Ireland <- SAPSPercentages$VeryGoodHealth[SAPSPercentages$GUID == "IE0"]
 
-
-write.csv(PopulationAge15PUnemployed[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG","PopulationAge15PUnemployed", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_PopulationAge15PUnemployed.csv"), row.names = F)
-
-   
-SAPSPercentages$GoodVeryGoodHealth <- SAPSPercentages$T12_3_VGT + SAPSPercentages$T12_3_GT
-
-GoodVeryGoodHealth <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, GoodVeryGoodHealth)%>%arrange(desc(GoodVeryGoodHealth))%>%slice_head(n=10)
-GoodVeryGoodHealth$Rank <- 1:10
-GoodVeryGoodHealth$Ireland <- SAPSPercentages$GoodVeryGoodHealth[SAPSPercentages$GUID == "IE0"]
-
-GoodVeryGoodHealthBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, GoodVeryGoodHealth)%>%arrange(desc(GoodVeryGoodHealth))%>%slice_tail(n=10)
-GoodVeryGoodHealthBottom$Rank <- 3412:3421
+VeryGoodHealthBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, VeryGoodHealth)%>%arrange(desc(VeryGoodHealth))%>%slice_tail(n=10)
+VeryGoodHealthBottom$Rank <- 3412:3421
 
 
-write.csv(GoodVeryGoodHealth[,c("Rank", "ED_ENGLISH", "COUNTY_ENG","GoodVeryGoodHealth", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_GoodVeryGoodHealth.csv"), row.names = F)
-
-  
-SAPSPercentages$LoneParents <- SAPSPercentages$T5_1OPFC_H + SAPSPercentages$T5_1OPMC_H
-LoneParents <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, LoneParents)%>%arrange(desc(LoneParents))%>%slice_head(n=10)
-LoneParents$Rank <- 1:10
-LoneParents$Ireland <- SAPSPercentages$LoneParents[SAPSPercentages$GUID == "IE0"]
-
-LoneParentsBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, LoneParents)%>%arrange(desc(LoneParents))%>%slice_tail(n=10)
-LoneParentsBottom$Rank <- 3412:3421
+write.csv(VeryGoodHealth[,c("Rank", "ED_ENGLISH", "COUNTY_ENG","VeryGoodHealth", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_VeryGoodHealth.csv"), row.names = F)
 
 
-write.csv(LoneParents[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG","LoneParents", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_LoneParents.csv"), row.names = F)
+###############VERY BAD HEALTH#########################
+SAPSPercentages$VeryBadHealth <- SAPSPercentages$T12_3_VBT
+
+VeryBadHealth <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, VeryBadHealth)%>%arrange(desc(VeryBadHealth))%>%slice_head(n=10)
+VeryBadHealth$Rank <- 1:10
+VeryBadHealth$Ireland <- SAPSPercentages$VeryBadHealth[SAPSPercentages$GUID == "IE0"]
+
+VeryBadHealthBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, VeryBadHealth)%>%arrange(desc(VeryBadHealth))%>%slice_tail(n=10)
+VeryBadHealthBottom$Rank <- 3412:3421
 
 
-  
-  
-SAPSPercentages$FamiliesWith5OrMoreChildren <- SAPSPercentages$T4_2_GE5CU15
-FamiliesWith5OrMoreChildren <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, FamiliesWith5OrMoreChildren)%>%arrange(desc(FamiliesWith5OrMoreChildren))%>%slice_head(n=10)
-FamiliesWith5OrMoreChildren$Rank <- 1:10
-FamiliesWith5OrMoreChildren$Ireland <- SAPSPercentages$FamiliesWith5OrMoreChildren[SAPSPercentages$GUID == "IE0"]
-
-FamiliesWith5OrMoreChildrenBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, FamiliesWith5OrMoreChildren)%>%arrange(desc(FamiliesWith5OrMoreChildren))%>%slice_tail(n=10)
-FamiliesWith5OrMoreChildrenBottom$Rank <- 3412:3421
+write.csv(VeryBadHealth[,c("Rank", "ED_ENGLISH", "COUNTY_ENG","VeryBadHealth", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_VeryBadHealth.csv"), row.names = F)
 
 
-write.csv(FamiliesWith5OrMoreChildren[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG", "FamiliesWith5OrMoreChildren", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_FamiliesWith5OrMoreChildren.csv"), row.names = F)
-
-  
+###################Carers################################
 SAPSPercentages$Carers <- SAPSPercentages$T12_2_T
 Carers <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, Carers)%>%arrange(desc(Carers))%>%slice_head(n=10)
 Carers$Rank <- 1:10
@@ -78,19 +56,7 @@ CarersBottom$Rank <- 3412:3421
 write.csv(Carers[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG", "Carers", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_Carers.csv"), row.names = F)
 
 
-  
-#add count
-SAPSPercentages$SixtyFivePlus <- SAPSPercentages$T1_1AGE65_69T+ SAPSPercentages$T1_1AGE70_74T+ SAPSPercentages$T1_1AGE75_79T+ SAPSPercentages$T1_1AGE80_84T +SAPSPercentages$T1_1AGEGE_85T
-SixtyFivePlus <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, SixtyFivePlus)%>%arrange(desc(SixtyFivePlus))%>%slice_head(n=10)
-SixtyFivePlus$Rank <- 1:10
-SixtyFivePlus$Ireland <- SAPSPercentages$SixtyFivePlus[SAPSPercentages$GUID == "IE0"]
-
-SixtyFivePlusBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, SixtyFivePlus)%>%arrange(desc(SixtyFivePlus))%>%slice_tail(n=10)
-SixtyFivePlusBottom$Rank <- 3412:3421
-
-write.csv(SixtyFivePlus[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG", "SixtyFivePlus", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_SixtyFivePlus.csv"), row.names = F)
-
-
+##########DISABILITY###################
 SAPSPercentages$Disability <- SAPSPercentages$T12_1_T
 Disability <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, Disability)%>%arrange(desc(Disability))%>%slice_head(n=10)
 Disability$Rank <- 1:10
@@ -101,6 +67,7 @@ DisabilityBottom$Rank <- 3412:3421
 
 write.csv(Disability[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG", "Disability", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_Disability.csv"), row.names = F)
 
+######################SMOKING################
 SAPSPercentages$Smoking <- SAPSPercentages$T12_4_YES
 Smoking <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, Smoking)%>%arrange(desc(Smoking))%>%slice_head(n=10)
 Smoking$Rank <- 1:10
@@ -110,8 +77,3 @@ SmokingBottom <- SAPSPercentages%>%select(ED_ENGLISH,COUNTY_ENG, Smoking)%>%arra
 SmokingBottom$Rank <- 3412:3421
 
 write.csv(Smoking[,c("Rank",  "ED_ENGLISH", "COUNTY_ENG", "Smoking", "Ireland")], file = paste0(OutputFilesLoc,"/Top10EDs_Smoking.csv"), row.names = F)
-
-SAPSED <- read.csv(paste0(InputFilesLoc,"/SAPS2022/SAPS_2022_CSOED3270923.csv"), header = T)
-EDPop <- SAPSED%>%group_by(GUID)%>%dplyr::summarise(TotalPopulation = sum(T1_1AGETT))
-
-write.csv(EDPop, file = paste0(OutputFilesLoc,"/Top10EDs_EDPop.csv"))

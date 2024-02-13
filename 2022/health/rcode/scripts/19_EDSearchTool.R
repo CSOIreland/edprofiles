@@ -16,7 +16,7 @@ library(leafem)
 #set up working directory, input and output folders
 
 EDsMap <- st_read(paste0(InputFilesLoc,"/2019BoundariesDataGov/EDsWGS84-4326_Simplified.shp"))
-EDsMap <- merge(EDsMap, CSVForHTML, by.x = "GUID", all.x = T)
+EDsMap <- merge(EDsMap, CSVForHTML, by.x = "ED_GUID",by.y = "GUID", all.x = T)
 EDMapSpatial <- as_Spatial(EDsMap)
 
 
