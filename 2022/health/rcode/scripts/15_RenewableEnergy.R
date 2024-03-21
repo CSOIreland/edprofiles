@@ -44,9 +44,26 @@ RenewableEnergyPlot <- ggplot(RenewableEnergyBinded, aes(fill=CSO.Electoral.Divi
         axis.title.x = element_text(margin = margin(-5, 0, -5, 0)),
         legend.position = c(0.85, 0.85))  +
   scale_fill_manual(values=c('#405381', '#13C1A5', '#FCBE72'))+
-  scale_x_discrete(name = "Type of Occupancy")+
+  scale_x_discrete(name = "Renewable Energy Status")+
   labs(fill = "Legend") +
-  scale_y_continuous(name = "% of RenewableEnergy")
+  scale_y_continuous(name = "% of Households")
+
+
+# Highcharts plot for RMD
+RenewableEnergyBinded$PercentageOfPopulation <- round(RenewableEnergyBinded$PercentageOfPopulation,1)
+RenewableEnergyBinded$colouract <- 1
+RenewableEnergyBinded$colouract[RenewableEnergyBinded$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+RenewableEnergyBinded$colouract[RenewableEnergyBinded$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+RenewableEnergyBinded$colouract[RenewableEnergyBinded$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+RenewableEnergyPlot2 <- highchart()|>       
+  hc_add_series(RenewableEnergyBinded, "column", hcaes(x = RenewableEnergy2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Households"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Renewable Energy Status"))
+
+
 
 #export plot for latex
 pdf(paste0(getwd(),"/figures/RenewableEnergyED.pdf"))
@@ -54,9 +71,9 @@ print(RenewableEnergyPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/RenewableEnergyED.svg"))
-print(RenewableEnergyPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/RenewableEnergyED.svg"))
+# print(RenewableEnergyPlot)
+# dev.off()
 
 
 # Reformat percentages so they are correct for tables

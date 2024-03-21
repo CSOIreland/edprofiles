@@ -61,15 +61,31 @@ EduPlot  <- ggplot(EduAllLessT , aes(fill=CSO.Electoral.Divisions.2022, y=Percen
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population aged 15+")
 
+
+# Highcharts plot for RMD
+EduAllLessT$PercentageOfPopulation <- round(EduAllLessT$PercentageOfPopulation,1)
+EduAllLessT$colouract <- 1
+EduAllLessT$colouract[EduAllLessT$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+EduAllLessT$colouract[EduAllLessT$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+EduAllLessT$colouract[EduAllLessT$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+EduPlot2 <- highchart()|>       
+  hc_add_series(EduAllLessT, "column", hcaes(x = Highest.Level.of.Education.Completed2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population aged 15+"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Highest Level of Education"))
+
+
 # export plot for latex
 pdf(paste0(getwd(),"/figures/EduED.pdf"))
 print(EduPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/EduED.svg"))
-print(EduPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/EduED.svg"))
+# print(EduPlot)
+# dev.off()
 
 
 #reformat percentages to be correct for table

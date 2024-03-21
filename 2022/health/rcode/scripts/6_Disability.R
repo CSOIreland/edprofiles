@@ -48,15 +48,31 @@ DisPlot<- ggplot(DisBinded , aes(fill=Electoral.Divisions, y=`Population with a 
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population")
 
+
+# Highcharts plot for RMD
+DisBinded$`Population with a disability as a percentage` <- round(DisBinded$`Population with a disability as a percentage`,1)
+DisBinded$colouract <- 1
+DisBinded$colouract[DisBinded$Electoral.Divisions == ED] <- '#405381'
+DisBinded$colouract[DisBinded$Electoral.Divisions == AC] <- '#FCBE72'
+DisBinded$colouract[DisBinded$Electoral.Divisions == "State"] <- '#13C1A5'
+
+DisPlot2 <- highchart()|>       
+  hc_add_series(DisBinded, "column", hcaes(x = Age.Group, y = `Population with a disability as a percentage`, color = colouract,  group = Electoral.Divisions), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Age Group"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/DisED.pdf"))
 print(DisPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/DisED.svg"))
-print(DisPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/DisED.svg"))
+# print(DisPlot)
+# dev.off()
 
 
 # reformat percentages so they are correct for table

@@ -49,15 +49,31 @@ HouseholdsPlot <- ggplot(HouseholdsBinded, aes(fill=CSO.Electoral.Divisions.2022
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Households")
 
+
+# Highcharts plot for RMD
+HouseholdsBinded$PercentageOfPopulation <- round(HouseholdsBinded$PercentageOfPopulation,1)
+HouseholdsBinded$colouract <- 1
+HouseholdsBinded$colouract[HouseholdsBinded$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+HouseholdsBinded$colouract[HouseholdsBinded$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+HouseholdsBinded$colouract[HouseholdsBinded$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+HouseholdsPlot2 <- highchart()|>       
+  hc_add_series(HouseholdsBinded, "column", hcaes(x = Type.of.Occupancy2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Households"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Type of Occupancy"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/HouseholdsED.pdf"))
 print(HouseholdsPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/HouseholdsED.svg"))
-print(HouseholdsPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/HouseholdsED.svg"))
+# print(HouseholdsPlot)
+# dev.off()
 
 
 # Reformat percentages so they are correct for tables

@@ -90,15 +90,31 @@ GenPlot<- ggplot(GenLongBinded , aes(fill=CSO.Electoral.Divisions.2022, y=Percen
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population")
 
+
+# Highcharts plot for RMD
+GenLongBinded$Percentage.Of.Population <- round(GenLongBinded$Percentage.Of.Population,1)
+GenLongBinded$colouract <- 1
+GenLongBinded$colouract[GenLongBinded$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+GenLongBinded$colouract[GenLongBinded$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+GenLongBinded$colouract[GenLongBinded$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+GenPlot2 <- highchart()|>       
+  hc_add_series(GenLongBinded, "column", hcaes(x = General.Health, y = Percentage.Of.Population, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "General Health"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/GenED.pdf"))
 print(GenPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/GenED.svg"))
-print(GenPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/GenED.svg"))
+# print(GenPlot)
+# dev.off()
 
 
 # Reformat percentages to be correct for table

@@ -48,15 +48,31 @@ TravelPlot <- ggplot(TravelBinded, aes(fill=CSO.Electoral.Divisions.2022, y=Perc
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Usually Resident Population")
 
+
+# Highcharts plot for RMD
+TravelBinded$PercentageOfPopulation <- round(TravelBinded$PercentageOfPopulation,1)
+TravelBinded$colouract <- 1
+TravelBinded$colouract[TravelBinded$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+TravelBinded$colouract[TravelBinded$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+TravelBinded$colouract[TravelBinded$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+TravelPlot2 <- highchart()|>       
+  hc_add_series(TravelBinded, "column", hcaes(x =Means.of.Travel2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Usually Resident Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Means of Travel"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/TravelED.pdf"))
 print(TravelPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/TravelED.svg"))
-print(TravelPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/TravelED.svg"))
+# print(TravelPlot)
+# dev.off()
 
 
 

@@ -11,7 +11,7 @@ PopEDMalesFull$Percentage <-sprintf("%.1f", round(PopEDMalesFull$value*100/PopED
 #Males table ED without total (For plots)
 PopEDMalesFullLessT <- PopEDMalesFull%>%filter(Age!="Total")
 PopEDMalesFullLessT$Gender <- "Male"
-PopEDMalesFullLessT$Age <- factor(PopEDMalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+PopEDMalesFullLessT$Age <- factor(PopEDMalesFullLessT$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over"))
 
 #Females table ED including percentage and total
 PopEDFemalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Females")
@@ -20,7 +20,7 @@ PopEDFemalesFull$Percentage <- sprintf("%.1f", round(PopEDFemalesFull$value*100/
 #Females table ED without total (for plots)
 PopEDFemalesFullLessT <- PopEDFemalesFull%>%filter(Age!="Total")
 PopEDFemalesFullLessT$Gender = "Female"
-PopEDFemalesFullLessT$Age <- factor(PopEDFemalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+PopEDFemalesFullLessT$Age <- factor(PopEDFemalesFullLessT$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over"))
 
 #Both sexes ED with Percentage and Total
 PopEDBothSexesFull<- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == ED & Sex == "Both Sexes")
@@ -28,7 +28,7 @@ PopEDBothSexesFull$Percentage <- sprintf("%.1f", round(PopEDBothSexesFull$value*
 
 #Both sexess ED without total (for plots)
 PopEDBothSexesFullLessT <- PopEDBothSexesFull%>%filter(Age!="Total")
-PopEDBothSexesFullLessT$Age <- factor(PopEDBothSexesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+PopEDBothSexesFullLessT$Age <- factor(PopEDBothSexesFullLessT$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over"))
 
 # Total population of males, females and both sexes in ED
 TotalPopEDFemales <- PopEDFemalesFull$value[PopEDFemalesFull$Age == "Total"]
@@ -47,7 +47,7 @@ PopACMalesFull$Percentage <-PopACMalesFull$value*100/PopACMalesFull$value[PopACM
 #Males Ac without total (for plots)
 PopACMalesFullLessT <- PopACMalesFull%>%filter(Age!="Total")
 PopACMalesFullLessT$Gender <- "Male"
-PopACMalesFullLessT$Age <- factor(PopACMalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+PopACMalesFullLessT$Age <- factor(PopACMalesFullLessT$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over"))
 
 #Females AC full table with percentage
 PopACFemalesFull <- PopSourceTable%>%filter(CSO.Electoral.Divisions.2022 == AC & Sex == "Females")
@@ -56,7 +56,7 @@ PopACFemalesFull$Percentage <- PopACFemalesFull$value*100/PopACFemalesFull$value
 #Females AC without total
 PopACFemalesFullLessT <- PopACFemalesFull%>%filter(Age!="Total")
 PopACFemalesFullLessT$Gender = "Female"
-PopACFemalesFullLessT$Age <- factor(PopACFemalesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+PopACFemalesFullLessT$Age <- factor(PopACFemalesFullLessT$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over"))
 
 
 #Both sexes AC with percentage
@@ -65,7 +65,7 @@ PopACBothSexesFull$Percentage <- sprintf("%.1f", round(PopACBothSexesFull$value*
 
 #both sexes AC wthout total (for plots)
 PopACBothSexesFullLessT <- PopACBothSexesFull%>%filter(Age!="Total")
-PopACBothSexesFullLessT$Age <- factor(PopACBothSexesFullLessT$Age, levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"))
+PopACBothSexesFullLessT$Age <- factor(PopACBothSexesFullLessT$Age, levels = c("Age 0-4","Age 5-9","Age 10-14","Age 15-19","Age 20-24","Age 25-29","Age 30-34","Age 35-39","Age 40-44","Age 45-49","Age 50-54","Age 55-59","Age 60-64","Age 65-69","Age 70-74","Age 75-79","Age 80-84","Age 85 and over"))
 
 
 # Total population of males, females and both sexes in AC
@@ -116,6 +116,7 @@ PopEDFemalesFullLessT$Percentage <- as.numeric(PopEDFemalesFullLessT$Percentage 
 # Change males to negative to be displayed correctly in plot (labels in plot are then changed to positive later)
 PopEDMalesFullLessT$value <- PopEDMalesFullLessT$value*-1
 
+PopEDBinded <- rbind(PopEDFemalesFullLessT,PopEDMalesFullLessT)
 
 PyramidLevels <- levels(PopEDMalesFullLessT$Age)
 
@@ -141,15 +142,32 @@ PyramidPlot <- ggplot() +
   annotate("text", x=length(PyramidLevels),y=max(PopEDFemalesFullLessT$value) - max(PopEDFemalesFullLessT$value)*0.2, hjust=.2,label= "Females", color = "red", size = 5) +
   annotate("text",  x=length(PyramidLevels),y=min(PopEDMalesFullLessT$value) + -1*min(PopEDMalesFullLessT$value)*0.2,hjust=.2, label= "Males", color = "blue", size = 5)
 
+# Highchart for RMD
+PyramidPlot2 <- highchart() %>%
+  hc_add_series(PopEDBinded, type = "bar", hcaes(x = c(PyramidLevels,PyramidLevels), y = value, group = Gender), color = c("#2f7ed8","#FF0000"), 
+                showInLegend = F) %>% 
+  hc_plotOptions(bar = list(stacking = "normal")) %>% 
+  # format the labels on the x-axis (y-axis per HC)
+  hc_yAxis( min = -1*max(c(PopEDMalesFullLessT$value*-1,PopEDFemalesFullLessT$value))-1, max = max(c(PopEDMalesFullLessT$value*-1,PopEDFemalesFullLessT$value))+1,labels = list(formatter = htmlwidgets::JS( 
+    "function() {
+        return Math.abs(this.value); /* all labels to absolute values */
+    }"
+  ))) %>% 
+  hc_xAxis(categories = PyramidLevels, reversed = F)%>%hc_title(text = "Males", align = "center", x = -115, y = 20, margin = 0,
+           style = list(fontSize = "12px", color = "#FF0000")) %>%
+  hc_subtitle(text = "Females", align = "center", y = 20, margin = 0,
+              x = 250, style = list(fontSize = "12px", color = "#2f7ed8"))%>%
+  hc_tooltip(formatter = htmlwidgets::JS("function() { return Math.abs(this.point.y); }"))
+
 # Export pyramid plot for Latex
 pdf(paste0(getwd(),"/figures/PyramidPlot.pdf"))
 print(PyramidPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/PyramidPlot.svg"))
-print(PyramidPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/PyramidPlot.svg"))
+# print(PyramidPlot)
+# dev.off()
 
 
 #reformat percentages so that they are rounded and  formatted correctly for tables

@@ -61,15 +61,31 @@ BirthPlot  <- ggplot(BirthLessTAll , aes(fill=CSO.Electoral.Divisions.2022, y=Pe
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Usually Resident Population")
 
+
+# Highcharts plot for RMD
+BirthLessTAll$PercentageOfPopulation <- round(BirthLessTAll$PercentageOfPopulation,1)
+BirthLessTAll$colouract <- 1
+BirthLessTAll$colouract[BirthLessTAll$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+BirthLessTAll$colouract[BirthLessTAll$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+BirthLessTAll$colouract[BirthLessTAll$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+BirthPlot2 <- highchart()|>       
+  hc_add_series(BirthLessTAll, "column", hcaes(x = Location2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Usually Resident Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Birthplace"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/BirthED.pdf"))
 print(BirthPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/BirthED.svg"))
-print(BirthPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/BirthED.svg"))
+# print(BirthPlot)
+# dev.off()
 
 #reformat percentages for table
 BirthED$PercentageOfPopulation <- sprintf("%.1f", round(BirthED$PercentageOfPopulation,1))

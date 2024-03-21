@@ -48,15 +48,31 @@ FamPlot  <- ggplot(FamAll , aes(fill=CSO.Electoral.Divisions.2020, y=PercentageO
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Families")
 
+
+# Highcharts plot for RMD
+FamAll$PercentageOfFamilies <- round(FamAll$PercentageOfFamilies,1)
+FamAll$colouract <- 1
+FamAll$colouract[FamAll$CSO.Electoral.Divisions.2020 == ED] <- '#405381'
+FamAll$colouract[FamAll$CSO.Electoral.Divisions.2020 == AC] <- '#FCBE72'
+FamAll$colouract[FamAll$CSO.Electoral.Divisions.2020 == "State"] <- '#13C1A5'
+
+FamPlot2 <- highchart()|>       
+  hc_add_series(FamAll, "column", hcaes(x = Type.of.Family, y = PercentageOfFamilies, color = colouract,  group = CSO.Electoral.Divisions.2020), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Families"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Type of Family"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/FamED.pdf"))
 print(FamPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/FamED.svg"))
-print(FamPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/FamED.svg"))
+# print(FamPlot)
+# dev.off()
 
 
 #reformat percentages to be correct for tables

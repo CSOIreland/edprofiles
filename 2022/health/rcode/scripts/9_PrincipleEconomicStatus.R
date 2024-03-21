@@ -78,15 +78,31 @@ PESPlot  <- ggplot(PESLessTAll , aes(fill=CSO.Electoral.Divisions.2022, y=Percen
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population aged 15+")
 
+
+# Highcharts plot for RMD
+PESLessTAll$PercentageOfPopulation <- round(PESLessTAll$PercentageOfPopulation,1)
+PESLessTAll$colouract <- 1
+PESLessTAll$colouract[PESLessTAll$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+PESLessTAll$colouract[PESLessTAll$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+PESLessTAll$colouract[PESLessTAll$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+PESPlot2 <- highchart()|>       
+  hc_add_series(PESLessTAll, "column", hcaes(x = Principle.Economic.Status2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population aged 15+"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Principal Economic Status"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/PESED.pdf"))
 print(PESPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/PESED.svg"))
-print(PESPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/PESED.svg"))
+# print(PESPlot)
+# dev.off()
 
 
 #reformat percentages to be correct for tables

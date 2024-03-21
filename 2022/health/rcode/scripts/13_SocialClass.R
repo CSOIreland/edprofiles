@@ -46,15 +46,32 @@ SocialClassPlot <- ggplot(SocialClassBinded, aes(fill=CSO.Electoral.Divisions.20
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population")
 
+
+# Highcharts plot for RMD
+SocialClassBinded$PercentageOfPopulation <- round(SocialClassBinded$PercentageOfPopulation,1)
+SocialClassBinded$colouract <- 1
+SocialClassBinded$colouract[SocialClassBinded$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+SocialClassBinded$colouract[SocialClassBinded$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+SocialClassBinded$colouract[SocialClassBinded$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+SocialClassPlot2 <- highchart()|>       
+  hc_add_series(SocialClassBinded, "column", hcaes(x = Social.Class2, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Social Class"))
+
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/SocialClassED.pdf"))
 print(SocialClassPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/SocialClassED.svg"))
-print(SocialClassPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/SocialClassED.svg"))
+# print(SocialClassPlot)
+# dev.off()
 
 
 # Reformat percentages so they are correct for tables

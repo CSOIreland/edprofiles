@@ -41,15 +41,31 @@ VolunteerPlot <- ggplot(VolunteersBinded, aes(fill=CSO.Electoral.Divisions.2022,
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population")
 
+
+# Highcharts plot for RMD
+VolunteersBinded$PercentageOfPopulation <- round(VolunteersBinded$PercentageOfPopulation,1)
+VolunteersBinded$colouract <- 1
+VolunteersBinded$colouract[VolunteersBinded$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+VolunteersBinded$colouract[VolunteersBinded$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+VolunteersBinded$colouract[VolunteersBinded$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+VolunteerPlot2 <- highchart()|>       
+  hc_add_series(VolunteersBinded, "column", hcaes(x = CSO.Electoral.Divisions.2022, y = PercentageOfPopulation, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Region"))
+
+
 #export plot for latex
 pdf(paste0(getwd(),"/figures/VolunteerED.pdf"))
 print(VolunteerPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/VolunteerED.svg"))
-print(VolunteerPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/VolunteerED.svg"))
+# print(VolunteerPlot)
+# dev.off()
 
 
 # Reformat percentages so they are correct for tables

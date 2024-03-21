@@ -90,7 +90,7 @@ knitr::include_graphics(EDMapLink)
 
 ```{r Pop, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 2. Persons by Age Group and Gender for ", EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 2. Persons by Age Group and Gender for ", EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/PyramidPlot.svg")
+PyramidPlot2
 
 ```
 
@@ -98,8 +98,7 @@ knitr::include_graphics("../figures/PyramidPlot.svg")
 
 ```{r Dis, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 3. Percentage of Population with any Disability by Age Group for ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 3. Percentage of Population with any Disability by Age Group for ",EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/DisED.svg")
-
+DisPlot2
 ```
 
 
@@ -107,7 +106,7 @@ knitr::include_graphics("../figures/DisED.svg")
 
 ```{r Gen, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 4. Population Breakdown (%) by General Health for  ",EDForTables,"; Administrative County and State;  Census 2022."),  fig.alt = paste0("Figure 4. Population Breakdown (%) by General Health for  ",EDForTables,"; Administrative County and State;  Census 2022.")}
   
-knitr::include_graphics("../figures/GenED.svg")
+GenPlot2
 
 ```
 
@@ -116,7 +115,7 @@ knitr::include_graphics("../figures/GenED.svg")
 
 ```{r Care, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 5. Carers as a Percentage of the Population of Males/Females/Both Sexes for ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 5. Carers as a Percentage of the Population of Males/Females/Both Sexes for ",EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/CareED.svg")
+CarePlot2
 
 ```
 
@@ -125,7 +124,7 @@ knitr::include_graphics("../figures/CareED.svg")
 
 ```{r Vol, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 6. Volunteers as a Percentage of the Population for  ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 6. Volunteers as a Percentage of the Population for  ",EDForTables, "; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/VolunteerED.svg")
+VolunteerPlot2
 
 ```
 
@@ -134,7 +133,7 @@ knitr::include_graphics("../figures/VolunteerED.svg")
 
 ```{r Smok, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 7. Percentage of the Population who Smoke Tobacco Products (Daily and Occasionally) for ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 7. Percentage of the Population who Smoke Tobacco Products (Daily and Occasionally) for ",EDForTables, "; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/SmokingED.svg")
+SmokingPlot2
 
 ```
 
@@ -143,7 +142,7 @@ knitr::include_graphics("../figures/SmokingED.svg")
 
 ```{r PES, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 8. Percentage of Population Aged 15+ by Principal Economic Status for ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 8. Percentage of Population Aged 15+ by Principal Economic Status for ",EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/PESED.svg")
+PESPlot2
 
 ```
 
@@ -152,7 +151,7 @@ knitr::include_graphics("../figures/PESED.svg")
 
 ```{r SocialClass, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 9. Percentage of Population Aged 15+ by Social Class for  ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 9. Percentage of Population Aged 15+ by Social Class for  ",EDForTables, "; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/SocialClassED.svg")
+SocialClassPlot2
 
 ```
 
@@ -161,7 +160,7 @@ knitr::include_graphics("../figures/SocialClassED.svg")
 
 ```{r Edu, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 10. Percentage of Population Aged 15+ by Highest Level of Education Completed for ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 10. Percentage of Population Aged 15+ by Highest Level of Education Completed for ",EDForTables, "; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/EduED.svg")
+EduPlot2
 
 ```
 
@@ -170,7 +169,7 @@ knitr::include_graphics("../figures/EduED.svg")
 
 ```{r Fam, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 11. Percentage of Families with Children by Family Type for  ",EDForTables, "; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 11. Percentage of Families with Children by Family Type for  ",EDForTables, "; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/FamED.svg")
+FamPlot2
 
 ```
 
@@ -179,7 +178,7 @@ knitr::include_graphics("../figures/FamED.svg")
 
 ```{r Birth, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 12. Percentage of Usually Resident Population by Birthplace for  ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 12. Percentage of Usually Resident Population by Birthplace for  ",EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/BirthED.svg")
+BirthPlot2
 
 ```
 
@@ -188,7 +187,7 @@ knitr::include_graphics("../figures/BirthED.svg")
 
 ```{r House, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 13. Percentage of Households by Type of Occupancy for  ",EDForTables," Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 13. Percentage of Households by Type of Occupancy for  ",EDForTables," Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/HouseholdsED.svg")
+HouseholdsPlot2
 
 ```
 
@@ -197,7 +196,7 @@ knitr::include_graphics("../figures/HouseholdsED.svg")
 
 ```{r Travel, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 14. Percentage of Usually Resident Population by Means of Travel to Work, School, College or Childcare for  ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 14. Percentage of Usually Resident Population by Means of Travel to Work, School, College or Childcare for  ",EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/TravelED.svg")
+TravelPlot2
 
 ```
 
@@ -206,7 +205,7 @@ knitr::include_graphics("../figures/TravelED.svg")
 
 ```{r Ren, echo=FALSE, out.width = 650, fig.cap=paste0("Figure 15. Percentage of Households by Renewable Energy Source for  ",EDForTables,"; Administrative County and State; Census 2022."),  fig.alt = paste0("Figure 15. Percentage of Households by Renewable Energy Source for  ",EDForTables,"; Administrative County and State; Census 2022.")}
   
-knitr::include_graphics("../figures/RenewableEnergyED.svg")
+RenewableEnergyPlot2
 
 ```
 

@@ -8,6 +8,7 @@ library(webshot)
 library(htmlwidgets)
 library(lubridate)
 library(stringi)
+library(highcharter)
 
 
 TodaysDate <- format(Sys.Date(), "%d/%m/%Y")
@@ -86,7 +87,7 @@ CSVForHTMLToExport <- CSVForHTML%>%select(ED,AC,Report, GUID)%>%dplyr::rename("E
 write.csv(CSVForHTMLToExport, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
 
 # #sample dataset if running tests
-Sample <- sample(1:nrow(EDWGUIDAC),2)
+Sample <- sample(1:nrow(EDWGUIDAC),1)
 EDWGUIDAC <- EDWGUIDAC[Sample,]
 
 # Read and Format PX Stat Files

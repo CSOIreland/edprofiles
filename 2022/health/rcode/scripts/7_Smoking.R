@@ -20,6 +20,22 @@ SmokingPlot <- ggplot(SmokingEDACState , aes(fill=CSO.Electoral.Divisions.2022, 
   scale_x_discrete(name = "\n Persons who Smoke Tobacco Products (Daily and Occasionally)")+
   labs(fill = "Legend") +
   scale_y_continuous(name = "% of Population")
+
+
+# Highcharts plot for RMD
+SmokingEDACState$PercentageWhoSmokeTobaccoProducts <- round(SmokingEDACState$PercentageWhoSmokeTobaccoProducts,1)
+SmokingEDACState$colouract <- 1
+SmokingEDACState$colouract[SmokingEDACState$CSO.Electoral.Divisions.2022 == ED] <- '#405381'
+SmokingEDACState$colouract[SmokingEDACState$CSO.Electoral.Divisions.2022 == AC] <- '#FCBE72'
+SmokingEDACState$colouract[SmokingEDACState$CSO.Electoral.Divisions.2022 == "State"] <- '#13C1A5'
+
+SmokingPlot2 <- highchart()|>       
+  hc_add_series(SmokingEDACState, "column", hcaes(x = Census.Year, y = PercentageWhoSmokeTobaccoProducts, color = colouract,  group = CSO.Electoral.Divisions.2022), color = c('#405381','#FCBE72','#13C1A5'), showInLegend = T)|>
+  hc_yAxis(
+    title = list(text = "% of Population"))|>
+  hc_xAxis(type = "category",
+           title = list(text = "Persons who Smoke Tobacco Products (Daily and Occasionally)"))
+
 #
 #export plot for latex
 pdf(paste0(getwd(),"/figures/SmokingED.pdf"))
@@ -27,9 +43,9 @@ print(SmokingPlot)
 dev.off()
 
 # Export plot for RMD
-svg(paste0(getwd(),"/figures/SmokingED.svg"))
-print(SmokingPlot)
-dev.off()
+# svg(paste0(getwd(),"/figures/SmokingED.svg"))
+# print(SmokingPlot)
+# dev.off()
 
 
 
