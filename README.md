@@ -10,7 +10,7 @@ This work is licensed under a
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
 # Title: Experimental Electoral Division Profiles (Health)
-# Date: 2023/03/01
+# Date: 2023/03/25
 # Author: Tomás Kelly
 # Contact: tomas.kelly@cso.ie
 
@@ -61,3 +61,4 @@ There are four main types of data sources used in the project:
 * ED maps were created using raw data from OSM and pre-created styles located at https://gitlab.com/champs-libres/public/champs-libres-qgis-osm-style. To create these maps, the raw OSM data was downloaded from geofabrik.de and the shapefiles were copied into the “shp” folder located in of “champs-libres-qgis-osm-style-master”. The champs-libres-qgis-osm-style.qgs file was then opened in QGIS and some minor edits were made. Finally, the QGIS Atlas tool was used to create individual maps for every ED.
 * Headers were added to the index.html page and the table search page manually during the process, as well as some other edits. If trying to recreate, using the Notepad++ plugin “compare” to compare the outputted map and HTML table to those on the website would be a good starting point. 
 * "TopAndBottomEDs.R" is what is used to create the tables for the CSO publication <a href="https://www.edprofiles.cso.ie/2022/health">here</a>.
+* The outputted reports are contained within the "Reports" folder of the repository
