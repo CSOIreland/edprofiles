@@ -2,12 +2,12 @@
 
 
 #read the pxstat file for EDs
-PopSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/")
+PopSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/en")
 PopSourceTable <- as.data.frame(PopSourceTable.px)
 
 
 #Read pxStat table for ACs (Removing Ireland as this is in the ED table and change geotitle to ED to be able to bind correctly)
-PopSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/")
+PopSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/en")
 PopSourceTableAC <- as.data.frame(PopSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022 !="Ireland")
 
 #Bind the two tables into one
@@ -57,11 +57,11 @@ PopSourceTableRegrouped$Age <- factor(PopSourceTableRegrouped$Age, levels = c("0
 
 #############################################CARERS################################
 #REad ED and AC  table from PXSTat
-CarersSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T2ED/PX/2013/")
+CarersSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T2ED/PX/2013/en")
 CarersSourceTable <- as.data.frame(CarersSourceTable.px)
 
 
-CarersSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T2CTY/PX/2013/")
+CarersSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T2CTY/PX/2013/en")
 
 #removing ireland as this is already in the EDtable
 CarersSourceTableAC <- as.data.frame(CarersSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland")
@@ -86,10 +86,10 @@ CarersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", CarersS
 ############################GENERAL HEALTH###########################################
 
 #import ED and AC tables
-GenSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T3ED/PX/2013/")
+GenSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T3ED/PX/2013/en")
 GenSourceTable <- as.data.frame(GenSourceTable.px)
 
-GenSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T3CTY/PX/2013/")
+GenSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T3CTY/PX/2013/en")
 GenSourceTableAC <- as.data.frame(GenSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022 != "Ireland")
 
 #as character for correct join
@@ -125,10 +125,10 @@ GenWider$`Bad or Very Bad as a Percentage` <- GenWider$`Bad or Very Bad` *100/Ge
 
 #################################DISABILITY#####################################
 # REad pxstat tables
-DisSourceTable2.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/F4004/PX/2013/")
+DisSourceTable2.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/F4004/PX/2013/en")
 DisSourceTable2 <- as.data.frame(DisSourceTable2.px)
 
-DisSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/FY084/PX/2013/")
+DisSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/FY084/PX/2013/en")
 #removing ireland as this is already in the EDtable
 DisSourceTableAC <- as.data.frame(DisSourceTableAC.px)%>%dplyr::rename(Electoral.Divisions = "Administrative.Counties")%>%filter(Electoral.Divisions != "Ireland")
 
@@ -166,10 +166,10 @@ DisWider$Electoral.Divisions <- as.character(DisWider$Electoral.Divisions)
 
 ##############################################SMOKING############################################
 # Read pxstat tables
-SmokingSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T4ED/PX/2013/")
+SmokingSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T4ED/PX/2013/en")
 SmokingSourceTable <- as.data.frame(SmokingSourceTable.px)
 
-SmokingSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T4CTY/PX/2013/")
+SmokingSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T12T4CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 SmokingSourceTableAC <- as.data.frame(SmokingSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022 !="Ireland")
 
@@ -206,10 +206,10 @@ SmokingWider <- SmokingWider%>%dplyr::rename(`Persons who dont smoke tobacco pro
 
 #################################EDUCATION#####################################
 # REad pxstat tables
-EduSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T10T4ED/PX/2013/")
+EduSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T10T4ED/PX/2013/en")
 EduSourceTable <- as.data.frame(EduSourceTable.px)
 
-EduSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T10T4CTY/PX/2013/")
+EduSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T10T4CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 EduSourceTableAC <- as.data.frame(EduSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022 !="Ireland")
 
@@ -238,10 +238,10 @@ EduSourceTable <- EduSourceTable%>%filter(Sex == "Both Sexes")
 
 ############################PRINCIPLE ECONOMIC STATUS################################
 # REad Pxstat tables
-PESSource.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T8T1ED/PX/2013/")
+PESSource.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T8T1ED/PX/2013/en")
 PESSource <- as.data.frame(PESSource.px)
 
-PESSourceAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T8T1CTY/PX/2013/")
+PESSourceAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T8T1CTY/PX/2013/en")
 PESSourceAC <- as.data.frame(PESSourceAC.px)
 
 # Electoral Division as character for correct join
@@ -270,10 +270,10 @@ PESSource <- PESSource%>%filter(Sex == "Both Sexes")
 
 ##############################FAMILIES#####################################
 # read pxstat tables
-FamSource.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T3ED/PX/2013/")
+FamSource.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T3ED/PX/2013/en")
 FamSource <- as.data.frame(FamSource.px)%>%dplyr::rename(CSO.Electoral.Divisions.2020 = "CSO.Electoral.Divisions.2022")
 
-FamSourceAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T3CTY/PX/2013/")
+FamSourceAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T3CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 FamSourceAC <- as.data.frame(FamSourceAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2020  = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2020!="Ireland")
 
@@ -300,10 +300,10 @@ FamSource$CSO.Electoral.Divisions.2020 <- gsub("M├│r","Mor", FamSource$CSO.E
 ################################BIRTHPLACE########################################
 #read pxstat tabls for ac and ED
 
-BirthSource.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T2T1ED/PX/2013/")
+BirthSource.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T2T1ED/PX/2013/en")
 BirthSource <- as.data.frame(BirthSource.px)%>%filter(Statistic == "Usually resident population by birthplace")
 
-BirthSourceAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T2T1CTY/PX/2013/")
+BirthSourceAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T2T1CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 BirthSourceAC<- as.data.frame(BirthSourceAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland")%>%filter(Statistic == "Usually resident population by birthplace")
 
@@ -329,10 +329,10 @@ BirthSource$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", BirthSource$C
 
 ###############################VOLUNTEERING####################################
 #REad ED and AC  table from PXSTat
-VolunteersSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T7T1ED/PX/2013/")
+VolunteersSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T7T1ED/PX/2013/en")
 VolunteersSourceTable <- as.data.frame(VolunteersSourceTable.px)
 
-VolunteersSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T7T1CTY/PX/2013/")
+VolunteersSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T7T1CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 VolunteersSourceTableAC <- as.data.frame(VolunteersSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland")
 
@@ -356,10 +356,10 @@ VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", Volunteers
 VolunteersSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", VolunteersSourceTable$CSO.Electoral.Divisions.2022)
 #########################################SOCIAL CLASS##########################################
 #REad ED and AC  table from PXSTat
-SocialClassSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1ED/PX/2013/")
+SocialClassSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1ED/PX/2013/en")
 SocialClassSourceTable <- as.data.frame(SocialClassSourceTable.px)%>%filter(Sex == "Both Sexes")
 
-SocialClassSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1CTY/PX/2013/")
+SocialClassSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T9T1CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 SocialClassSourceTableAC <- as.data.frame(SocialClassSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Sex == "Both Sexes")
 
@@ -383,10 +383,10 @@ SocialClassSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", So
 
 ##################################################HOUSEHOLDS##################################################
 #REad ED and AC  table from PXSTat
-HouseholdsSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3ED/PX/2013/")
+HouseholdsSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3ED/PX/2013/en")
 HouseholdsSourceTable <- as.data.frame(HouseholdsSourceTable.px)%>%filter(Statistic == "Permanent private households")
 
-HouseholdsSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3CTY/PX/2013/")
+HouseholdsSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3CTY/PX/2013/en")
 HouseholdsSourceTableAC<- as.data.frame(HouseholdsSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Statistic == "Permanent private households")
 
 #EDs as cahracter for correct join
@@ -407,10 +407,10 @@ HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("&","and", Households
 HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", HouseholdsSourceTable$CSO.Electoral.Divisions.2022)
 
 #REad ED and AC  table from PXSTat
-HouseholdsSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3ED/PX/2013/")
+HouseholdsSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3ED/PX/2013/en")
 HouseholdsSourceTable <- as.data.frame(HouseholdsSourceTable.px)%>%filter(Statistic == "Permanent private households")
 
-HouseholdsSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3CTY/PX/2013/")
+HouseholdsSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T3CTY/PX/2013/en")
 HouseholdsSourceTableAC<- as.data.frame(HouseholdsSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Statistic == "Permanent private households")
 
 #EDs as cahracter for correct join
@@ -432,10 +432,10 @@ HouseholdsSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", Hou
 
 #################################RENEWABLE ENERGY################################
 #REad ED and AC  table from PXSTat
-RenewableEnergySourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T10ED/PX/2013/")
+RenewableEnergySourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T10ED/PX/2013/en")
 RenewableEnergySourceTable <- as.data.frame(RenewableEnergySourceTable.px)
 
-RenewableEnergySourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T10CTY/PX/2013/")
+RenewableEnergySourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T6T10CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 RenewableEnergySourceTableAC <- as.data.frame(RenewableEnergySourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties")%>%filter(CSO.Electoral.Divisions.2022!="Ireland")
 
@@ -460,10 +460,10 @@ RenewableEnergySourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor"
 
 ######################################TRAVEL#########################################
 #REad ED and AC  table from PXSTat
-TravelSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T1ED/PX/2013/")
+TravelSourceTable.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T1ED/PX/2013/en")
 TravelSourceTable <- as.data.frame(TravelSourceTable.px)%>%filter(Statistic == "Usually resident by means of travel to work, school, college or childcare (total)")
 
-TravelSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T1CTY/PX/2013/")
+TravelSourceTableAC.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T11T1CTY/PX/2013/en")
 #removing ireland as this is already in the EDtable
 TravelSourceTableAC <- as.data.frame(TravelSourceTableAC.px)%>%dplyr::rename(CSO.Electoral.Divisions.2022 = "Administrative.Counties.2019")%>%filter(CSO.Electoral.Divisions.2022!="Ireland" & Statistic == "Usually resident by means of travel to work, school, college or childcare (total)")
 
@@ -488,7 +488,7 @@ TravelSourceTable$CSO.Electoral.Divisions.2022 <- gsub("M├│r","Mor", TravelS
 ############################KEY POINTS AND OTHER CALCS#####################################
 
 #key points stats - names used here should be self explanatory
-Area.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/F1011/PX/2013/")
+Area.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/F1011/PX/2013/en")
 Area <- as.data.frame(Area.px)
 
 
@@ -498,7 +498,7 @@ Area$Electoral.Divisions<- gsub("'","", Area$Electoral.Divisions)
 Area$Electoral.Divisions<- gsub("&","and", Area$Electoral.Divisions)
 Area$Electoral.Divisions<- gsub("M├│r","Mor", Area$Electoral.Divisions)
 
-FamiliesInPrivateHouseholds.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T1ED/PX/2013/")
+FamiliesInPrivateHouseholds.px <- read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T4T1ED/PX/2013/en")
 
 FamiliesInPrivateHouseholds <- as.data.frame(FamiliesInPrivateHouseholds.px)
 FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022 <- gsub("Dâ”œâ•‘n Laoghaire","Dun Laoghaire",FamiliesInPrivateHouseholds$CSO.Electoral.Divisions.2022)

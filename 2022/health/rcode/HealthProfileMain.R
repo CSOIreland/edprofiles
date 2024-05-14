@@ -25,12 +25,12 @@ set.seed(123456)
 
 
 #Create Lists of EDs
-EDList <- unique(as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/"))$CSO.Electoral.Divisions.2022)
+EDList <- unique(as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/en"))$CSO.Electoral.Divisions.2022)
 EDList <- as.data.frame(EDList)
 colnames(EDList)[1] <- "ED"
 
 #Create list of ED GUIDs 
-GUIDList <- unique(as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/"), use.codes = T)$CSO.Electoral.Divisions.2022)
+GUIDList <- unique(as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1AED/PX/2013/en"), use.codes = T)$CSO.Electoral.Divisions.2022)
 GUIDList <- as.data.frame(GUIDList)
 colnames(GUIDList)[1] <- "GUID"
 
@@ -44,8 +44,8 @@ EDWGUID$ED <- gsub("&","and", EDWGUID$ED)
 EDWGUID$ED  <- gsub("M├│r","Mor", EDWGUID$ED)
 
 #List of ACs and associated GUIDs
-ACListStart <- as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/"))
-ACGUIDList <- as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/"),use.codes=T)
+ACListStart <- as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/en"))
+ACGUIDList <- as.data.frame(read.px("https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SAP2022T1T1ACTY/PX/2013/en"),use.codes=T)
 ACListStart$GUID <- ACGUIDList$Administrative.Counties.2019
 ACList <- ACListStart%>%dplyr::select(Administrative.Counties.2019, GUID)
 ACList <- ACList[!duplicated(ACList[,c("Administrative.Counties.2019", "GUID")]),]
@@ -87,8 +87,8 @@ CSVForHTMLToExport <- CSVForHTML%>%select(ED,AC,Report, GUID)%>%dplyr::rename("E
 write.csv(CSVForHTMLToExport, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
 
 # #sample dataset if running tests
-Sample <- sample(1:nrow(EDWGUIDAC),1)
-EDWGUIDAC <- EDWGUIDAC[Sample,]
+#Sample <- sample(1:nrow(EDWGUIDAC),1)
+#EDWGUIDAC <- EDWGUIDAC[Sample,]
 
 # Read and Format PX Stat Files
 source(paste0(getwd(),"/scripts/1_ReadAndFormatPXStat.R"))
