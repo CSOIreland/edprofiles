@@ -79,9 +79,9 @@ CSVForHTML <- EDWGUIDAC%>%select(ED,GUID,AC,EDLC,ACLC,GUIDLC)
 CSVForHTML$ReportNumber <- 1:nrow(CSVForHTML)
 
 #add links for html and pdf reports
-CSVForHTML$Report <- paste0("<a href=\".\\reports\\html\\",CSVForHTML$ReportNumber,"--",CSVForHTML$EDLC,"--ac--",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"A HTML summary report (without accompanying data tables)\"", ">","HTML","</a>", "  ",
-                            "<a href=\".\\reports\\pdf\\",CSVForHTML$ReportNumber,"--",CSVForHTML$EDLC,"--ac--",CSVForHTML$ACLC,".pdf","\"", " target=\"_blank\"", " title=\"A PDF report (detailed, print-friendly and with accompanying data tables)\">","PDF","</a>"  )
-
+CSVForHTML$Report <- paste0("<a href=\".\\reports\\html\\",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"A HTML summary report (without accompanying data tables)\"", ">","HTML","</a>", "  ",
+                            "<a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@v2.0.0pdf/2022/health/reports/pdf/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".pdf","\"", " target=\"_blank\"", " title=\"A PDF report (detailed, print-friendly and with accompanying data tables)\">","PDF","</a>"  )
+CSVForHTML$Report <- gsub("--","-", CSVForHTML$Report)
 CSVForHTMLToExport <- CSVForHTML%>%select(ED,AC,Report, GUID)%>%dplyr::rename("Electoral Division" = "ED", "Administrative County" = "AC")
 
 write.csv(CSVForHTMLToExport, file = paste0(OutputFilesLoc, "/CSVForHTML.csv"), row.names = F)
@@ -161,15 +161,15 @@ for (i in 1:nrow(EDWGUIDAC))  {
     setwd(paste0(getwd(),"/scripts"))
     
     #Create the .RNW file using sweave for compiling
-    Sweave("HealthProfileTemplate.Rnw",output=paste0(i,"--",EDLC,"--ac--",ACLC,".tex"))
+    Sweave("HealthProfileTemplate.Rnw",output=gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
     #Compile the .rnw with Latex
-    tools::texi2pdf(paste0(i,"--",EDLC,"--ac--",ACLC,".tex"))
-    tools::texi2pdf(paste0(i,"--",EDLC,"--ac--",ACLC,".tex"))
+    tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
     #EDProfile pdf Link for RMD
-    EDLinkPDF<- paste0("<font size=\"5\"><a href=\"..\\pdf\\",i,"--",EDLC,"--ac--",ACLC,".pdf\""," style=\"text-decoration: none\">A more detailed and print friendly pdf profile - with accompanying tables - is available here.</a></font>")
-    
+    EDLinkPDF<- paste0("<font size=\"5\"><a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@v2.0.0pdf/2022/health/reports/pdf/",i,"-",EDLC,"-ac-",ACLC,".pdf\""," style=\"text-decoration: none\">A more detailed and print friendly pdf profile - with accompanying tables - is available here.</a></font>")
+    EDLinkPDF <- gsub("--","-", EDLinkPDF)
     #render R Markdown  
-    rmarkdown::render("HealthProfileMarkdown.Rmd", output_file =paste0(i,"--",EDLC,"--ac--",ACLC,".html"))
+    rmarkdown::render("HealthProfileMarkdown.Rmd", output_file =gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".html")))
     
     
     # print progress
@@ -205,7 +205,7 @@ FileListHTML <- as.data.frame(list.files(paste0("../reports/html/")))
 #List HTML only
 colnames(FileListHTML) <- "FileName"
 #Extract file numbers from filenames
-FileNumberList <- as.numeric(sub("--.*","",FileListHTML$FileName))
+FileNumberList <- as.numeric(sub("-.*","",FileListHTML$FileName))
 
 #compare numbers completed with entire set that should be completed to identify failed runs
 FullSequence <- seq(1, 3420)
@@ -213,7 +213,7 @@ MissingHTMLFiles <- setdiff(FullSequence, FileNumberList)
 
 # Do the same for PDFs
 colnames(FileListPDF) <- "FileName"
-FileNumberListPDF <- as.numeric(sub("--.*","",FileListPDF$FileName))
+FileNumberListPDF <- as.numeric(sub("-.*","",FileListPDF$FileName))
 MissingPDFFiles <- setdiff(FullSequence, FileNumberListPDF)
 
 # join missing pdfs and htmls

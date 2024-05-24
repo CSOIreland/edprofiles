@@ -51,7 +51,7 @@ knitr::include_graphics(EDMapLink)
 `r EDLinkPDF`
 
 
-*Note: This is the first time this profle has been compiled. While effort has been made to ensure this document is error free, it is possible that there may be some. Please email tomas.kelly@cso.ie if you observe any errors or inconsistencies with other CSO data.*
+*Note: This is the first time this profile has been compiled. While effort has been made to ensure this document is error free, it is possible that there may be some. Please email tomas.kelly@cso.ie if you observe any errors or inconsistencies with other CSO data.*
 
 
 </div>
