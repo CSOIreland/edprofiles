@@ -100,7 +100,7 @@ source(paste0(getwd(),"/scripts/2_SAPSPercentages.R"))
 ErrorList <- list()
 
 # Loop through every file in the process for every ED
-for (i in 710:nrow(EDWGUIDAC))  {
+for (i in 984:nrow(EDWGUIDAC))  {
   
   setwd(RootWD)
   
