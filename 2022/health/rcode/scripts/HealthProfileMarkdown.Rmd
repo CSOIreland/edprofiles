@@ -6,7 +6,7 @@ output:
   html_document:
     fig_height: 5
     highlight: haddock
-    self_contained: yes
+    self_contained: no
     theme: cerulean
     toc: yes
     toc_depth: 1
@@ -23,7 +23,7 @@ title: "Electoral Division Health Profile for `r ED`"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+<!--
 ```{r Logo, echo=FALSE, out.width = 400,  fig.alt = "Central Statistics Office Logo", fig.align = "center"}
   
 knitr::include_graphics("../figures/CSO_Logo.png")
@@ -40,6 +40,7 @@ knitr::include_graphics(EDMapLink)
 
 ```
 <br>
+-->
 
 <div align="center">
 

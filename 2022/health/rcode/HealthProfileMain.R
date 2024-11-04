@@ -161,10 +161,10 @@ for (i in 1:nrow(EDWGUIDAC))  {
     setwd(paste0(getwd(),"/scripts"))
     
     #Create the .RNW file using sweave for compiling
-    Sweave("HealthProfileTemplate.Rnw",output=gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    #Sweave("HealthProfileTemplate.Rnw",output=gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
     #Compile the .rnw with Latex
-    tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
-    tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    #tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    #tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
     #EDProfile pdf Link for RMD
     EDLinkPDF<- paste0("<font size=\"5\"><a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@resources/2022/health/pdf/",i,"-",EDLC,"-ac-",ACLC,".pdf\""," style=\"text-decoration: none\">A more detailed and print friendly pdf profile - with accompanying tables - is available here.</a></font>")
     EDLinkPDF <- gsub("--","-", EDLinkPDF)
