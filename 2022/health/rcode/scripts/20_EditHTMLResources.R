@@ -31,12 +31,13 @@ for (File in HtmlFiles) {
                                    paste0("(?<=", StartPattern, ").*?(?=/)"), 
                                    ReplacementText)
   
+  
   ModifiedFirstPart2 <- str_replace_all(ModifiedFirstPart, 
                                        paste0("(?<=", StartPattern2, ").*?(?=/)"), 
                                        ReplacementText)
   
   
-  ModifiedFirstPartLines <- strsplit(ModifiedFirstPart, "\n")[[1]]
+  ModifiedFirstPartLines <- strsplit(ModifiedFirstPart2, "\n")[[1]]
   
 
   NewContent <- c(ModifiedFirstPartLines, RemainingPart)
