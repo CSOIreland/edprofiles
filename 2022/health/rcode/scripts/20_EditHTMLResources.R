@@ -3,6 +3,17 @@ library(stringr)
 
 
 FolderPath <- "//CMADMIN01/BigDataDev/Projects/HealthProfiling/CompletedReports/HTMLExMapsEdit"
+# ScriptsPath <- "//CMADMIN01/BigDataDev/Projects/HealthProfiling/EdProfilesCloneFinal/edprofiles/2022/health/rcode/scripts"
+# 
+# HtmlFilesScripts <- list.files(ScriptsPath, pattern = "\\.html$", full.names = TRUE)
+# 
+# file.copy(from=HtmlFilesScripts, to=FolderPath , 
+#           overwrite = TRUE, recursive = FALSE, 
+#           copy.mode = TRUE)
+
+
+HtmlFiles <- list.files(FolderPath, pattern = "\\.html$", full.names = TRUE)
+
 
 
 StartPattern <- "<script src=\""
@@ -12,7 +23,7 @@ ReplacementText <- "../resources"
 StartPattern2 <- "<link href=\""
 
 # Get list of HTML files in the folder
-HtmlFiles <- list.files(FolderPath, pattern = "\\.html$", full.names = TRUE)
+
 
 Counter <- 1
 # Loop over each HTML file

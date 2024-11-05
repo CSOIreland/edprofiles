@@ -79,7 +79,7 @@ CSVForHTML <- EDWGUIDAC%>%select(ED,GUID,AC,EDLC,ACLC,GUIDLC)
 CSVForHTML$ReportNumber <- 1:nrow(CSVForHTML)
 
 #add links for html and pdf reports
-CSVForHTML$Report <- paste0("<a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@resources/2022/health/html/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"A HTML summary report (without accompanying data tables)\"", ">","HTML","</a>", "  ",
+CSVForHTML$Report <- paste0("<a href=\"https://edprofiles.cso.ie/2022/health/html/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"A HTML summary report (without accompanying data tables)\"", ">","HTML","</a>", "  ",
                             "<a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@resources/2022/health/pdf/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".pdf","\"", " target=\"_blank\"", " title=\"A PDF report (detailed, print-friendly and with accompanying data tables)\">","PDF","</a>"  )
 CSVForHTML$Report <- gsub("--","-", CSVForHTML$Report) 
 CSVForHTMLToExport <- CSVForHTML%>%select(ED,AC,Report, GUID)%>%dplyr::rename("Electoral Division" = "ED", "Administrative County" = "AC")
@@ -161,10 +161,10 @@ for (i in 1:nrow(EDWGUIDAC))  {
     setwd(paste0(getwd(),"/scripts"))
     
     #Create the .RNW file using sweave for compiling
-    #Sweave("HealthProfileTemplate.Rnw",output=gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    Sweave("HealthProfileTemplate.Rnw",output=gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
     #Compile the .rnw with Latex
-    #tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
-    #tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
+    tools::texi2pdf(gsub("--","-",paste0(i,"-",EDLC,"-ac-",ACLC,".tex")))
     #EDProfile pdf Link for RMD
     EDLinkPDF<- paste0("<font size=\"5\"><a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@resources/2022/health/pdf/",i,"-",EDLC,"-ac-",ACLC,".pdf\""," style=\"text-decoration: none\">A more detailed and print friendly pdf profile - with accompanying tables - is available here.</a></font>")
     EDLinkPDF <- gsub("--","-", EDLinkPDF)
