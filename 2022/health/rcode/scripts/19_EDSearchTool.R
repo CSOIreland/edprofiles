@@ -30,7 +30,7 @@ Map <- leaflet(options = leafletOptions(zoomControl = T)) %>%
                                                      weight = 3, color = "white",
                                                     # Highlight fill parameters
                                                  fillColor = "blue", fillOpacity = 0.1), 
-    popup = paste0("<b>ED NAME: </b>", EDMapSpatial$ENGLISH,"<br>","<b>AC NAME: </b>", EDMapSpatial$AC,"<br>",  EDMapSpatial$Report,"<br>"))%>%
+    popup = paste0("<b>ED NAME: </b>", EDMapSpatial$ED_ENGLISH,"<br>","<b>AC NAME: </b>", EDMapSpatial$AC,"<br>",  EDMapSpatial$Report,"<br>"))%>%
   addScaleBar()
 
 setwd(OutputFilesLoc)

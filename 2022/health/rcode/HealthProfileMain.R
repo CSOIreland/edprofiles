@@ -79,8 +79,8 @@ CSVForHTML <- EDWGUIDAC%>%select(ED,GUID,AC,EDLC,ACLC,GUIDLC)
 CSVForHTML$ReportNumber <- 1:nrow(CSVForHTML)
 
 #add links for html and pdf reports
-CSVForHTML$Report <- paste0("<a href=\"https://edprofiles.cso.ie/2022/health/html/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"A HTML summary report (without accompanying data tables)\"", ">","HTML","</a>", "  ",
-                            "<a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@resources/2022/health/pdf/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".pdf","\"", " target=\"_blank\"", " title=\"A PDF report (detailed, print-friendly and with accompanying data tables)\">","PDF","</a>"  )
+CSVForHTML$Report <- paste0("<a href=\"https://edprofiles.cso.ie/2022/health/html/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".html","\"", " target=\"_blank\"", " title=\"",CSVForHTML$ED," summary report\"", ">","HTML","</a>", "  ",
+                            "<a href=\"https://cdn.jsdelivr.net/gh/CSOIreland/edprofiles@resources/2022/health/pdf/",CSVForHTML$ReportNumber,"-",CSVForHTML$EDLC,"-ac-",CSVForHTML$ACLC,".pdf","\"", " target=\"_blank\"", ", title=\"",CSVForHTML$ED," PDF Report\">","PDF","</a>"  )
 CSVForHTML$Report <- gsub("--","-", CSVForHTML$Report) 
 CSVForHTMLToExport <- CSVForHTML%>%select(ED,AC,Report, GUID)%>%dplyr::rename("Electoral Division" = "ED", "Administrative County" = "AC")
 
