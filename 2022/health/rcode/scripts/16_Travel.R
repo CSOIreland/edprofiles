@@ -18,6 +18,8 @@ TravelState$TotalPop <- TravelState$value[TravelState$Means.of.Travel == "Total"
 TravelState$PercentageOfPopulation <- TravelState$value*100/TravelState$TotalPop
 
 # AC table
+TravelSourceTable$CSO.Electoral.Divisions.2022[TravelSourceTable$CSO.Electoral.Divisions.2022 == "Dun Laoghaire Rathdown County Council Rathdown County Council"] <- "Dun Laoghaire Rathdown County Council"
+
 TravelAC <- TravelSourceTable%>%filter(CSO.Electoral.Divisions.2022 == AC)
 
 #Total pop added so perentage of population can be calculated
@@ -80,3 +82,4 @@ dev.off()
 TravelState$PercentageOfPopulation <- sprintf("%.1f", round(TravelState$PercentageOfPopulation,1))
 TravelED$PercentageOfPopulation <- sprintf("%.1f", round(TravelED$PercentageOfPopulation,1))
 TravelAC$PercentageOfPopulation <- sprintf("%.1f", round(TravelAC$PercentageOfPopulation,1))
+

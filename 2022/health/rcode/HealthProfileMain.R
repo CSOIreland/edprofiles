@@ -99,10 +99,11 @@ source(paste0(getwd(),"/scripts/2_SAPSPercentages.R"))
 # create an empty list for errors, to be filled later
 ErrorList <- list()
 
-Indices <- which(EDWGUIDAC$AC == "South Dublin County Council"|EDWGUIDAC$AC == "Fingal County Council")
-
 # Loop through every file in the process for every ED
-for (i in Indices)  {
+for (i in c(1503,1504,1505,1506,1507,1508,1532,1533,1534,1535,1536,1537,1538,1567,1568,1569,1570,1575, 1588,1589,1590,1591,1592,
+            1621,1622,1623,1624,1625,1626,1627,1628,1629,1651,1654,1655,1656,1657,1658,1659,1660,1661,1683,1684,1685,1686,1687,
+            1688,1689,1690,1717,1718,1719,1720,1722,1772,1773,1873,1874,1884,1885,1886,1887,1888,1889,1900,1901,1902,1903,1904,
+            3407)) {
   
   setwd(RootWD)
   

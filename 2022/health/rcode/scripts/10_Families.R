@@ -24,6 +24,7 @@ LoneParentsState <- sum(FamState$value[FamState$Type.of.Family == "Mothers with 
 LoneParentsStatePerc <- sprintf("%.1f", round((sum(FamState$value[FamState$Type.of.Family == "Mothers with children"|  FamState$Type.of.Family == "Fathers with children"])*100/FamiliesState),1))
 
 #families ac table, total families and percentage of lone parents in ED as before
+FamSource$CSO.Electoral.Divisions.2020[FamSource$CSO.Electoral.Divisions.2020 == "Dun Laoghaire  Rathdown County Council"] <- "Dun Laoghaire Rathdown County Council"
 FamAC <- FamSource%>%filter(CSO.Electoral.Divisions.2020 == AC & Statistic == "Number of Families with Children" & Age.of.Child == "Total")
 TotalFamiliesAC <- sum(FamAC$value)
 FamAC$PercentageOfFamilies <- FamAC$value*100/TotalFamiliesAC
@@ -79,3 +80,4 @@ dev.off()
 FamED$PercentageOfFamilies <- sprintf("%.1f", round(FamED$PercentageOfFamilies,1))
 FamState$PercentageOfFamilies <- sprintf("%.1f", round(FamState$PercentageOfFamilies,1))
 FamAC$PercentageOfFamilies <- sprintf("%.1f", round(FamAC$PercentageOfFamilies,1))
+
