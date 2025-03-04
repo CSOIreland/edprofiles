@@ -14,6 +14,8 @@ This work is licensed under a
 # Author: Tomás Kelly
 # Contact: tomas.kelly@cso.ie
 
+NOTE: <a href="https://healthregionprofiles.cso.ie)">The Health Region Profiles page</a> directs here as this code is where the profiles originated. The Health Regions code is not clean and does not run end to end but can be viewed <a href="https://github.com/CSOIreland/healthregionprofiles)">here</a> if needed .
+
 This project originated as a collaboration between the Central Statistics Office and Cork Healthy Cities in Ireland. The goals were to profile every Electoral Division (ED) from a health perspective, taking into account the social determinants of health (economic status, education, housing etc). 
 
 The <a href="https://edprofiles.cso.ie/2022/health/index.html">Homepage example here</a> contains a map of Electoral Divisions in Ireland, from which a user can select the appropriate HTML or PDF profile report (HTML reports contain only charts, whereas the PDFs contain data tables in addition to charts). From the homepage, the user can navigate to a searchable table to filter reports for a specific ED or Administrative County. Finally, the user can navigate from the homepage to the Github repository containing the code required to generate the reports. 
