@@ -10,11 +10,11 @@ This work is licensed under a
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
 # Title: Experimental Electoral Division Profiles (Health)
-# Date: 2024/11/11
+# Date: 2025/07/04
 # Author: Tomás Kelly
 # Contact: tomas.kelly@cso.ie
 
-NOTE: <a href="https://healthregionprofiles.cso.ie)">The Health Region Profiles page</a> directs here as this code is where the profiles originated. The Health Regions code is not clean and does not run end to end but can be viewed <a href="https://github.com/CSOIreland/healthregionprofiles)">here</a> if needed .
+NOTE: <a href="https://github.com/CSOIreland/healthRegionProfiles)">The Health Region/IHA/CHN Profiles repository is located here</a>, however, the code on the page you are currently looking at (Electoral Divisions) is where these profiles originated. The Health Region/IHA/CHN code is not clean and does not run end to end.
 
 This project originated as a collaboration between the Central Statistics Office and Cork Healthy Cities in Ireland. The goals were to profile every Electoral Division (ED) from a health perspective, taking into account the social determinants of health (economic status, education, housing etc). 
 
